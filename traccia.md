@@ -19,14 +19,14 @@ Il sistema deve poter gestire dei campi-scuola negli aspetti che li caratterizza
 
 Ogni campo...
 
-- È caratterizzato da alcune informazioni di carattere generale, come tema, eventuale sotto-tema, un periodo di durata, delle regole, e da una lista di oggetti occorrenti per ogni partecipante.
+- È caratterizzato da alcune informazioni di carattere generale, come titolo, tema, un periodo di durata, e da una lista di oggetti occorrenti per ogni partecipante.
 
 - È guidato da un'equipe composta da cuochi, animatori, capi-campo (possono essere visti come animatori con speciali responsabilità) e altre figure (come visitatori, collaboratori esterni, ...). Le informazioni rilevanti per ciascuna di queste figure sono:
 	- foto
 	- nome e cognome
 	- sesso (maschio, femmina, altro)
 	- data e luogo di nascita
-	- contatti (numero di telefono e mail)
+	- contatti (numero di telefono e mail
 	- contatti di emergenza (numero di telefono e mail, ad esempio quella di un parente)
 	- intolleranze alimentari
 	- note aggiuntive, ad esempio...

@@ -21,7 +21,7 @@ Ogni campo...
 
 - È caratterizzato da alcune informazioni di carattere generale, come titolo, tema, un periodo di durata, e da una lista di oggetti occorrenti per ogni partecipante.
 
-- È guidato da un'equipe composta da cuochi, animatori, capi-campo (possono essere visti come animatori con speciali responsabilità) e altre figure (come visitatori, collaboratori esterni, ...). Le informazioni rilevanti per ciascuna di queste figure sono:
+- È guidato da un'equipe composta da cuochi, animatori, capi-campo (possono essere visti come animatori con speciali responsabilità) e collaboratori. Le informazioni rilevanti per ciascuna di queste figure sono:
 	- foto
 	- nome e cognome
 	- sesso (maschio, femmina, altro)

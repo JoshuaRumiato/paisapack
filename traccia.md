@@ -19,7 +19,7 @@
 
 Il sistema deve poter gestire un campo-scuola negli aspetti che lo caratterizzano, supportando tutte le operazioni necessarie alla loro organizzazione.
 
-Ogni campo è caratterizzato da:
+Il campo è caratterizzato da:
 - un edificio avente traccia del suo indirizzo.
 
 - una lista di partecipanti, divisi in membri dell'equipe e animati (ragazzi), caratterizati da
@@ -58,7 +58,7 @@ Gli animati vengono divisi in squadre per la partecipazione alle attività organ
 - un nome
 - uno slogan
 - un animatore responsabile
-- un punteggio (ottenuto dai punti guadagnati durante le varie attività, teniamo conto solo del puneggio comulativo che si aggiornerà a fine giornata).
+- punteggio cumulato delle attività di routine
 
 Le squadre si mettono inoltre a disposizione per lo svolgimento di alcune faccende domestiche (gestite da turni di rotazione affinché tutte le squadre svolgano almeno una volta tutte le faccende nell'arco di una giornata).
 
@@ -73,7 +73,6 @@ Ogni attività è categorizzata come segue:
 	- tipo (colazione, pranzo, merenda, cena)
 	- cuoco responsabile
 	- pietanza
-
 - FACCENDE:
 	- preparazione tavoli colazione
 	- spreparazione tavoli colazione
@@ -84,7 +83,6 @@ Ogni attività è categorizzata come segue:
 	- preparazione tavoli cena
 	- spreparazione tavoli cena
 	- puliza stoviglie cena
-
 - ROUTINE (tutte le squadre partecipano a tutte le attività di routine, ogni attività di routine è caratterizzata da un nome, un esponsabile e una valutazione):
 	- sveglia mattiniera
 	- colazione
@@ -98,10 +96,9 @@ Ogni attività è categorizzata come segue:
 	- cena
     - attività serale
 	- verifica e resoconto della giornata
-
 - EXTRA:
 	- altro
-
+	
 Ad ogni paso viene servita una pietanza. Ogni pietanza è definita da:
 - nome
 - descrizione
@@ -110,22 +107,9 @@ Ad ogni paso viene servita una pietanza. Ogni pietanza è definita da:
 ## Gestione occorrente
 
 Gli ingredienti per la realizzazione delle pietanze compongono, insieme ai materiali richiesti per le altre attività, la lista dell'occorrente per il campeggio. Ogni voce di questa lista è identificata da:
-	- nome
-	- unità di misura
-	- numero utilizzi
-	- prezzo totale
-	I materiali da portare in autonomia non avranno i campi compilati, la scelta di avere dati salvati dal fatto che i materiali da portarre in autonomia sono pochi.
-- Materiali da portare in autonomia e da altri specifici definiti per ogni attività.
-- Ingrediente definiti da una quantità ed eventualmente degli allergeni.
+- nome
+- unità di misura
+- numero utilizzi
 
-
-------------------------
-
-Eventuali modifiche da fare: 
-- prezzo 
-Chiederre al professore l'attributo derivato?
-
-idea: quantità sul numero di pietanze da fare per pasto
-
-QUANTITà TOTALE DEL NUMERO DI OCCORRENTI
-
+Fra i materiali necessari, alcuni potrebbero dover essere portati in autonomia dai partecipanti.
+Esistono inoltre materiali specifici che vengono impiegati nello svolgimento di attività di routine particolari.

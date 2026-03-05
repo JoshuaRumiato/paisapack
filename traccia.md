@@ -15,13 +15,15 @@
 
 # Progetto basi di dati - gruppo 11
 
-Il sistema deve poter gestire un campo-scuola negli aspetti che li caratterizzano, supportando tutte le operazioni necessarie alla loro organizzazione.
+## Informazioni generali
+
+Il sistema deve poter gestire un campo-scuola negli aspetti che lo caratterizzano, supportando tutte le operazioni necessarie alla loro organizzazione.
 
 Ogni campo è caratterizzato da:
-- Da un edificio avente traccia del suo indirizzo.
+- un edificio avente traccia del suo indirizzo.
 
-- Una lista di partecipanti che si dividono in Equipe e Animati (ragazzi) caratterizati da
-	- CF
+- una lista di partecipanti, divisi in membri dell'equipe e animati (ragazzi), caratterizati da
+	- codice fiscale
 	- foto documento
 	- nome e cognome
 	- sesso (maschio, femmina)
@@ -34,77 +36,82 @@ Ogni campo è caratterizzato da:
 		- deve prendere medicinali (specificando come e quando)
 		- arriva dopo al campo, deve andare via prima, ...
 
-- L'equipe è composta da cuochi, animatori, capi-campo (possono essere visti come animatori con speciali responsabilità) e collaboratori. Le informazioni rilevanti per gli animatori sono:
-	- numero di telefono ed email personale
-    - valutazione del suo operato alla fine del campo(ad esempio un voto da 1 a 5 accompagnato da un commento)
+## Gestione partecipanti
 
-- Per gli animati vengono salvati:
-	- contatti di un genitore o di chi ne fa le veci (mail e telefono, da usare in caso di emergenze)
+L'equipe è composta da cuochi, animatori, capi-campo (possono essere visti come animatori con speciali responsabilità) e collaboratori. Le informazioni rilevanti per ogni membro dell'equipe sono:
+- numero di telefono ed email personale
+- valutazione del suo operato alla fine del campo (ad esempio un voto da 1 a 5 accompagnato da un commento)
 
-- Gli animati vengano divisi in squadre per la partecipazione alle attività organizzate, ogni squadra possiede:
-	- un nome
-	- uno slogan
-	- un animatore responsabile
-	- un punteggio (ottenuto dai punti guadagnati durante le varie attività, teniamo conto solo del puneggio comulativo che si aggiornerà a fine giornata).
+Per quanto riguarda gli animati vengono salvati:
+- numero di telefono e email di un genitore o di chi ne fa le veci (da usare in caso di emergenze)
 
-- Le squadre si mettano a disposizione per lo svolgimento di alcune faccende domestiche (gestite da turni di rotazione affinché tutte le squadre svolgano almeno una volta tutte le faccende).
-che nell'arco di una giornata.
-    
-- Tutti i partecipanti (equipe + ragazzi) dormono nelle camere della struttura che ospita il campo(maschi con maschi, femmine con femmine) e ogni camera ha:
-	- un numero identificativo di stanza
-	- numero di posti letto
-	- piano
-	- animatore responsabile, che dorme al suo interno (animatori maschi nelle camere dei maschi, e animatrici nelle camere femminili). 
-	Nessuna camera può contenere più persone di quanti sono i posti letto indicati per essa.
+Tutti i partecipanti (equipe + ragazzi) dormono nelle camere della struttura che ospita il campo (maschi con maschi, femmine con femmine) e ogni camera ha:
+- un numero identificativo di stanza
+- numero di posti letto
+- piano dell'edificio in cui è collocata
+- animatore responsabile, che dorme al suo interno (animatori maschi nelle camere dei maschi, e animatrici nelle camere femminili)
+- nessuna camera può contenere più persone di quanti sono i posti letto indicati per essa
 
-- Attività giornaliere, per cui occorre salvare:
-	- Orario di inizio
-	- Orario di fine
-	- Derscrizione
+## Squadre e attività giornaliere
 
-- Ogni attività è categorizzata come segue:
-    - PASTI (tutti i cuochi partecipano alla preparazione dei pasti):
-		- tipo (colazione, pranzo, merenda, cena)
-		- cuoco responsabile
-		- pietanza
-	- FACCENDE:
-		- preparazione tavoli colazione
-		- spreparazione tavoli colazione
-		- pulizia stoviglie tavoli colazione
+Gli animati vengono divisi in squadre per la partecipazione alle attività organizzate. Ogni squadra possiede:
+- un nome
+- uno slogan
+- un animatore responsabile
+- un punteggio (ottenuto dai punti guadagnati durante le varie attività, teniamo conto solo del puneggio comulativo che si aggiornerà a fine giornata).
 
-		- preparazione  tavoli pranzo
-		- spreparazione tavoli pranzo
-		- pulizia stoviglie pranzo
+Le squadre si mettono inoltre a disposizione per lo svolgimento di alcune faccende domestiche (gestite da turni di rotazione affinché tutte le squadre svolgano almeno una volta tutte le faccende nell'arco di una giornata).
 
-		- preparazione tavoli cena
-		- spreparazione tavoli cena
-		- puliza stoviglie cena
-	- ROUTINE (tutte le squadre partecipano a tutte le attività di routine, ogni attività di routine è caratterizzata da un nome, un responsabile e una valutazione):
-		- sveglia mattiniera
-		- colazione
-		- attività fisica
-        - attività della mattina
+Per le attività giornaliere occorre salvare:
+- orario di inizio
+- orario di fine
+- derscrizione
 
-		- pranzo
-        - attività del pomeriggio
-		- merenda
-		- docce
-        - gioco libero
+Ogni attività è categorizzata come segue:
 
-		- cena
-        - attività serale
-		- verifica e resoconto della giornata
-	- EXTRA:
-		- altro
+- PASTI (vengono preparati dai cuochi, e tutti i cuochi partecipano alla preparazione di ogni pasto):
+	- tipo (colazione, pranzo, merenda, cena)
+	- cuoco responsabile
+	- pietanza
 
-- Ogni pietanza è definita da:
+- FACCENDE:
+	- preparazione tavoli colazione
+	- spreparazione tavoli colazione
+	- pulizia stoviglie tavoli colazione
+	- preparazione  tavoli pranzo
+	- spreparazione tavoli pranzo
+	- pulizia stoviglie pranzo
+	- preparazione tavoli cena
+	- spreparazione tavoli cena
+	- puliza stoviglie cena
+
+- ROUTINE (tutte le squadre partecipano a tutte le attività di routine, ogni attività di routine è caratterizzata da un nome, un esponsabile e una valutazione):
+	- sveglia mattiniera
+	- colazione
+	- attività fisica
+    - attività della mattina
+	- pranzo
+    - attività del pomeriggio
+	- merenda
+	- docce
+    - gioco libero
+	- cena
+    - attività serale
+	- verifica e resoconto della giornata
+
+- EXTRA:
+	- altro
+
+Ad ogni paso viene servita una pietanza. Ogni pietanza è definita da:
+- nome
+- descrizione
+- ingredienti (ognuno dei quali con una certa quantità).
+
+## Gestione occorrente
+
+Gli ingredienti per la realizzazione delle pietanze compongono, insieme ai materiali richiesti per le altre attività, la lista dell'occorrente per il campeggio. Ogni voce di questa lista è identificata da:
 	- nome
-	- descrizione
-	- una determinata quantità di ingredianti.
-
-- Lista di occorrenze intesa come lista di materiali e di ingredienti composta da:
-	- nome
-	- unità di 
+	- unità di misura
 	- numero utilizzi
 	- prezzo totale
 	I materiali da portare in autonomia non avranno i campi compilati, la scelta di avere dati salvati dal fatto che i materiali da portarre in autonomia sono pochi.

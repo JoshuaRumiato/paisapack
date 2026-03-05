@@ -49,8 +49,9 @@ Tutti i partecipanti (equipe + ragazzi) dormono nelle camere della struttura che
 - un numero identificativo di stanza
 - numero di posti letto
 - piano dell'edificio in cui è collocata
-- animatore responsabile, che dorme al suo interno (animatori maschi nelle camere dei maschi, e animatrici nelle camere femminili)
-- nessuna camera può contenere più persone di quanti sono i posti letto indicati per essa
+
+Le camere in cui dormono i ragazzi hanno un animatore responsabile (animatori maschi nelle camere dei maschi, e animatrici nelle camere femminili). Tutto il resto dell'equipe (anche eventuali animatori rimasti) può dormire insieme.
+Nessuna camera può contenere più persone di quanti sono i posti letto indicati per essa
 
 ## Squadre e attività giornaliere
 
@@ -60,54 +61,52 @@ Gli animati vengono divisi in squadre per la partecipazione alle attività organ
 - un animatore responsabile
 - punteggio cumulato delle attività di routine
 
-Le squadre si mettono inoltre a disposizione per lo svolgimento di alcune faccende domestiche (gestite da turni di rotazione affinché tutte le squadre svolgano almeno una volta tutte le faccende nell'arco di una giornata).
+Le squadre si mettono inoltre a disposizione per lo svolgimento di alcune faccende domestiche.
 
 Per le attività giornaliere occorre salvare:
+- descrizione
 - orario di inizio
 - orario di fine
-- derscrizione
 
 Ogni attività è categorizzata come segue:
 
 - PASTI (vengono preparati dai cuochi, e tutti i cuochi partecipano alla preparazione di ogni pasto):
-	- tipo (colazione, pranzo, merenda, cena)
-	- cuoco responsabile
-	- pietanza
+	- colazione
+	- pranzo
+	- merenda
+	- cena
 - FACCENDE:
 	- preparazione tavoli colazione
 	- spreparazione tavoli colazione
 	- pulizia stoviglie tavoli colazione
-	- preparazione  tavoli pranzo
+	- preparazione tavoli pranzo
 	- spreparazione tavoli pranzo
 	- pulizia stoviglie pranzo
 	- preparazione tavoli cena
 	- spreparazione tavoli cena
 	- puliza stoviglie cena
 - ROUTINE (tutte le squadre partecipano a tutte le attività di routine, ogni attività di routine è caratterizzata da un nome, un esponsabile e una valutazione):
-	- sveglia mattiniera
-	- colazione
+	- sveglia
 	- attività fisica
     - attività della mattina
-	- pranzo
     - attività del pomeriggio
-	- merenda
 	- docce
     - gioco libero
-	- cena
     - attività serale
 	- verifica e resoconto della giornata
 - EXTRA:
 	- altro
-	
-Ad ogni paso viene servita una pietanza. Ogni pietanza è definita da:
+
+Ogni pasto viene preparato da tutti i cuochi (fra i quali però c'è un responsabile realtivo al pasto) e viene consumato da tutti i partecipanti al campo insieme. Ad ogni pasto viene servita una pietanza. Ogni pietanza è definita da:
 - nome
 - descrizione
-- ingredienti (ognuno dei quali con una certa quantità).
+- allergeni che contiene
 
-## Gestione occorrente
+## Gestione materiali
 
-Gli ingredienti per la realizzazione delle pietanze compongono, insieme ai materiali richiesti per le altre attività, la lista dell'occorrente per il campeggio. Ogni voce di questa lista è identificata da:
+Il campo prevede anche una lista di materiali richiesti per le attività. Ogni voce di questa lista è identificata da:
 - nome
+- quantità
 - unità di misura
 - numero utilizzi
 

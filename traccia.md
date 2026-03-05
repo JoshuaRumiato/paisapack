@@ -70,7 +70,7 @@ Per le attività giornaliere occorre salvare:
 
 Ogni attività è categorizzata come segue:
 
-- PASTI (vengono preparati dai cuochi, e tutti i cuochi partecipano alla preparazione di ogni pasto):
+- PASTI:
 	- colazione
 	- pranzo
 	- merenda
@@ -100,7 +100,7 @@ Ogni attività è categorizzata come segue:
 Ogni pasto viene preparato da tutti i cuochi (fra i quali però c'è un responsabile realtivo al pasto) e viene consumato da tutti i partecipanti al campo insieme. Ad ogni pasto viene servita una pietanza. Ogni pietanza è definita da:
 - nome
 - descrizione
-- allergeni che contiene
+- allergeni contenuti
 
 ## Gestione materiali
 

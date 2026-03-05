@@ -6,6 +6,7 @@ TO-DO
 - [ ] come gestire problema chiave primaria della faccenda perché potrebbe succedere che due squadre svolgono due faccende allo stesso momento:
     - identificare le attività in un'altro modo
     - fare una selezione di alcune faccende in modo che non possono essere svolte contemporaneamente
+- [ ] togliere ingrediente, allergene si collega direttamente a pietanze, occorrente e materiale diventano un'unica entità
 
 Possibili idee:
 - quantità sul numero di pietanze da fare per pasto

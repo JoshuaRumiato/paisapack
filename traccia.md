@@ -43,14 +43,14 @@ L'equipe è composta da cuochi, animatori, capi-campo (possono essere visti come
 - valutazione del suo operato alla fine del campo (ad esempio un voto da 1 a 5 accompagnato da un commento)
 
 Per quanto riguarda gli animati vengono salvati:
-- numero di telefono e email di un genitore o di chi ne fa le veci (da usare in caso di emergenze)
+- numero di telefono e email di un genitore o di chi ne fa le veci
 
-Tutti i partecipanti (equipe + ragazzi) dormono nelle camere della struttura che ospita il campo (maschi con maschi, femmine con femmine) e ogni camera ha:
+Tutti i partecipanti (equipe + ragazzi) dormono nelle camere della struttura che ospita il campo. Le camere che ospitano i ragazzi non possono essere miste (maschi con maschi, femmine con femmine). Ogni camera ha:
 - un numero identificativo di stanza
 - numero di posti letto
 - piano dell'edificio in cui è collocata
 
-Le camere in cui dormono i ragazzi hanno un animatore responsabile (animatori maschi nelle camere dei maschi, e animatrici nelle camere femminili). Tutto il resto dell'equipe (anche eventuali animatori rimasti) può dormire insieme.
+Le camere in cui dormono i ragazzi hanno inoltre un animatore responsabile (animatori maschi nelle camere dei maschi, e animatrici nelle camere femminili). Tutto il resto dell'equipe (anche eventuali animatori rimasti) può dormire insieme.
 Nessuna camera può contenere più persone di quanti sono i posti letto indicati per essa
 
 ## Squadre e attività giornaliere
@@ -85,7 +85,7 @@ Ogni attività è categorizzata come segue:
 	- preparazione tavoli cena
 	- spreparazione tavoli cena
 	- puliza stoviglie cena
-- ROUTINE (tutte le squadre partecipano a tutte le attività di routine, ogni attività di routine è caratterizzata da un nome, un esponsabile e una valutazione):
+- ROUTINE:
 	- sveglia
 	- attività fisica
     - attività della mattina
@@ -96,6 +96,8 @@ Ogni attività è categorizzata come segue:
 	- verifica e resoconto della giornata
 - EXTRA:
 	- altro
+
+Tutte le squadre partecipano a tutte le attività di routine. Ogni attività di routine è caratterizzata da un nome, un esponsabile e una valutazione.
 
 Ogni pasto viene preparato da tutti i cuochi (fra i quali però c'è un responsabile realtivo al pasto) e viene consumato da tutti i partecipanti al campo insieme. Ad ogni pasto viene servita una pietanza. Ogni pietanza è definita da:
 - nome

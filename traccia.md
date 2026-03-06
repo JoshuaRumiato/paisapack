@@ -64,9 +64,9 @@ Gli animati vengono divisi in squadre per la partecipazione alle attività organ
 Le squadre si mettono inoltre a disposizione per lo svolgimento di alcune faccende domestiche.
 
 Per le attività giornaliere occorre salvare:
-- descrizione
 - orario di inizio
 - orario di fine
+- eventuale descrizione
 
 Ogni attività è categorizzata come segue:
 
@@ -97,7 +97,13 @@ Ogni attività è categorizzata come segue:
 - EXTRA:
 	- altro
 
+<<<<<<< HEAD
 Tutte le squadre partecipano a tutte le attività di routine. Ogni attività di routine è caratterizzata da un nome, un responsabile e una valutazione.
+=======
+Tutte le squadre partecipano a tutte le attività di routine. Ogni attività di routine è caratterizzata da un nome, un responsabile e una valutazione (solo testuale).
+
+La data/ora di inizio di ogni attività non deve coincidere con quella di altre attivià: ci deve essere una rigida sequenza tra tutti gli orari di inizio attività.
+>>>>>>> f2b3215 (perfezionamento revisione traccia e diagramma ER)
 
 Ogni pasto viene preparato da tutti i cuochi (fra i quali però c'è un responsabile realtivo al pasto) e viene consumato da tutti i partecipanti al campo insieme. Ad ogni pasto viene servita una pietanza. Ogni pietanza è definita da:
 - nome

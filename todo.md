@@ -1,12 +1,13 @@
 Eventuali evolutive da introdurre: 
-- [ ] prezzo di materiali, affitto
-- [ ] quota di partecipazione
+- [x] prezzo di materiali, affitto
+- [x] quota di partecipazione
 TO-DO
-- [ ] Chiedere al professore l'attributo derivato
-- [ ] come gestire problema chiave primaria della faccenda perché potrebbe succedere che due squadre svolgono due faccende allo stesso momento:
+- [x] Chiedere al professore l'attributo derivato
+- [x] come gestire problema chiave primaria della faccenda perché potrebbe succedere che due squadre svolgono due faccende allo stesso momento:
     - identificare le attività in un'altro modo
     - fare una selezione di alcune faccende in modo che non possono essere svolte contemporaneamente
-- [ ] togliere ingrediente, allergene si collega direttamente a pietanze, occorrente e materiale diventano un'unica entità
+- [x] togliere ingrediente, allergene si collega direttamente a pietanze, occorrente e materiale diventano un'unica entità
+- [ ] nelle analisi delle ridondanze valutare anche la frequenza con cui viene eseguita la query
 
 Possibili idee:
 - quantità sul numero di pietanze da fare per pasto

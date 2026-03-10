@@ -97,13 +97,9 @@ Ogni attività è categorizzata come segue:
 - EXTRA:
 	- altro
 
-<<<<<<< HEAD
-Tutte le squadre partecipano a tutte le attività di routine. Ogni attività di routine è caratterizzata da un nome, un responsabile e una valutazione.
-=======
 Tutte le squadre partecipano a tutte le attività di routine. Ogni attività di routine è caratterizzata da un nome, un responsabile e una valutazione (solo testuale).
 
 La data/ora di inizio di ogni attività non deve coincidere con quella di altre attivià: ci deve essere una rigida sequenza tra tutti gli orari di inizio attività.
->>>>>>> f2b3215 (perfezionamento revisione traccia e diagramma ER)
 
 Ogni pasto viene preparato da tutti i cuochi (fra i quali però c'è un responsabile realtivo al pasto) e viene consumato da tutti i partecipanti al campo insieme. Ad ogni pasto viene servita una pietanza. Ogni pietanza è definita da:
 - nome
@@ -112,7 +108,7 @@ Ogni pasto viene preparato da tutti i cuochi (fra i quali però c'è un responsa
 
 ## Gestione materiali
 
-Il campo prevede anche una lista di materiali richiesti per le attività. Ogni voce di questa lista è identificata da:
+Il campo prevede anche una lista di materiali richiesti per lo svolgimento del campo. Ogni voce di questa lista è identificata da:
 - nome
 - quantità
 - unità di misura
@@ -120,4 +116,3 @@ Il campo prevede anche una lista di materiali richiesti per le attività. Ogni v
 
 Fra i materiali necessari, alcuni potrebbero dover essere portati in autonomia dai partecipanti.
 Esistono inoltre materiali specifici che vengono impiegati nello svolgimento di attività di routine particolari.
-

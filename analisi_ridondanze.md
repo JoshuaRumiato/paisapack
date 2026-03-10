@@ -1,20 +1,24 @@
 # Operazioni:
 - Aggiungere attività di routine
 - Vedere materiale totale necessario
-- Vedere materiale totale rimanente (query che si fa durante la settimana di campeggio dopo che sono state svolte alcune attività)(TODO)
 
 > [!NOTE]
 > Le attività sono 8 al giorno, con 7 giorni di campo normalmente
 > 3-4 sono le attività al giorno che normalmente hanno del materiale
 > 3 sono in media i materiali necessari per un'attività
 
+> [!NOTE]
+> Costo di una lettura: 1, costo di una scrittura: 2
+
+# Frequenza delle operazioni:
+- Aggiunta attività di routine: 56 volte
+- Vedere materiale totale necessario: 1 volta prima della partenza
 
 # Tabella dei volumi
 
 | concetto           | tipo      | volume |
 | ------------------ | ------    | ------ |
 |Materiale           | Entità    | 50     |
-|Materiale Specifico | Entità    | 15     |
 |Prevede             | Relazione | 84     |
 |Routine             | Entità    | 56     |
 
@@ -26,7 +30,8 @@
 | ------------------- | --------- | ------- | ---- |
 | Routine             | Entità    | 1       | W    |
 | Prevede             | Relazione | 3       | W    |
-<!--| Materiale Specifico | Entità    | 3       | R    |-->
+
+Costo: (56\*4)\*2=448
 
 
 ### Vedere materiale totale necessario
@@ -34,17 +39,9 @@
 | concetto            | costrutto | accessi   | tipo |
 | ------------------- | --------- | --------- | ---- |
 | Materiale           | Entità    | 1         | R    |
-| Materiale Specifico | Entità    | 1         | R    |
 | Prevede             | Relazione | 84/56=1.5 | R    |
 
-### Vedere materiale totale necessario da oggi in poi(TODO)
-
-| concetto            | costrutto | accessi   | tipo |
-| ------------------- | --------- | --------- | ---- |
-| Materiale           | Entità    | 1         | R    |
-| Materiale Specifico | Entità    | 1         | R    |
-| Prevede             | Relazione | 84/56=1.5 | R    |
-| Routine             | Entità    | 1         | R    |
+Costo: (1\*2.5)\*1=2.5
 
 
 ## Con attributo derivato
@@ -54,8 +51,10 @@
 | ------------------- | --------- | ------- | ---- |
 | Routine             | Entità    | 1       | W    |
 | Prevede             | Relazione | 3       | W    |
-| Materiale Specifico | Relazione | 3       | R    |
-| Materiale Specifico | Relazione | 3       | W    |
+| Materiale           | Relazione | 3       | R    |
+| Materiale           | Relazione | 3       | W    |
+
+Costo: (56\*7)\*2+(56\*3)\*1=952
 
 
 ### Vedere materiale totale necessario
@@ -63,13 +62,21 @@
 | concetto            | costrutto | accessi   | tipo |
 | ------------------- | --------- | --------- | ---- |
 | Materiale           | Entità    | 1         | R    |
-| Materiale Specifico | Entità    | 1         | R    |
 
-### Vedere materiale totale necessario da oggi in poi(TODO)
+Costo: (1\*1)\*1=1
 
-| concetto            | costrutto | accessi   | tipo |
-| ------------------- | --------- | --------- | ---- |
-| Materiale           | Entità    | 1         | R    |
-| Materiale Specifico | Entità    | 1         | R    |
-| Prevede             | Relazione | 84/56=1.5 | R    |
-| Routine             | Entità    | 1         | R    |
+
+
+## Confronto
+Presenza di ridondanza:
+- OP 1: 448
+- OP 2: 2.5
+Totale: 450.5
+
+Assenza di ridondanza:
+- OP 1: 952
+- OP 2: 1
+Totale: 953
+
+## Conclusione
+Ci conviene mantere la ridondanza

@@ -7,8 +7,7 @@ TO-DO
     - identificare le attività in un'altro modo
     - fare una selezione di alcune faccende in modo che non possono essere svolte contemporaneamente
 - [x] togliere ingrediente, allergene si collega direttamente a pietanze, occorrente e materiale diventano un'unica entità
-- [ ] nelle analisi delle ridondanze valutare anche la frequenza con cui viene eseguita la query
-
+- [ ] vedere se scrivere nella traccia la frequenza dell'operazione del vedere il materiale necessario
 Possibili idee:
 - quantità sul numero di pietanze da fare per pasto
 - quantità totale del numero di occorrenti

@@ -10,6 +10,9 @@
 > [!NOTE]
 > Costo di una lettura: 1, costo di una scrittura: 2
 
+> [!CAUTION]
+> Se il prof conferma che le riddondanze studiate fanno bene, togliere l'attributo "quantità" dallo schema?
+
 # Frequenza delle operazioni:
 - Aggiunta attività di routine: 56 volte
 - Vedere materiale totale necessario: 1 volta prima della partenza

@@ -11,7 +11,7 @@
 > Costo di una lettura: 1, costo di una scrittura: 2
 
 > [!CAUTION]
-> Se il prof conferma che le riddondanze studiate fanno bene, togliere l'attributo "quantità" dallo schema?
+> Se il prof conferma che le riddondanze studiate vanno bene, togliere l'attributo "quantità" dallo schema?
 
 # Frequenza delle operazioni:
 - Aggiunta attività di routine: 56 volte
@@ -69,17 +69,16 @@ Costo: (56\*7)\*2+(56\*3)\*1=952
 Costo: (1\*1)\*1=1
 
 
-
 ## Confronto
-Presenza di ridondanza:
+Assenza di ridondanza:
 - OP 1: 448
 - OP 2: 2.5
 Totale: 450.5
 
-Assenza di ridondanza:
+Presenza di ridondanza:
 - OP 1: 952
 - OP 2: 1
 Totale: 953
 
 ## Conclusione
-Ci conviene mantere la ridondanza
+Non ci conviene mantere la ridondanza

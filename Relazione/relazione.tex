@@ -1,4 +1,6 @@
 \documentclass[12pt,a4paper]{article}
+\usepackage{geometry}
+\geometry{a4paper, margin=2cm}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[italian]{babel}
@@ -34,7 +36,7 @@
     \vspace{1cm}
     \rule{\textwidth}{0.5pt}\vspace{0.4cm}
     {\bfseries\LARGE Basi di dati\\[0.2cm]
-    Progetto Data Base \par}
+    Progetto Data Base  - Gruppo 11 \par}
     \rule{\textwidth}{0.5pt}
     \vfill
     \begin{flushleft}
@@ -54,11 +56,59 @@
 
 \section{Analisi dei requisiti}
 \subsection{Traccia}
+Il sistema deve gestire un campo-scuola in tutti gli aspetti organizzativi. Il campo è caratterizzato dai seguenti elementi:
+\begin{itemize}
+    \item \textbf{Edificio:} identificato dal relativo indirizzo.
+    \item \textbf{Partecipanti:} divisi in \textit{Equipe} e \textit{Animati} (ragazzi).
+\end{itemize}
+Per ogni partecipante devono essere registrati i seguenti dati comuni:
+\begin{itemize}
+    \item Codice Fiscale e foto del documento.
+    \item Nome, cognome, sesso (maschio/femmina).
+    \item Data e luogo di nascita.
+    \item Intolleranze alimentari.
+    \item \textbf{Note aggiuntive:} patologie, allergie, medicinali (modalità e orari), situazioni particolari (es. bullismo) e variazioni logistiche (arrivi posticipati o partenze anticipate).
+\end{itemize}
+L'equipe è composta da cuochi, animatori, capi-campo e collaboratori. Per ogni membro si conservano i seguenti dati:
+\begin{itemize}
+    \item \textit{Recapiti} (numero di telefono ed email personale)
+    \item \textbf{Valutazione finale:} un voto da 1 a 5 corredato da un commento testuale.
+\end{itemize}
+Per ogni ragazzo deve essere salvato il contatto (telefono ed email) di un genitore o tutore legale.
+Tutti i partecipanti alloggiano nella struttura secondo le seguenti regole:
+\begin{itemize}
+    \item \textbf{Dati camera:} numero identificativo, numero di posti letto e piano dell'edificio.
+    \item \textbf{Vincoli ragazzi:} le camere dei ragazzi non possono essere miste. Devono avere un animatore responsabile dello stesso sesso (es. animatrici per camere femminili).
+    \item \textbf{Altro personale:} il resto dell'equipe e gli animatori non assegnati alle camere dei ragazzi possono dormire in camere comuni senza vincoli di sesso.
+    \item \textbf{Capienza:} non è consentito superare il numero di posti letto previsti per ogni camera.
+\end{itemize}
+Gli animati sono divisi in squadre, ognuna definita da:
+\begin{itemize}
+    \item Nome, slogan e un animatore responsabile.
+    \item Punteggio cumulativo per le attività di routine.
+    \item Turni per le faccende domestiche.
+\end{itemize}
+Ogni attività ha un orario di inizio, un orario di fine e una descrizione. \textbf{Vincolo temporale:} deve esserci una sequenza rigida tra gli orari; le attività non possono sovrapporsi.
+Le attività sono categorizzate come segue:
+\begin{description}
+    \item[PASTI:] Colazione, pranzo, merenda, cena. Sono consumati da tutti i partecipanti. I cuochi preparano i pasti con un responsabile specifico per ogni turno. Ogni pasto include una pietanza (nome, descrizione, allergeni).
+    \item[FACCENDE:] Preparazione/spreparazione tavoli e pulizia stoviglie per i tre pasti principali.
+    \item[ROUTINE:] Sveglia, attività fisica, attività di mattina/pomeriggio, docce, gioco libero, attività serale, verifica giornata. Ogni routine ha un nome, un responsabile e una valutazione testuale.
+    \item[EXTRA:] Altre attività non categorizzate.
+\end{description}
+Il sistema tiene traccia dei materiali necessari per il campo. Ogni voce include:
+\begin{itemize}
+    \item Nome e quantità.
+    \item Unità di misura e numero di utilizzi previsti.
+    \item \textbf{Materiali specifici:} indicazione se il materiale è legato a una particolare attività di routine o se deve essere portato autonomamente dai partecipanti.
+\end{itemize}
+
 \subsection{Requisiti}
 \subsection{Glossario}
 
 \section{Progettazione concettuale}
 \subsection{Modello Entità-Relazione}
+\includegraphics[scale=0.5]{immagini/Diagramma-ER.pdf}
 
 \section{Progettazione logica}
 \subsection{Modello logico}

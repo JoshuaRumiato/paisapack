@@ -3,7 +3,7 @@
     <td>Joshua Rumiato</td><td>168062</td>
   </tr>
   <tr>
-    <td>Mattia Nadal</td><td>168062</td>
+    <td>Mattia Nadal</td><td>167372</td>
   </tr>
   <tr>
     <td>Kevin Polesello</td><td>167947</td>

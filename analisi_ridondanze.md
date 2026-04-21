@@ -25,7 +25,6 @@
 |Prevede             | Relazione | 84     |
 |Routine             | Entità    | 56     |
 
-
 ## Senza attributo derivato
 ### Aggiunta attività di routine
 
@@ -36,7 +35,6 @@
 
 Costo: (56\*4)\*2=448
 
-
 ### Vedere materiale totale necessario
 
 | concetto            | costrutto | accessi   | tipo |
@@ -45,7 +43,6 @@ Costo: (56\*4)\*2=448
 | Prevede             | Relazione | 84/56=1.5 | R    |
 
 Costo: (1\*2.5)\*1=2.5
-
 
 ## Con attributo derivato
 ### Aggiunta attività di routine
@@ -59,7 +56,6 @@ Costo: (1\*2.5)\*1=2.5
 
 Costo: (56\*7)\*2+(56\*3)\*1=952
 
-
 ### Vedere materiale totale necessario
 
 | concetto            | costrutto | accessi   | tipo |
@@ -67,7 +63,6 @@ Costo: (56\*7)\*2+(56\*3)\*1=952
 | Materiale           | Entità    | 1         | R    |
 
 Costo: (1\*1)\*1=1
-
 
 ## Confronto
 Assenza di ridondanza:

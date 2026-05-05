@@ -1,0 +1,25 @@
+Query SQL: discuterne prima con me.
+• 7 o 8 operazioni da implementare:
+  • 1 o 2 di inserimento
+  • 1 o 2 di aggiornamento o cancellazione
+• tutte le altre sono query/interrogazioni
+• non troppo semplici
+
+1) Inserimento di un nuovo ANIMATO, con tutte le informazioni necessarie (nome, cognome, codice fiscale, data di nascita, telefono genitore, email genitore, squadra).
+2) Inserimento di una ROUTINE, con nome, supervisore, descrizione, durata, e materiali necessari.
+
+3) Aggiornamento del punteggio di una SQUADRA dopo una competizione.
+4) Aggiornamento orario di una routine.
+
+5) Cancellazione di un PARTECIPANTE, con conseguente eliminazione di tutte le informazioni ad esso collegate (ad esempio, iscrizioni a attività, allergie, ecc.).
+7) Cancellazione di una ROUTINE, con conseguente eliminazione di tutte le informazioni ad essa collegate (ad esempio, materiali necessari, punteggio, ecc.).
+
+8) Dato un animato trovare il suo animatore responsabile della sua squadra.
+9) Quantità totale del numero di materiali occorrenti per una specifica giornata.
+
+10) Ricerca tutti i componenti di una SQUADRA, con i loro dettagli (nome, cognome, data di nascita, ecc.).
+11) Ottenere la media delle valutazioni dell'operato delle equipe.
+12) Trovare quale routine ha usato il numero magiore di unità per un materiale specifico.
+13) Quanti differenti pietanze dato un giorno e un pasto specifico basandosi sugli allegerni.
+
+

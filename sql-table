@@ -129,4 +129,12 @@ CREATE TABLE Materiale (
     numero_utilizzi INT NOT NULL DEFAULT 0,
 );
 
--- 
+-- PREVEDE
+CREATE TABLE Prevede (
+    nome_materiale VARCHAR(100) FOREIGN KEY REFERENCES Materiale(nome),
+    inizio DATE,
+    fine DATE,
+    quantita INT NOT NULL,
+
+    PRIMARY KEY (nome_materiale, inizio, fine)
+);

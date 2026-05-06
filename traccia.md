@@ -90,7 +90,7 @@ Ogni attività è categorizzata come segue:
 	- attività fisica
     - attività della mattina
     - attività del pomeriggio
-	- docce
+	- doccia
     - gioco libero
     - attività serale
 	- verifica e resoconto della giornata

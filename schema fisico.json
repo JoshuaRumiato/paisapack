@@ -21,37 +21,41 @@
       ],
       "indices": [],
       "id": "FijVM71lH1csx65zWnumo",
-      "x": 65.9120112566319,
-      "y": 1646.4131709923388
+      "x": 254.43484577459606,
+      "y": 1650.1794056087488
     },
     {
-      "name": "attivtà_extra",
+      "name": "attività_extra",
       "comment": "",
       "color": "#175e7a",
       "fields": [
         {
           "id": "IHy_Yim1W0u9hofKxMKnJ",
           "name": "data_ora_fine",
-          "type": "TIMESTAMPTZ",
+          "type": "TIMESTAMP",
           "comment": "",
           "unique": false,
           "increment": false,
           "notNull": true,
           "primary": true,
           "default": "",
-          "check": ""
+          "check": "",
+          "size": "",
+          "values": []
         },
         {
           "id": "47XuXJZc49Ipy1AEm1or1",
           "name": "data_ora_inizio",
-          "type": "TIMESTAMPTZ",
+          "type": "TIMESTAMP",
           "comment": "",
           "unique": false,
           "increment": false,
           "notNull": true,
-          "primary": true,
+          "primary": false,
           "default": "",
-          "check": ""
+          "check": "",
+          "size": "",
+          "values": []
         },
         {
           "id": "2Bcd6f9UKRXQOoD0CsSRd",
@@ -105,26 +109,28 @@
         {
           "id": "IFJy6DN3Oa1ELNroenT2V",
           "name": "civico",
-          "type": "INTEGER",
+          "type": "VARCHAR",
           "comment": "",
           "unique": false,
           "increment": false,
           "notNull": true,
           "primary": true,
           "default": "",
-          "check": ""
+          "check": "",
+          "size": "8"
         },
         {
           "id": "z2aCuvrgdSLqrrAXVpMqD",
           "name": "cap",
-          "type": "INTEGER",
+          "type": "CHAR",
           "comment": "",
           "unique": false,
           "increment": false,
           "notNull": true,
           "primary": true,
           "default": "",
-          "check": ""
+          "check": "",
+          "size": 5
         },
         {
           "id": "ihhhZQ9jOFLKKaYYzfNdt",
@@ -155,8 +161,8 @@
       ],
       "indices": [],
       "id": "KjuO4kHc69js9oSt8NJI9",
-      "x": 344.3765327025658,
-      "y": -551.0093335190642
+      "x": 16.344440981135335,
+      "y": -498.22391626514036
     },
     {
       "name": "materiali",
@@ -186,7 +192,7 @@
           "notNull": true,
           "primary": false,
           "default": "",
-          "size": 16,
+          "size": 32,
           "check": ""
         },
         {
@@ -198,19 +204,7 @@
           "increment": false,
           "notNull": true,
           "primary": false,
-          "default": "",
-          "check": ""
-        },
-        {
-          "id": "L0IEmtlDSIgyo_5GVV1oK",
-          "name": "quantità",
-          "type": "INTEGER",
-          "comment": "",
-          "unique": false,
-          "increment": false,
-          "notNull": true,
-          "primary": false,
-          "default": "",
+          "default": "1",
           "check": ""
         },
         {
@@ -264,8 +258,8 @@
       ],
       "indices": [],
       "id": "iTpK7hucVEyM9m2-Dg-7x",
-      "x": 2018.9027651241843,
-      "y": 1616.5833614864168
+      "x": 2028.3289294521912,
+      "y": 1682.5663309655954
     },
     {
       "name": "stanze",
@@ -354,8 +348,8 @@
       ],
       "indices": [],
       "id": "fVqYo5VIBG3SiH6OHtOom",
-      "x": 1026.6711573344685,
-      "y": 1590.1244197572114
+      "x": 1034.2142043542708,
+      "y": 1646.6813153168187
     },
     {
       "name": "partecipanti",
@@ -444,7 +438,7 @@
           "name": "foto_documento",
           "type": "VARCHAR",
           "comment": "",
-          "unique": false,
+          "unique": true,
           "increment": false,
           "notNull": true,
           "primary": false,
@@ -466,7 +460,7 @@
         },
         {
           "id": "caL4nUzMJ_EqgVfV3BijM",
-          "name": "numero_stanza_pernottamento",
+          "name": "numero_stanza",
           "type": "SMALLINT",
           "comment": "",
           "unique": false,
@@ -592,8 +586,8 @@
       ],
       "indices": [],
       "id": "jGNcfsOYRCRx9V-WcQKuN",
-      "x": 620.2949224399774,
-      "y": 236.7622069993783
+      "x": 618.4117147233369,
+      "y": 248.07673232486383
     },
     {
       "name": "attività_routine",
@@ -668,7 +662,7 @@
         {
           "id": "IOMxIemhccDky9RD-vYm3",
           "name": "codice_fiscale_animatore_supervisore",
-          "type": "VARCHAR",
+          "type": "CHAR",
           "comment": "",
           "unique": false,
           "increment": false,
@@ -677,6 +671,20 @@
           "default": "",
           "size": 16,
           "check": ""
+        },
+        {
+          "id": "yTHlXdBhlwOHr8rSHfXJt",
+          "name": "tipologia_routine",
+          "type": "TIPOLOGIA_ROUTINE",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
         }
       ],
       "indices": [],
@@ -792,7 +800,7 @@
         {
           "id": "iM0RByuMgmg-2qfCPhkGg",
           "name": "telefono",
-          "type": "VARCHAR",
+          "type": "CHAR",
           "comment": "",
           "unique": false,
           "increment": false,
@@ -846,20 +854,6 @@
           "increment": false,
           "notNull": true,
           "primary": true,
-          "default": "",
-          "check": "",
-          "size": "",
-          "values": []
-        },
-        {
-          "id": "ZclkOxhq6pjxuahmbAmxJ",
-          "name": "data_ora_fine_attività",
-          "type": "TIMESTAMP",
-          "comment": "",
-          "unique": false,
-          "increment": false,
-          "notNull": true,
-          "primary": false,
           "default": "",
           "check": "",
           "size": "",
@@ -936,7 +930,7 @@
           "increment": false,
           "notNull": true,
           "primary": false,
-          "default": "",
+          "default": "0",
           "check": ""
         },
         {
@@ -955,8 +949,8 @@
       ],
       "indices": [],
       "id": "LUc8gpEa6gIoBadxZDDqJ",
-      "x": 1189.2936756437916,
-      "y": 881.7775758027774
+      "x": 1196.8368130720296,
+      "y": 883.6606931109823
     },
     {
       "name": "animati",
@@ -1091,12 +1085,26 @@
           "default": "",
           "size": 64,
           "check": ""
+        },
+        {
+          "id": "FGL-TbqU_MIECkhsGl7y9",
+          "name": "tipologia_faccenda",
+          "type": "TIPOLOGIA_FACCENDA",
+          "default": "",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
         }
       ],
       "indices": [],
       "id": "SPtM0kwn6TmaCWhBJDfR6",
-      "x": 1559.7319631886285,
-      "y": 873.74560296352
+      "x": 1629.4865917903614,
+      "y": 1075.4610172427724
     },
     {
       "name": "attività_pasto",
@@ -1134,15 +1142,16 @@
         {
           "id": "78L0AxKCZwHOBh_My55a5",
           "name": "tipo",
-          "type": "VARCHAR",
+          "type": "TIPOLOGIA_PASTO",
           "comment": "",
           "unique": false,
           "increment": false,
           "notNull": true,
           "primary": false,
           "default": "",
-          "size": 64,
-          "check": ""
+          "size": "",
+          "check": "",
+          "values": []
         },
         {
           "id": "hDNOafXwDE-QueES9Oz6_",
@@ -1171,7 +1180,7 @@
         },
         {
           "id": "yg8ut_z0RZt78Q483e4tH",
-          "name": "nome_pietanza_servita",
+          "name": "nome_pietanza",
           "type": "VARCHAR",
           "comment": "",
           "unique": false,
@@ -1185,8 +1194,8 @@
       ],
       "indices": [],
       "id": "tfhyI1fy9kEJC5O-4kCDe",
-      "x": 1602.0751241387568,
-      "y": -81.41699106485078
+      "x": 1594.5321675273904,
+      "y": -79.53387375664585
     }
   ],
   "relationships": [
@@ -1334,7 +1343,7 @@
       "id": 12
     },
     {
-      "name": "fk_partecipanti_numero_stanza_pernottamento_stanze",
+      "name": "fk_partecipanti_numero_stanza_stanze",
       "startTableId": "wxz8MvseRcVrGNcBGOCN2",
       "startFieldId": "caL4nUzMJ_EqgVfV3BijM",
       "endTableId": "tXL4RzRn3nYoGqMSjdhoD",
@@ -1381,7 +1390,155 @@
   "notes": [],
   "subjectAreas": [],
   "database": "postgresql",
-  "types": [],
+  "types": [
+    {
+      "id": "MD91vlD91Rw0eNVDN-rob",
+      "name": "tipologia_pasto",
+      "fields": [
+        {
+          "name": "colazione",
+          "type": "VARCHAR",
+          "id": "XEUHDbp0IsjFf_RyuQBx9",
+          "size": 9
+        },
+        {
+          "name": "pranzo",
+          "type": "VARCHAR",
+          "id": "rUtR6T5XyvxMbTDZcezHV",
+          "size": 6
+        },
+        {
+          "name": "merenda",
+          "type": "VARCHAR",
+          "id": "IWZPH8Zz8bc9kgOaZ7eo6",
+          "size": 7
+        },
+        {
+          "name": "cena",
+          "type": "VARCHAR",
+          "id": "F19uvgdmE43X_OSrBS3VY",
+          "size": 4
+        }
+      ],
+      "comment": ""
+    },
+    {
+      "id": "dTnCtZjd-t9JsMsfBwkcE",
+      "name": "tipologia_faccenda",
+      "fields": [
+        {
+          "name": "preparazione tavoli colazione",
+          "type": "VARCHAR",
+          "id": "1xrMSNJUK3lBKobn6WkIe",
+          "size": 29
+        },
+        {
+          "name": "spreparazione tavoli colazione",
+          "type": "VARCHAR",
+          "id": "BonsW28t4NSM8lWZMsH5B",
+          "size": 30
+        },
+        {
+          "name": "pulizia stoviglie tavoli colazione",
+          "type": "VARCHAR",
+          "id": "Y_864dnzPlV0eRLSYJuN-",
+          "size": 34
+        },
+        {
+          "name": "preparazione tavoli pranzo",
+          "type": "VARCHAR",
+          "id": "9nX-iaOhLWPfPGurjdTAF",
+          "size": 26
+        },
+        {
+          "name": "spreparazione tavoli pranzo",
+          "type": "VARCHAR",
+          "id": "5vODxOdZBTzOO7YVDBzLF",
+          "size": 27
+        },
+        {
+          "name": "pulizia stoviglie pranzo",
+          "type": "VARCHAR",
+          "id": "NHdAsmiykuIXg3_qGGoWG",
+          "size": 24
+        },
+        {
+          "name": "preparazione tavoli cena",
+          "type": "VARCHAR",
+          "id": "dB2E4UwOMKD_gbrQwTesS",
+          "size": 24
+        },
+        {
+          "name": "spreparazione tavoli cena",
+          "type": "VARCHAR",
+          "id": "aNXDYwxK3XyKwwYrj169t",
+          "size": 25
+        },
+        {
+          "name": "puliza stoviglie cena",
+          "type": "VARCHAR",
+          "id": "WBg05z03CGFJE12_mGan2",
+          "size": 21
+        }
+      ],
+      "comment": ""
+    },
+    {
+      "id": "QeozswTbbsAzJ6ubxlC3K",
+      "name": "tipologia_routine",
+      "fields": [
+        {
+          "name": "sveglia",
+          "type": "VARCHAR",
+          "id": "7m2As0JeUmhXy_1MoUTwB",
+          "size": 7
+        },
+        {
+          "name": "attività fisica",
+          "type": "VARCHAR",
+          "id": "myzvzpU8HHD0y7RBlSU-J",
+          "size": 15
+        },
+        {
+          "name": "attività della mattina",
+          "type": "VARCHAR",
+          "id": "V659wKY43n0FdeAYoKFNA",
+          "size": 22
+        },
+        {
+          "name": "attività del pomeriggio",
+          "type": "VARCHAR",
+          "id": "5_HqHJLQtLELMua2L1wcd",
+          "size": 23
+        },
+        {
+          "name": "doccia",
+          "type": "VARCHAR",
+          "id": "IhSLlZpkL0gXkIAx5KwZl",
+          "size": 6
+        },
+        {
+          "name": "gioco libero",
+          "type": "VARCHAR",
+          "id": "ZSGr5Lt0K755LgAyOUrUe",
+          "size": 12
+        },
+        {
+          "name": "attività serale",
+          "type": "VARCHAR",
+          "id": "BNFXFf2_npGrmmA0IPb_t",
+          "size": 15
+        },
+        {
+          "name": "verifica e resoconto della giornata",
+          "type": "VARCHAR",
+          "id": "t8CLSUe0pk9IwFoBSNNk2",
+          "size": 35
+        }
+      ],
+      "comment": ""
+    }
+  ],
   "enums": [],
   "title": "Untitled Diagram"
 }

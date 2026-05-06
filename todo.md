@@ -9,6 +9,7 @@ TO-DO
 - [x] togliere ingrediente, allergene si collega direttamente a pietanze, occorrente e materiale diventano un'unica entità
 - [ ] vedere se scrivere nella traccia la frequenza dell'operazione del vedere il materiale necessario
 - [ ] Chiedere al prof del ciclo (non lo abbiamo fatto)
+- [ ] Chiedere al prof se se la tabella stanza puo' non avere il collegamento alla tabella edificio (perche' c'e ne' solo uno e si ripeterebbero solamente i valori nella tabella stanza)
 
 Possibili query:
 - quantità sul numero di pietanze da fare per pasto

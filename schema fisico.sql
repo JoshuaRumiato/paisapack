@@ -28,6 +28,8 @@ CREATE TYPE tipologia_routine AS ENUM (
 
 
 
+--CHECKS
+
 CREATE FUNCTION is_valid_cf(text)
 RETURNS boolean AS $$
 BEGIN
@@ -62,6 +64,71 @@ $$ LANGUAGE plpgsql IMMUTABLE;
 
 
 
+
+--TRIGGERS
+-- CREATE check_animatore_responsabile_presente 
+-- BEFORE INSERT 
+-- ON stanze FOR EACH ROW
+-- LANGUAGE plpgsql AS $$
+-- BEGIN
+-- 	IF SELECT COUNT(*)=1 FROM partecipanti NATURAL JOIN animatori WHERE numero_stanza=NEW.numero_stanza IS NULL THEN
+-- 		SIGNAL SQLSTATE '45000'
+-- 		SET MESSAGE_TEXT = 'Animatore is required';
+-- 	END IF;
+-- END $$;
+CREATE OR REPLACE FUNCTION check_single_ruolo()
+RETURNS TRIGGER AS $$
+DECLARE
+    cnt INTEGER;
+BEGIN
+    SELECT COUNT(*)
+    INTO cnt
+    FROM (
+        SELECT codice_fiscale FROM animatori
+        UNION ALL
+        SELECT codice_fiscale FROM collaboratori
+        UNION ALL
+        SELECT codice_fiscale FROM animati
+        UNION ALL
+        SELECT codice_fiscale FROM cuochi
+    ) t
+    WHERE codice_fiscale = NEW.codice_fiscale;
+	IF cnt=0 THEN
+		IF cnt=1 THEN
+			RAISE EXCEPTION 'Un ruolo al massimo per %', NEW.codice_fiscale;
+    	END IF;
+    END IF;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE TRIGGER trg_partecipanti_ruolo
+BEFORE INSERT ON partecipanti
+FOR EACH ROW
+EXECUTE FUNCTION check_single_ruolo();
+
+CREATE OR REPLACE TRIGGER trg_animatori_ruolo
+BEFORE INSERT ON animatori
+FOR EACH ROW
+EXECUTE FUNCTION check_single_ruolo();
+
+CREATE OR REPLACE TRIGGER trg_collaboratori_ruolo
+BEFORE INSERT ON collaboratori
+FOR EACH ROW
+EXECUTE FUNCTION check_single_ruolo();
+
+CREATE OR REPLACE TRIGGER trg_animati_ruolo
+BEFORE INSERT ON animati
+FOR EACH ROW
+EXECUTE FUNCTION check_single_ruolo();
+
+CREATE OR REPLACE TRIGGER trg_cuochi_ruolo
+BEFORE INSERT ON cuochi
+FOR EACH ROW
+EXECUTE FUNCTION check_single_ruolo();
+
+--TABLES
 
 CREATE TABLE IF NOT EXISTS "allergeni" (
 	"nome" VARCHAR(64) NOT NULL,
@@ -128,8 +195,8 @@ CREATE TABLE IF NOT EXISTS "contiene" (
 	"nome_allergene" VARCHAR(64) NOT NULL,
 	"nome_pietanza" VARCHAR(64) NOT NULL,
 	PRIMARY KEY("nome_allergene", "nome_pietanza")
-	ADD FOREIGN KEY("nome_allergene") REFERENCES "allergeni"("nome"),
-	ADD FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
+	FOREIGN KEY("nome_allergene") REFERENCES "allergeni"("nome"),
+	FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
 );
 
 
@@ -146,7 +213,7 @@ CREATE TABLE IF NOT EXISTS "partecipanti" (
 	"note" TEXT,
 	"numero_stanza" SMALLINT NOT NULL,
 	PRIMARY KEY("codice_fiscale"),
-	ADD FOREIGN KEY("numero_stanza") REFERENCES "stanze"("numero")
+	FOREIGN KEY("numero_stanza") REFERENCES "stanze"("numero")
 );
 
 
@@ -158,8 +225,8 @@ CREATE TABLE IF NOT EXISTS "allergico" (
 	"codice_fiscale_partecipante" CHAR(16) NOT NULL,
 	"nome_allergene" VARCHAR(64) NOT NULL,
 	PRIMARY KEY("codice_fiscale_partecipante", "nome_allergene"),
-	ADD FOREIGN KEY("codice_fiscale_partecipante") REFERENCES "partecipanti"("codice_fiscale"),
-	ADD FOREIGN KEY("nome_allergene") REFERENCES "allergeni"("nome")
+	FOREIGN KEY("codice_fiscale_partecipante") REFERENCES "partecipanti"("codice_fiscale"),
+	FOREIGN KEY("nome_allergene") REFERENCES "allergeni"("nome")
 );
 
 
@@ -173,8 +240,7 @@ CREATE TABLE IF NOT EXISTS "animatori" (
 	"commento" TEXT,
 	"capocampo" BOOLEAN DEFAULT false NOT NULL,
 	PRIMARY KEY("codice_fiscale"),
-	ADD FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale")
-
+	FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale")
 );
 
 
@@ -189,7 +255,7 @@ CREATE TABLE IF NOT EXISTS "attivita_routine" (
 	"codice_fiscale_animatore_supervisore" CHAR(16) NOT NULL,
 	"tipologia_routine" TIPOLOGIA_ROUTINE NOT NULL,
 	PRIMARY KEY("data_ora_inizio"),
-	ADD FOREIGN KEY("codice_fiscale_animatore_supervisore") REFERENCES "animatori"("codice_fiscale")
+	FOREIGN KEY("codice_fiscale_animatore_supervisore") REFERENCES "animatori"("codice_fiscale")
 );
 
 
@@ -202,7 +268,7 @@ CREATE TABLE IF NOT EXISTS "collaboratori" (
 	"voto" INTEGER,
 	"commento" TEXT,
 	PRIMARY KEY("codice_fiscale"),
-	ADD FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale")
+	FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale")
 );
 
 
@@ -215,7 +281,7 @@ CREATE TABLE IF NOT EXISTS "cuochi" (
 	"voto" INTEGER,
 	"commento" TEXT,
 	PRIMARY KEY("codice_fiscale"),
-	ADD FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale")
+	FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale")
 );
 
 
@@ -226,8 +292,8 @@ CREATE TABLE IF NOT EXISTS "prevede" (
 	"nome_materiale" VARCHAR(64) NOT NULL,
 	"quantita" INTEGER NOT NULL CHECK (quantita > 0),
 	PRIMARY KEY("data_ora_inizio_attivita", "nome_materiale"),
-	ADD FOREIGN KEY("nome_materiale") REFERENCES "materiali"("nome"),
-	ADD FOREIGN KEY("data_ora_inizio_attivita") REFERENCES "attivita_routine"("data_ora_inizio")
+	FOREIGN KEY("nome_materiale") REFERENCES "materiali"("nome"),
+	FOREIGN KEY("data_ora_inizio_attivita") REFERENCES "attivita_routine"("data_ora_inizio")
 );
 
 
@@ -239,7 +305,7 @@ CREATE TABLE IF NOT EXISTS "squadre" (
 	"punteggio" INTEGER NOT NULL DEFAULT 0 CHECK (punteggio >= 0),
 	"codice_fiscale_animatore_responsabile" CHAR(16) NOT NULL,
 	PRIMARY KEY("nome"),
-	ADD FOREIGN KEY("codice_fiscale_animatore_responsabile") REFERENCES "animatori"("codice_fiscale")
+	FOREIGN KEY("codice_fiscale_animatore_responsabile") REFERENCES "animatori"("codice_fiscale")
 );
 
 
@@ -251,8 +317,8 @@ CREATE TABLE IF NOT EXISTS "animati" (
 	"telefono_genitore" CHAR(10) NOT NULL,
 	"nome_squadra" VARCHAR(64) NOT NULL,
 	PRIMARY KEY("codice_fiscale"),
-	ADD FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale"),
-	ADD FOREIGN KEY("nome_squadra") REFERENCES "squadre"("nome")
+	FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale"),
+	FOREIGN KEY("nome_squadra") REFERENCES "squadre"("nome")
 );
 
 
@@ -266,7 +332,7 @@ CREATE TABLE IF NOT EXISTS "attivita_faccende" (
 	"nome_squadra" VARCHAR(64) NOT NULL,
 	"tipologia_faccenda" TIPOLOGIA_FACCENDA NOT NULL,
 	PRIMARY KEY("data_ora_inizio"),
-	ADD FOREIGN KEY("nome_squadra") REFERENCES "squadre"("nome")
+	FOREIGN KEY("nome_squadra") REFERENCES "squadre"("nome")
 );
 
 
@@ -280,8 +346,8 @@ CREATE TABLE IF NOT EXISTS "attivita_pasto" (
 	"codice_fiscale_cuoco_supervisore" CHAR(16) NOT NULL,
 	"nome_pietanza" VARCHAR(64) NOT NULL,
 	PRIMARY KEY("data_ora_inizio"),
-	ADD FOREIGN KEY("codice_fiscale_cuoco_supervisore") REFERENCES "cuochi"("codice_fiscale"),
-	ADD FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
+	FOREIGN KEY("codice_fiscale_cuoco_supervisore") REFERENCES "cuochi"("codice_fiscale"),
+	FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
 );
 
 

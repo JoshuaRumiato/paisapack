@@ -155,7 +155,7 @@ COMMENT ON COLUMN "partecipanti"."data_nascita" IS 'attributo derivato da codice
 
 
 CREATE TABLE IF NOT EXISTS "allergico" (
-	"codice_fiscale_partecipante" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale_partecipante)),
+	"codice_fiscale_partecipante" CHAR(16) NOT NULL,
 	"nome_allergene" VARCHAR(64) NOT NULL,
 	PRIMARY KEY("codice_fiscale_partecipante", "nome_allergene"),
 	ADD FOREIGN KEY("codice_fiscale_partecipante") REFERENCES "partecipanti"("codice_fiscale"),
@@ -166,8 +166,8 @@ CREATE TABLE IF NOT EXISTS "allergico" (
 
 
 CREATE TABLE IF NOT EXISTS "animatori" (
-	"codice_fiscale" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale)),
-	"email" VARCHAR(254) NOT NULL,
+	"codice_fiscale" CHAR(16) NOT NULL,
+	"email" VARCHAR(254) NOT NULL CHECK (is_valid_email(email)),
 	"telefono" CHAR(10) NOT NULL,
 	"voto" INTEGER,
 	"commento" TEXT,
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS "attivita_routine" (
 	"descrizione" TEXT,
 	"nome" VARCHAR(64) NOT NULL,
 	"valutazione" TEXT,
-	"codice_fiscale_animatore_supervisore" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale_animatore_supervisore)),
+	"codice_fiscale_animatore_supervisore" CHAR(16) NOT NULL,
 	"tipologia_routine" TIPOLOGIA_ROUTINE NOT NULL,
 	PRIMARY KEY("data_ora_inizio"),
 	ADD FOREIGN KEY("codice_fiscale_animatore_supervisore") REFERENCES "animatori"("codice_fiscale")
@@ -196,7 +196,7 @@ CREATE TABLE IF NOT EXISTS "attivita_routine" (
 
 
 CREATE TABLE IF NOT EXISTS "collaboratori" (
-	"codice_fiscale" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale)),
+	"codice_fiscale" CHAR(16) NOT NULL,
 	"email" VARCHAR(254) NOT NULL,
 	"telefono" CHAR(10) NOT NULL,
 	"voto" INTEGER,
@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS "collaboratori" (
 
 
 CREATE TABLE IF NOT EXISTS "cuochi" (
-	"codice_fiscale" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale)),
+	"codice_fiscale" CHAR(16) NOT NULL,
 	"email" VARCHAR(254) NOT NULL,
 	"telefono" CHAR(10) NOT NULL,
 	"voto" INTEGER,
@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS "squadre" (
 	"nome" VARCHAR(64) NOT NULL,
 	"slogan" VARCHAR(512) NOT NULL,
 	"punteggio" INTEGER NOT NULL DEFAULT 0 CHECK (punteggio >= 0),
-	"codice_fiscale_animatore_responsabile" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale_animatore_responsabile)),
+	"codice_fiscale_animatore_responsabile" CHAR(16) NOT NULL,
 	PRIMARY KEY("nome"),
 	ADD FOREIGN KEY("codice_fiscale_animatore_responsabile") REFERENCES "animatori"("codice_fiscale")
 );
@@ -246,7 +246,7 @@ CREATE TABLE IF NOT EXISTS "squadre" (
 
 
 CREATE TABLE IF NOT EXISTS "animati" (
-	"codice_fiscale" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale)),
+	"codice_fiscale" CHAR(16) NOT NULL,
 	"email_genitore" VARCHAR(254) NOT NULL,
 	"telefono_genitore" CHAR(10) NOT NULL,
 	"nome_squadra" VARCHAR(64) NOT NULL,
@@ -277,7 +277,7 @@ CREATE TABLE IF NOT EXISTS "attivita_pasto" (
 	"data_ora_fine" TIMESTAMP NOT NULL,
 	"tipo" TIPOLOGIA_PASTO NOT NULL,
 	"descrizione" TEXT,
-	"codice_fiscale_cuoco_supervisore" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale_cuoco_supervisore)),
+	"codice_fiscale_cuoco_supervisore" CHAR(16) NOT NULL,
 	"nome_pietanza" VARCHAR(64) NOT NULL,
 	PRIMARY KEY("data_ora_inizio"),
 	ADD FOREIGN KEY("codice_fiscale_cuoco_supervisore") REFERENCES "cuochi"("codice_fiscale"),

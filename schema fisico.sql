@@ -76,57 +76,139 @@ $$ LANGUAGE plpgsql IMMUTABLE;
 -- 		SET MESSAGE_TEXT = 'Animatore is required';
 -- 	END IF;
 -- END $$;
-CREATE OR REPLACE FUNCTION check_single_ruolo()
+
+-- INSERT/UPDATE
+CREATE OR REPLACE FUNCTION check_single_ruolo_insert_update()
 RETURNS TRIGGER AS $$
 DECLARE
     cnt INTEGER;
 BEGIN
-    SELECT COUNT(*)
-    INTO cnt
-    FROM (
-        SELECT codice_fiscale FROM animatori
-        UNION ALL
-        SELECT codice_fiscale FROM collaboratori
-        UNION ALL
-        SELECT codice_fiscale FROM animati
-        UNION ALL
-        SELECT codice_fiscale FROM cuochi
-    ) t
-    WHERE codice_fiscale = NEW.codice_fiscale;
-	IF cnt=0 THEN
-		IF cnt=1 THEN
-			RAISE EXCEPTION 'Un ruolo al massimo per %', NEW.codice_fiscale;
-    	END IF;
+	SELECT COUNT(*)
+	INTO cnt
+	FROM (
+		SELECT codice_fiscale FROM animatori
+		UNION ALL
+		SELECT codice_fiscale FROM collaboratori
+		UNION ALL
+		SELECT codice_fiscale FROM animati
+		UNION ALL
+		SELECT codice_fiscale FROM cuochi
+	) t
+	WHERE codice_fiscale = NEW.codice_fiscale;
+	IF cnt<>1 THEN
+		RAISE EXCEPTION 'Un partecipante deve avere sempre un unico ruolo';
     END IF;
-
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE TRIGGER trg_partecipanti_ruolo
-BEFORE INSERT ON partecipanti
+DROP TRIGGER IF EXISTS trg_partecipanti_ruolo_insert_update ON partecipanti;
+CREATE CONSTRAINT TRIGGER trg_partecipanti_ruolo_insert_update
+AFTER INSERT OR UPDATE ON partecipanti
+DEFERRABLE INITIALLY DEFERRED
 FOR EACH ROW
-EXECUTE FUNCTION check_single_ruolo();
+EXECUTE FUNCTION check_single_ruolo_insert_update();
 
-CREATE OR REPLACE TRIGGER trg_animatori_ruolo
-BEFORE INSERT ON animatori
+DROP TRIGGER IF EXISTS trg_animatori_ruolo_insert_update ON animatori;
+CREATE CONSTRAINT TRIGGER trg_animatori_ruolo_insert_update
+AFTER INSERT OR UPDATE ON animatori
+DEFERRABLE INITIALLY DEFERRED
 FOR EACH ROW
-EXECUTE FUNCTION check_single_ruolo();
+EXECUTE FUNCTION check_single_ruolo_insert_update();
 
-CREATE OR REPLACE TRIGGER trg_collaboratori_ruolo
-BEFORE INSERT ON collaboratori
+DROP TRIGGER IF EXISTS trg_collaboratori_ruolo_insert_update ON collaboratori;
+CREATE CONSTRAINT TRIGGER trg_collaboratori_ruolo_insert_update
+AFTER INSERT OR UPDATE ON collaboratori
+DEFERRABLE INITIALLY DEFERRED
 FOR EACH ROW
-EXECUTE FUNCTION check_single_ruolo();
+EXECUTE FUNCTION check_single_ruolo_insert_update();
 
-CREATE OR REPLACE TRIGGER trg_animati_ruolo
-BEFORE INSERT ON animati
+DROP TRIGGER IF EXISTS trg_animati_ruolo_insert_update ON animati;
+CREATE CONSTRAINT TRIGGER trg_animati_ruolo_insert_update
+AFTER INSERT OR UPDATE ON animati
+DEFERRABLE INITIALLY DEFERRED
 FOR EACH ROW
-EXECUTE FUNCTION check_single_ruolo();
+EXECUTE FUNCTION check_single_ruolo_insert_update();
 
-CREATE OR REPLACE TRIGGER trg_cuochi_ruolo
-BEFORE INSERT ON cuochi
+DROP TRIGGER IF EXISTS trg_cuochi_ruolo_insert_update ON cuochi;
+CREATE CONSTRAINT TRIGGER trg_cuochi_ruolo_insert_update
+AFTER INSERT OR DELETE OR UPDATE ON cuochi
+DEFERRABLE INITIALLY DEFERRED
 FOR EACH ROW
-EXECUTE FUNCTION check_single_ruolo();
+EXECUTE FUNCTION check_single_ruolo_insert_update();
+
+
+--DELETE
+CREATE OR REPLACE FUNCTION check_single_ruolo_delete()
+RETURNS TRIGGER AS $$
+DECLARE
+    cnt INTEGER;
+BEGIN
+	SELECT COUNT(*)
+	INTO cnt
+	FROM (
+		SELECT codice_fiscale FROM animatori
+		UNION ALL
+		SELECT codice_fiscale FROM collaboratori
+		UNION ALL
+		SELECT codice_fiscale FROM animati
+		UNION ALL
+		SELECT codice_fiscale FROM cuochi
+	) t
+	WHERE codice_fiscale = OLD.codice_fiscale;
+	IF cnt>1 THEN
+		RAISE EXCEPTION 'Un partecipante deve avere sempre un unico ruolo';
+    END IF;
+	IF cnt=0 THEN
+		SELECT COUNT(*)
+		INTO cnt
+		FROM partecipanti
+		WHERE codice_fiscale = OLD.codice_fiscale;
+		IF cnt<>0 THEN
+			RAISE EXCEPTION 'Un partecipante non puo rimanere senza ruolo';
+	    END IF;
+    END IF;
+    RETURN OLD;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_partecipanti_ruolo_delete ON partecipanti;
+CREATE CONSTRAINT TRIGGER trg_partecipanti_ruolo_delete
+AFTER DELETE ON partecipanti
+DEFERRABLE INITIALLY DEFERRED
+FOR EACH ROW
+EXECUTE FUNCTION check_single_ruolo_delete();
+
+DROP TRIGGER IF EXISTS trg_animatori_ruolo_delete ON animatori;
+CREATE CONSTRAINT TRIGGER trg_animatori_ruolo_delete
+AFTER DELETE ON animatori
+DEFERRABLE INITIALLY DEFERRED
+FOR EACH ROW
+EXECUTE FUNCTION check_single_ruolo_delete();
+
+DROP TRIGGER IF EXISTS trg_collaboratori_ruolo_delete ON collaboratori;
+CREATE CONSTRAINT TRIGGER trg_collaboratori_ruolo_delete
+AFTER DELETE ON collaboratori
+DEFERRABLE INITIALLY DEFERRED
+FOR EACH ROW
+EXECUTE FUNCTION check_single_ruolo_delete();
+
+DROP TRIGGER IF EXISTS trg_animati_ruolo_delete ON animati;
+CREATE CONSTRAINT TRIGGER trg_animati_ruolo_delete
+AFTER DELETE ON animati
+DEFERRABLE INITIALLY DEFERRED
+FOR EACH ROW
+EXECUTE FUNCTION check_single_ruolo_delete();
+
+DROP TRIGGER IF EXISTS trg_cuochi_ruolo_delete ON cuochi;
+CREATE CONSTRAINT TRIGGER trg_cuochi_ruolo_delete
+AFTER DELETE ON cuochi
+DEFERRABLE INITIALLY DEFERRED
+FOR EACH ROW
+EXECUTE FUNCTION check_single_ruolo_delete();
+
+
+
 
 --TABLES
 
@@ -194,7 +276,7 @@ CREATE TABLE IF NOT EXISTS "stanze" (
 CREATE TABLE IF NOT EXISTS "contiene" (
 	"nome_allergene" VARCHAR(64) NOT NULL,
 	"nome_pietanza" VARCHAR(64) NOT NULL,
-	PRIMARY KEY("nome_allergene", "nome_pietanza")
+	PRIMARY KEY("nome_allergene", "nome_pietanza"),
 	FOREIGN KEY("nome_allergene") REFERENCES "allergeni"("nome"),
 	FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
 );

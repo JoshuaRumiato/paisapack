@@ -10,6 +10,7 @@ TO-DO
 - [ ] vedere se scrivere nella traccia la frequenza dell'operazione del vedere il materiale necessario
 - [ ] Chiedere al prof del ciclo (non lo abbiamo fatto)
 - [ ] Chiedere al prof se se la tabella stanza puo' non avere il collegamento alla tabella edificio (perche' c'e ne' solo uno e si ripeterebbero solamente i valori nella tabella stanza)
+- [ ] Il ruolo non cambia durante il campo e' un po strano come trigger perche' dovrebbe basarsi sulla data corrente e sulla data di inizio/fine del campo, meglio chiedere al prof
 
 Possibili query:
 - quantità sul numero di pietanze da fare per pasto

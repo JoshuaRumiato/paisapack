@@ -132,7 +132,7 @@ EXECUTE FUNCTION check_single_ruolo_insert_update();
 
 DROP TRIGGER IF EXISTS trg_cuochi_ruolo_insert_update ON cuochi;
 CREATE CONSTRAINT TRIGGER trg_cuochi_ruolo_insert_update
-AFTER INSERT OR DELETE OR UPDATE ON cuochi
+AFTER INSERT OR UPDATE ON cuochi
 DEFERRABLE INITIALLY DEFERRED
 FOR EACH ROW
 EXECUTE FUNCTION check_single_ruolo_insert_update();

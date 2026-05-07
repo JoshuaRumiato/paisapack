@@ -113,7 +113,9 @@ CREATE TABLE IF NOT EXISTS "partecipanti" (
 	"note" TEXT,
 	"numero_stanza" SMALLINT NOT NULL,
 	PRIMARY KEY("codice_fiscale"),
-	FOREIGN KEY("numero_stanza") REFERENCES "stanze"("numero")
+	FOREIGN KEY (numero_stanza) REFERENCES stanze(numero)
+        ON UPDATE CASCADE
+        ON DELETE NO ACTION
 );
 
 

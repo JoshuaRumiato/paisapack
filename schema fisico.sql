@@ -28,6 +28,254 @@ CREATE TYPE tipologia_routine AS ENUM (
 
 
 
+--TABLES
+
+CREATE TABLE IF NOT EXISTS "allergeni" (
+	"nome" VARCHAR(64) NOT NULL,
+	PRIMARY KEY("nome")
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "attivita_extra" (
+	"data_ora_fine" TIMESTAMP NOT NULL,
+	"data_ora_inizio" TIMESTAMP NOT NULL,
+	"tipo" VARCHAR(64) NOT NULL,
+	"descrizione" TEXT,
+	PRIMARY KEY("data_ora_fine")
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "edificio" (
+	"via" VARCHAR(64) NOT NULL,
+	"civico" VARCHAR(8) NOT NULL,
+	"cap" CHAR(5) NOT NULL,
+	"comune" VARCHAR(255) NOT NULL,
+	"provincia" CHAR(2) NOT NULL,
+	PRIMARY KEY("via", "civico", "cap", "comune", "provincia")
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "materiali" (
+	"nome" VARCHAR(64) NOT NULL,
+	"unita_misura" VARCHAR(32) NOT NULL,
+	"numero_utilizzi" INTEGER NOT NULL DEFAULT 1 CHECK (numero_utilizzi >= 0),
+	"portare_in_autonomia" BOOLEAN NOT NULL,
+	PRIMARY KEY("nome")
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "pietanze" (
+	"nome" VARCHAR(64) NOT NULL,
+	"descrizione" TEXT,
+	PRIMARY KEY("nome")
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "stanze" (
+	"numero" SMALLINT NOT NULL,
+	"piano" SMALLINT NOT NULL,
+	"posti_letto" SMALLINT NOT NULL CHECK (posti_letto > 0),
+	PRIMARY KEY("numero")
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "contiene" (
+	"nome_allergene" VARCHAR(64) NOT NULL,
+	"nome_pietanza" VARCHAR(64) NOT NULL,
+	PRIMARY KEY("nome_allergene", "nome_pietanza"),
+	FOREIGN KEY("nome_allergene") REFERENCES "allergeni"("nome"),
+	FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "partecipanti" (
+	"codice_fiscale" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale)),
+	"nome" VARCHAR(64) NOT NULL,
+	"cognome" VARCHAR(64) NOT NULL,
+	"sesso" CHAR(1) NOT NULL,
+	"data_nascita" DATE NOT NULL,
+	"luogo_nascita" VARCHAR(255) NOT NULL,
+	"foto_documento" VARCHAR(255) NOT NULL UNIQUE,
+	"note" TEXT,
+	"numero_stanza" SMALLINT NOT NULL,
+	PRIMARY KEY("codice_fiscale"),
+	FOREIGN KEY("numero_stanza") REFERENCES "stanze"("numero")
+);
+
+
+COMMENT ON COLUMN "partecipanti"."sesso" IS 'attributo derivato da codice_fiscale';
+COMMENT ON COLUMN "partecipanti"."data_nascita" IS 'attributo derivato da codice_fiscale';
+
+
+CREATE TABLE IF NOT EXISTS "allergico" (
+	"codice_fiscale_partecipante" CHAR(16) NOT NULL,
+	"nome_allergene" VARCHAR(64) NOT NULL,
+	PRIMARY KEY("codice_fiscale_partecipante", "nome_allergene"),
+	FOREIGN KEY (codice_fiscale_partecipante)
+        REFERENCES partecipanti(codice_fiscale)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+	FOREIGN KEY("nome_allergene") REFERENCES "allergeni"("nome")
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "animatori" (
+	"codice_fiscale" CHAR(16) NOT NULL,
+	"email" VARCHAR(254) NOT NULL CHECK (is_valid_email(email)),
+	"telefono" CHAR(10) NOT NULL,
+	"voto" INTEGER,
+	"commento" TEXT,
+	"capocampo" BOOLEAN DEFAULT false NOT NULL,
+	PRIMARY KEY("codice_fiscale"),
+	FOREIGN KEY (codice_fiscale)
+        REFERENCES partecipanti(codice_fiscale)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "attivita_routine" (
+	"data_ora_inizio" TIMESTAMP NOT NULL,
+	"data_ora_fine" TIMESTAMP NOT NULL,
+	"descrizione" TEXT,
+	"nome" VARCHAR(64) NOT NULL,
+	"valutazione" TEXT,
+	"codice_fiscale_animatore_supervisore" CHAR(16) NOT NULL,
+	"tipologia_routine" TIPOLOGIA_ROUTINE NOT NULL,
+	PRIMARY KEY("data_ora_inizio"),
+	FOREIGN KEY (codice_fiscale_animatore_supervisore)
+        REFERENCES animatori(codice_fiscale)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "collaboratori" (
+	"codice_fiscale" CHAR(16) NOT NULL,
+	"email" VARCHAR(254) NOT NULL,
+	"telefono" CHAR(10) NOT NULL,
+	"voto" INTEGER,
+	"commento" TEXT,
+	PRIMARY KEY("codice_fiscale"),
+	FOREIGN KEY (codice_fiscale)
+        REFERENCES partecipanti(codice_fiscale)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "cuochi" (
+	"codice_fiscale" CHAR(16) NOT NULL,
+	"email" VARCHAR(254) NOT NULL,
+	"telefono" CHAR(10) NOT NULL,
+	"voto" INTEGER,
+	"commento" TEXT,
+	PRIMARY KEY("codice_fiscale"),
+	FOREIGN KEY (codice_fiscale)
+        REFERENCES partecipanti(codice_fiscale)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "prevede" (
+	"data_ora_inizio_attivita" TIMESTAMP NOT NULL,
+	"nome_materiale" VARCHAR(64) NOT NULL,
+	"quantita" INTEGER NOT NULL CHECK (quantita > 0),
+	PRIMARY KEY("data_ora_inizio_attivita", "nome_materiale"),
+	FOREIGN KEY("nome_materiale") REFERENCES "materiali"("nome"),
+	FOREIGN KEY("data_ora_inizio_attivita") REFERENCES "attivita_routine"("data_ora_inizio")
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "squadre" (
+	"nome" VARCHAR(64) NOT NULL,
+	"slogan" VARCHAR(512) NOT NULL,
+	"punteggio" INTEGER NOT NULL DEFAULT 0 CHECK (punteggio >= 0),
+	"codice_fiscale_animatore_responsabile" CHAR(16) NOT NULL,
+	PRIMARY KEY("nome"),
+	FOREIGN KEY (codice_fiscale_animatore_responsabile)
+        REFERENCES animatori(codice_fiscale)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "animati" (
+	"codice_fiscale" CHAR(16) NOT NULL,
+	"email_genitore" VARCHAR(254) NOT NULL,
+	"telefono_genitore" CHAR(10) NOT NULL,
+	"nome_squadra" VARCHAR(64) NOT NULL,
+	PRIMARY KEY("codice_fiscale"),
+	FOREIGN KEY (codice_fiscale)
+        REFERENCES partecipanti(codice_fiscale)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+	FOREIGN KEY("nome_squadra") REFERENCES "squadre"("nome")
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "attivita_faccende" (
+	"data_ora_inizio" TIMESTAMP NOT NULL,
+	"data_ora_fine" TIMESTAMP NOT NULL,
+	"nome" VARCHAR(64) NOT NULL,
+	"descrizione" TEXT,
+	"nome_squadra" VARCHAR(64) NOT NULL,
+	"tipologia_faccenda" TIPOLOGIA_FACCENDA NOT NULL,
+	PRIMARY KEY("data_ora_inizio"),
+	FOREIGN KEY("nome_squadra") REFERENCES "squadre"("nome")
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS "attivita_pasto" (
+	"data_ora_inizio" TIMESTAMP NOT NULL,
+	"data_ora_fine" TIMESTAMP NOT NULL,
+	"tipo" TIPOLOGIA_PASTO NOT NULL,
+	"descrizione" TEXT,
+	"codice_fiscale_cuoco_supervisore" CHAR(16) NOT NULL,
+	"nome_pietanza" VARCHAR(64) NOT NULL,
+	PRIMARY KEY("data_ora_inizio"),
+	FOREIGN KEY (codice_fiscale_cuoco_supervisore)
+        REFERENCES cuochi(codice_fiscale)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+	FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
+);
+
+
+
 --CHECKS
 
 CREATE FUNCTION is_valid_cf(text)
@@ -206,263 +454,3 @@ AFTER DELETE ON cuochi
 DEFERRABLE INITIALLY DEFERRED
 FOR EACH ROW
 EXECUTE FUNCTION check_single_ruolo_delete();
-
-
-
-
---TABLES
-
-CREATE TABLE IF NOT EXISTS "allergeni" (
-	"nome" VARCHAR(64) NOT NULL,
-	PRIMARY KEY("nome")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "attivita_extra" (
-	"data_ora_fine" TIMESTAMP NOT NULL,
-	"data_ora_inizio" TIMESTAMP NOT NULL,
-	"tipo" VARCHAR(64) NOT NULL,
-	"descrizione" TEXT,
-	PRIMARY KEY("data_ora_fine")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "edificio" (
-	"via" VARCHAR(64) NOT NULL,
-	"civico" VARCHAR(8) NOT NULL,
-	"cap" CHAR(5) NOT NULL,
-	"comune" VARCHAR(255) NOT NULL,
-	"provincia" CHAR(2) NOT NULL,
-	PRIMARY KEY("via", "civico", "cap", "comune", "provincia")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "materiali" (
-	"nome" VARCHAR(64) NOT NULL,
-	"unita_misura" VARCHAR(32) NOT NULL,
-	"numero_utilizzi" INTEGER NOT NULL DEFAULT 1 CHECK (numero_utilizzi >= 0),
-	"portare_in_autonomia" BOOLEAN NOT NULL,
-	PRIMARY KEY("nome")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "pietanze" (
-	"nome" VARCHAR(64) NOT NULL,
-	"descrizione" TEXT,
-	PRIMARY KEY("nome")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "stanze" (
-	"numero" SMALLINT NOT NULL,
-	"piano" SMALLINT NOT NULL,
-	"posti_letto" SMALLINT NOT NULL CHECK (posti_letto > 0),
-	PRIMARY KEY("numero")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "contiene" (
-	"nome_allergene" VARCHAR(64) NOT NULL,
-	"nome_pietanza" VARCHAR(64) NOT NULL,
-	PRIMARY KEY("nome_allergene", "nome_pietanza"),
-	FOREIGN KEY("nome_allergene") REFERENCES "allergeni"("nome"),
-	FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "partecipanti" (
-	"codice_fiscale" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale)),
-	"nome" VARCHAR(64) NOT NULL,
-	"cognome" VARCHAR(64) NOT NULL,
-	"sesso" CHAR(1) NOT NULL,
-	"data_nascita" DATE NOT NULL,
-	"luogo_nascita" VARCHAR(255) NOT NULL,
-	"foto_documento" VARCHAR(255) NOT NULL UNIQUE,
-	"note" TEXT,
-	"numero_stanza" SMALLINT NOT NULL,
-	PRIMARY KEY("codice_fiscale"),
-	FOREIGN KEY("numero_stanza") REFERENCES "stanze"("numero")
-);
-
-
-COMMENT ON COLUMN "partecipanti"."sesso" IS 'attributo derivato da codice_fiscale';
-COMMENT ON COLUMN "partecipanti"."data_nascita" IS 'attributo derivato da codice_fiscale';
-
-
-CREATE TABLE IF NOT EXISTS "allergico" (
-	"codice_fiscale_partecipante" CHAR(16) NOT NULL,
-	"nome_allergene" VARCHAR(64) NOT NULL,
-	PRIMARY KEY("codice_fiscale_partecipante", "nome_allergene"),
-	FOREIGN KEY("codice_fiscale_partecipante") REFERENCES "partecipanti"("codice_fiscale"),
-	FOREIGN KEY("nome_allergene") REFERENCES "allergeni"("nome")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "animatori" (
-	"codice_fiscale" CHAR(16) NOT NULL,
-	"email" VARCHAR(254) NOT NULL CHECK (is_valid_email(email)),
-	"telefono" CHAR(10) NOT NULL,
-	"voto" INTEGER,
-	"commento" TEXT,
-	"capocampo" BOOLEAN DEFAULT false NOT NULL,
-	PRIMARY KEY("codice_fiscale"),
-	FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "attivita_routine" (
-	"data_ora_inizio" TIMESTAMP NOT NULL,
-	"data_ora_fine" TIMESTAMP NOT NULL,
-	"descrizione" TEXT,
-	"nome" VARCHAR(64) NOT NULL,
-	"valutazione" TEXT,
-	"codice_fiscale_animatore_supervisore" CHAR(16) NOT NULL,
-	"tipologia_routine" TIPOLOGIA_ROUTINE NOT NULL,
-	PRIMARY KEY("data_ora_inizio"),
-	FOREIGN KEY("codice_fiscale_animatore_supervisore") REFERENCES "animatori"("codice_fiscale")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "collaboratori" (
-	"codice_fiscale" CHAR(16) NOT NULL,
-	"email" VARCHAR(254) NOT NULL,
-	"telefono" CHAR(10) NOT NULL,
-	"voto" INTEGER,
-	"commento" TEXT,
-	PRIMARY KEY("codice_fiscale"),
-	FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "cuochi" (
-	"codice_fiscale" CHAR(16) NOT NULL,
-	"email" VARCHAR(254) NOT NULL,
-	"telefono" CHAR(10) NOT NULL,
-	"voto" INTEGER,
-	"commento" TEXT,
-	PRIMARY KEY("codice_fiscale"),
-	FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "prevede" (
-	"data_ora_inizio_attivita" TIMESTAMP NOT NULL,
-	"nome_materiale" VARCHAR(64) NOT NULL,
-	"quantita" INTEGER NOT NULL CHECK (quantita > 0),
-	PRIMARY KEY("data_ora_inizio_attivita", "nome_materiale"),
-	FOREIGN KEY("nome_materiale") REFERENCES "materiali"("nome"),
-	FOREIGN KEY("data_ora_inizio_attivita") REFERENCES "attivita_routine"("data_ora_inizio")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "squadre" (
-	"nome" VARCHAR(64) NOT NULL,
-	"slogan" VARCHAR(512) NOT NULL,
-	"punteggio" INTEGER NOT NULL DEFAULT 0 CHECK (punteggio >= 0),
-	"codice_fiscale_animatore_responsabile" CHAR(16) NOT NULL,
-	PRIMARY KEY("nome"),
-	FOREIGN KEY("codice_fiscale_animatore_responsabile") REFERENCES "animatori"("codice_fiscale")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "animati" (
-	"codice_fiscale" CHAR(16) NOT NULL,
-	"email_genitore" VARCHAR(254) NOT NULL,
-	"telefono_genitore" CHAR(10) NOT NULL,
-	"nome_squadra" VARCHAR(64) NOT NULL,
-	PRIMARY KEY("codice_fiscale"),
-	FOREIGN KEY("codice_fiscale") REFERENCES "partecipanti"("codice_fiscale"),
-	FOREIGN KEY("nome_squadra") REFERENCES "squadre"("nome")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "attivita_faccende" (
-	"data_ora_inizio" TIMESTAMP NOT NULL,
-	"data_ora_fine" TIMESTAMP NOT NULL,
-	"nome" VARCHAR(64) NOT NULL,
-	"descrizione" TEXT,
-	"nome_squadra" VARCHAR(64) NOT NULL,
-	"tipologia_faccenda" TIPOLOGIA_FACCENDA NOT NULL,
-	PRIMARY KEY("data_ora_inizio"),
-	FOREIGN KEY("nome_squadra") REFERENCES "squadre"("nome")
-);
-
-
-
-
-CREATE TABLE IF NOT EXISTS "attivita_pasto" (
-	"data_ora_inizio" TIMESTAMP NOT NULL,
-	"data_ora_fine" TIMESTAMP NOT NULL,
-	"tipo" TIPOLOGIA_PASTO NOT NULL,
-	"descrizione" TEXT,
-	"codice_fiscale_cuoco_supervisore" CHAR(16) NOT NULL,
-	"nome_pietanza" VARCHAR(64) NOT NULL,
-	PRIMARY KEY("data_ora_inizio"),
-	FOREIGN KEY("codice_fiscale_cuoco_supervisore") REFERENCES "cuochi"("codice_fiscale"),
-	FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
-);
-
-
-
-ALTER TABLE "allergico"
-ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE "animati"
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "animati"
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "animatori"
-ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE "attivita_faccende"
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "attivita_pasto"
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "attivita_pasto"
-ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE "attivita_routine"
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "collaboratori"
-ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE "contiene"
-ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE "contiene"
-ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE "cuochi"
-ON UPDATE CASCADE ON DELETE CASCADE;
-ALTER TABLE "partecipanti"
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "prevede"
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "prevede"
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "squadre"
-ON UPDATE NO ACTION ON DELETE NO ACTION;

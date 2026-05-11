@@ -19,11 +19,11 @@
 
 # Tabella dei volumi
 
-| concetto           | tipo      | volume |
-| ------------------ | ------    | ------ |
-|Materiale           | Entità    | 50     |
-|Prevede             | Relazione | 84     |
-|Routine             | Entità    | 56     |
+| concetto  | tipo      | volume |
+| -----------| -----------| --------|
+| Materiale | Entità    | 50     |
+| Prevede   | Relazione | 84     |
+| Routine   | Entità    | 56     |
 
 ## Senza attributo derivato
 ### Aggiunta attività di routine

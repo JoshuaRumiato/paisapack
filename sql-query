@@ -19,7 +19,5 @@ Query SQL: discuterne prima con me.
 
 10. Ricerca tutti i componenti di una SQUADRA, con i loro dettagli (nome, cognome, data di nascita, ecc...
 11. Ottenere la media delle valutazioni dell'operato delle equipe.
-12. Trovare quale routine ha usato il numero magiore di unità per un materiale specifico.
-13. Quanti differenti pietanze dato un giorno e un pasto specifico basandosi sugli allegerni.
-
-
+12. Trovare quale routine ha usato il numero maggiore di unità per un materiale specifico.
+13. Quanti differenti pietanze (per persone allergiche) sono da preparare per uno specifico pasto basandosi sugli allergeni delle pietanze.

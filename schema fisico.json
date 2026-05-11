@@ -21,17 +21,18 @@
       ],
       "indices": [],
       "id": "FijVM71lH1csx65zWnumo",
-      "x": 254.43484577459606,
-      "y": 1650.1794056087488
+      "x": 647.261185219032,
+      "y": 1440.2507635270722,
+      "hidden": false
     },
     {
-      "name": "attività_extra",
+      "name": "attivita_extra",
       "comment": "",
       "color": "#175e7a",
       "fields": [
         {
-          "id": "IHy_Yim1W0u9hofKxMKnJ",
-          "name": "data_ora_fine",
+          "id": "47XuXJZc49Ipy1AEm1or1",
+          "name": "data_ora_inizio",
           "type": "TIMESTAMP",
           "comment": "",
           "unique": false,
@@ -44,8 +45,8 @@
           "values": []
         },
         {
-          "id": "47XuXJZc49Ipy1AEm1or1",
-          "name": "data_ora_inizio",
+          "id": "IHy_Yim1W0u9hofKxMKnJ",
+          "name": "data_ora_fine",
           "type": "TIMESTAMP",
           "comment": "",
           "unique": false,
@@ -85,8 +86,8 @@
       ],
       "indices": [],
       "id": "Qjh9xM5N2nfkZDa_h8c2z",
-      "x": 1668.4453849088904,
-      "y": -546.9904784470037
+      "x": 1246.5180441065668,
+      "y": -488.794605762203
     },
     {
       "name": "edificio",
@@ -161,8 +162,8 @@
       ],
       "indices": [],
       "id": "KjuO4kHc69js9oSt8NJI9",
-      "x": 16.344440981135335,
-      "y": -498.22391626514036
+      "x": 222.10914738807162,
+      "y": -377.6741160635229
     },
     {
       "name": "materiali",
@@ -205,7 +206,7 @@
           "notNull": true,
           "primary": false,
           "default": "1",
-          "check": ""
+          "check": "(numero_utilizzi >= 0)"
         },
         {
           "id": "KefXi641QAG3KgKDDxjMb",
@@ -222,8 +223,8 @@
       ],
       "indices": [],
       "id": "3cYYP9JXzKYu1Hj4FlaMB",
-      "x": 2476.6551178540303,
-      "y": 1849.4218583718684
+      "x": 2250.0999379364143,
+      "y": 325.90791655829946
     },
     {
       "name": "pietanze",
@@ -258,8 +259,8 @@
       ],
       "indices": [],
       "id": "iTpK7hucVEyM9m2-Dg-7x",
-      "x": 2028.3289294521912,
-      "y": 1682.5663309655954
+      "x": 1847.5069702205265,
+      "y": 1478.877761390955
     },
     {
       "name": "stanze",
@@ -304,15 +305,15 @@
           "notNull": true,
           "primary": false,
           "default": "",
-          "check": "",
+          "check": "(posti_letto > 0)",
           "size": "",
           "values": []
         }
       ],
       "indices": [],
       "id": "tXL4RzRn3nYoGqMSjdhoD",
-      "x": -479.4191321127432,
-      "y": -474.6277193607324
+      "x": -396.2803627397202,
+      "y": -364.4702154930926
     },
     {
       "name": "contiene",
@@ -348,8 +349,8 @@
       ],
       "indices": [],
       "id": "fVqYo5VIBG3SiH6OHtOom",
-      "x": 1034.2142043542708,
-      "y": 1646.6813153168187
+      "x": 1052.9228595405311,
+      "y": 1440.9109274177588
     },
     {
       "name": "partecipanti",
@@ -367,7 +368,7 @@
           "primary": true,
           "default": "",
           "size": 16,
-          "check": ""
+          "check": "is_valid_cf(codice_fiscale)"
         },
         {
           "id": "Jqtafm4k0zOVCWAZtP-9d",
@@ -512,8 +513,8 @@
       ],
       "indices": [],
       "id": "ZFUDo9v3FiTGwxL8NqJ9A",
-      "x": -475.41810445803253,
-      "y": 1615.1256629542038
+      "x": 229.18400260146143,
+      "y": 1405.1972202231282
     },
     {
       "name": "animatori",
@@ -544,7 +545,7 @@
           "primary": false,
           "default": "",
           "size": 254,
-          "check": ""
+          "check": "(is_valid_email(email))"
         },
         {
           "id": "LNg3cjo6te7ucYIcafjCy",
@@ -569,7 +570,7 @@
           "notNull": false,
           "primary": false,
           "default": "",
-          "check": ""
+          "check": "(is_valid_voto(voto))"
         },
         {
           "id": "1wXBUTfTnUjuP_K33H6p4",
@@ -582,15 +583,29 @@
           "primary": false,
           "default": "",
           "check": ""
+        },
+        {
+          "id": "GMwUuE-SUHGpySrXCKUI9",
+          "name": "capocampo",
+          "type": "BOOLEAN",
+          "default": "false",
+          "check": "",
+          "primary": false,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
         }
       ],
       "indices": [],
       "id": "jGNcfsOYRCRx9V-WcQKuN",
-      "x": 618.4117147233369,
-      "y": 248.07673232486383
+      "x": 219.34530277186514,
+      "y": 243.9185778175477
     },
     {
-      "name": "attività_routine",
+      "name": "attivita_routine",
       "comment": "",
       "color": "#175e7a",
       "fields": [
@@ -689,8 +704,8 @@
       ],
       "indices": [],
       "id": "z4ETapKhduzloPWDl6zD2",
-      "x": 1596.7299214292955,
-      "y": 333.99207382716054
+      "x": 1262.0992054814099,
+      "y": 296.5808436479652
     },
     {
       "name": "collaboratori",
@@ -721,7 +736,7 @@
           "primary": false,
           "default": "",
           "size": 254,
-          "check": ""
+          "check": "(is_valid_email(email))"
         },
         {
           "id": "-UqK9IVsEpXkLhrZm4RaJ",
@@ -734,7 +749,7 @@
           "primary": false,
           "default": "",
           "size": 10,
-          "check": ""
+          "check": "(is_valid_phone_number(telefono))"
         },
         {
           "id": "2a_8Dln_v-KFs-pR6zl1w",
@@ -746,7 +761,7 @@
           "notNull": false,
           "primary": false,
           "default": "",
-          "check": ""
+          "check": "(is_valid_voto(voto))"
         },
         {
           "id": "Ns8TBJChO7ZNVPoWe2V_n",
@@ -763,8 +778,8 @@
       ],
       "indices": [],
       "id": "A_L3xR5ez06b7krVKEI9n",
-      "x": 630.3710051180309,
-      "y": 620.502674227858
+      "x": 231.30459316655913,
+      "y": 616.3445197205419
     },
     {
       "name": "cuochi",
@@ -795,7 +810,7 @@
           "primary": false,
           "default": "",
           "size": 254,
-          "check": ""
+          "check": "(is_valid_email(email))"
         },
         {
           "id": "iM0RByuMgmg-2qfCPhkGg",
@@ -808,7 +823,7 @@
           "primary": false,
           "default": "",
           "size": 10,
-          "check": ""
+          "check": "(is_valid_phone_number(telefono))"
         },
         {
           "id": "fxnt6ezw-iWUQTSt1Pwh7",
@@ -820,7 +835,7 @@
           "notNull": false,
           "primary": false,
           "default": "",
-          "check": ""
+          "check": "(is_valid_voto(voto))"
         },
         {
           "id": "1zEG_aENhVeX7LRg-xzIG",
@@ -837,8 +852,8 @@
       ],
       "indices": [],
       "id": "rjX3Z3-9O-cIOKaxbvPRb",
-      "x": 624.5221007024928,
-      "y": -94.11186202464263
+      "x": 225.45568875102106,
+      "y": -98.27001653195875
     },
     {
       "name": "prevede",
@@ -847,7 +862,7 @@
       "fields": [
         {
           "id": "5tnrOMSxAt6frllAdkbS8",
-          "name": "data_ora_inizio_attività",
+          "name": "data_ora_inizio_attivita",
           "type": "TIMESTAMP",
           "comment": "",
           "unique": false,
@@ -874,7 +889,7 @@
         },
         {
           "id": "QpOg5qr9ix6reuFdvuyqB",
-          "name": "quantità",
+          "name": "quantita",
           "type": "INTEGER",
           "comment": "",
           "unique": false,
@@ -882,13 +897,13 @@
           "notNull": true,
           "primary": false,
           "default": "",
-          "check": ""
+          "check": "(quantita > 0)"
         }
       ],
       "indices": [],
       "id": "on3PHMDxQMJJqtlWOWtrB",
-      "x": 2456.6704406384983,
-      "y": 741.4501329912531
+      "x": 1818.580365765487,
+      "y": 294.58004501365815
     },
     {
       "name": "squadre",
@@ -911,15 +926,16 @@
         {
           "id": "Fs7DP1VCITzU7X-RUvKIN",
           "name": "slogan",
-          "type": "VARCHAR",
+          "type": "TEXT",
           "comment": "",
           "unique": false,
           "increment": false,
           "notNull": true,
           "primary": false,
           "default": "",
-          "size": 512,
-          "check": ""
+          "size": "",
+          "check": "",
+          "values": []
         },
         {
           "id": "TloTjonW83sxQAorrOoT3",
@@ -931,7 +947,7 @@
           "notNull": true,
           "primary": false,
           "default": "0",
-          "check": ""
+          "check": "(punteggio >= 0)"
         },
         {
           "id": "_3UtLkANJvEM6v0W4tJi_",
@@ -949,8 +965,8 @@
       ],
       "indices": [],
       "id": "LUc8gpEa6gIoBadxZDDqJ",
-      "x": 1196.8368130720296,
-      "y": 883.6606931109823
+      "x": 874.674679803368,
+      "y": 767.2689477413804
     },
     {
       "name": "animati",
@@ -981,7 +997,7 @@
           "primary": false,
           "default": "",
           "size": 254,
-          "check": ""
+          "check": "(is_valid_email(email))"
         },
         {
           "id": "LQ_K1F--5dvCLiii0y4VG",
@@ -994,7 +1010,7 @@
           "primary": false,
           "default": "",
           "size": 10,
-          "check": ""
+          "check": "(is_valid_phone_number(telefono_genitore))"
         },
         {
           "id": "JXT_vrOTUmeY0WlIAgNeT",
@@ -1012,11 +1028,11 @@
       ],
       "indices": [],
       "id": "9TaPanjjqN1mpQXZXPwTZ",
-      "x": 67.76850200279733,
-      "y": 1188.0291516548987
+      "x": 229.88758721562596,
+      "y": 1011.3595657631263
     },
     {
-      "name": "attività_faccende",
+      "name": "attivita_faccende",
       "comment": "",
       "color": "#175e7a",
       "fields": [
@@ -1103,11 +1119,11 @@
       ],
       "indices": [],
       "id": "SPtM0kwn6TmaCWhBJDfR6",
-      "x": 1629.4865917903614,
-      "y": 1075.4610172427724
+      "x": 1265.7550738351883,
+      "y": 767.8492849777545
     },
     {
-      "name": "attività_pasto",
+      "name": "attivita_pasto",
       "comment": "",
       "color": "#175e7a",
       "fields": [
@@ -1194,8 +1210,8 @@
       ],
       "indices": [],
       "id": "tfhyI1fy9kEJC5O-4kCDe",
-      "x": 1594.5321675273904,
-      "y": -79.53387375664585
+      "x": 1259.9014515795047,
+      "y": -116.94510393584119
     }
   ],
   "relationships": [
@@ -1227,8 +1243,8 @@
       "startFieldId": "wV58QE4uS3ZrDbxgPvsrM",
       "endTableId": "wxz8MvseRcVrGNcBGOCN2",
       "endFieldId": "Ptl7x5sjFiCzAIkllnTYs",
-      "updateConstraint": "No action",
-      "deleteConstraint": "No action",
+      "updateConstraint": "Cascade",
+      "deleteConstraint": "Cascade",
       "cardinality": "many_to_one",
       "id": 2
     },
@@ -1271,7 +1287,7 @@
       "startFieldId": "vThT3_89_19htfTFmENuw",
       "endTableId": "rjX3Z3-9O-cIOKaxbvPRb",
       "endFieldId": "wx8mPxSX4sxOJvOY0yzlA",
-      "updateConstraint": "No action",
+      "updateConstraint": "Cascade",
       "deleteConstraint": "No action",
       "cardinality": "many_to_one",
       "id": 6
@@ -1293,7 +1309,7 @@
       "startFieldId": "IOMxIemhccDky9RD-vYm3",
       "endTableId": "jGNcfsOYRCRx9V-WcQKuN",
       "endFieldId": "DLPB-WUp_hUkcMXjNp4Y0",
-      "updateConstraint": "No action",
+      "updateConstraint": "Cascade",
       "deleteConstraint": "No action",
       "cardinality": "many_to_one",
       "id": 8
@@ -1348,7 +1364,7 @@
       "startFieldId": "caL4nUzMJ_EqgVfV3BijM",
       "endTableId": "tXL4RzRn3nYoGqMSjdhoD",
       "endFieldId": "kfKCPDVsbVG1xH0a_rNN-",
-      "updateConstraint": "No action",
+      "updateConstraint": "Cascade",
       "deleteConstraint": "No action",
       "cardinality": "many_to_one",
       "id": 13
@@ -1381,7 +1397,7 @@
       "startFieldId": "_3UtLkANJvEM6v0W4tJi_",
       "endTableId": "jGNcfsOYRCRx9V-WcQKuN",
       "endFieldId": "DLPB-WUp_hUkcMXjNp4Y0",
-      "updateConstraint": "No action",
+      "updateConstraint": "Cascade",
       "deleteConstraint": "No action",
       "cardinality": "many_to_one",
       "id": 16
@@ -1539,6 +1555,43 @@
       "comment": ""
     }
   ],
-  "enums": [],
+  "enums": [
+    {
+      "name": "tipologia_pasto",
+      "values": [
+        "colazione",
+        "pranzo",
+        "merenda",
+        "cena"
+      ]
+    },
+    {
+      "name": "tipologia_faccenda",
+      "values": [
+        "preparazione tavoli colazione",
+        "spreparazione tavoli colazione",
+        "pulizia stoviglie tavoli colazione",
+        "preparazione tavoli pranzo",
+        "spreparazione tavoli pranzo",
+        "pulizia stoviglie pranzo",
+        "preparazione tavoli cena",
+        "spreparazione tavoli cena",
+        "pulizia stoviglie cena"
+      ]
+    },
+    {
+      "name": "tipologia_routine",
+      "values": [
+        "sveglia",
+        "attivita fisica",
+        "attivita della mattina",
+        "attivita del pomeriggio",
+        "doccia",
+        "gioco libero",
+        "attivita serale",
+        "verifica e resoconto della giornata"
+      ]
+    }
+  ],
   "title": "Untitled Diagram"
 }

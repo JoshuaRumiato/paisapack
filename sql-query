@@ -5,6 +5,16 @@ Query SQL: discuterne prima con me.
 - tutte le altre sono query/interrogazioni
 - non troppo semplici
 
+> [!WARNING]
+# QUERY PROFESSORE:
+1. [ ] Coppie di routine che utilizzano uno stesso materiale (tutto il campo o giornaliero a nostra discrezione)
+2. [ ] I cuochi che hanno supervisionato un pasto con allergene unico, ovvero allergene contenuto in una singola pietanza.
+3. [ ]Trovare l'animatore/i che hanno supervisionato la routine che ha previsto la quantità maggiore di materiale.
+4. [ ]Trovare gli animatori che hanno supervisionato solo attività che non hanno richiesto l'uso di materiale.
+
+
+> [!TIP]
+# QUERY A SCELTA, DOBBIAMO SCEGLIERNE 4 (Inserimento, Cancellazione, Aggiornamento)
 1. Inserimento di un nuovo ANIMATO, con tutte le informazioni necessarie (nome, cognome, codice fiscale, data di nascita, telefono genitore, email genitore, squadra..
 2. Inserimento di una ROUTINE, con nome, supervisore, descrizione, durata, e materiali necessari.
 

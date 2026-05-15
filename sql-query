@@ -9,8 +9,8 @@ Query SQL: discuterne prima con me.
 # QUERY PROFESSORE:
 1. [ ] Coppie di routine che utilizzano uno stesso materiale (tutto il campo o giornaliero a nostra discrezione)
 2. [ ] I cuochi che hanno supervisionato un pasto con allergene unico, ovvero allergene contenuto in una singola pietanza.
-3. [ ]Trovare l'animatore/i che hanno supervisionato la routine che ha previsto la quantità maggiore di materiale.
-4. [ ]Trovare gli animatori che hanno supervisionato solo attività che non hanno richiesto l'uso di materiale.
+3. [ ] Trovare l'animatore/i che hanno supervisionato la routine che ha previsto la quantità maggiore di materiale.
+4. [ ] Trovare gli animatori che hanno supervisionato solo attività che non hanno richiesto l'uso di materiale.
 
 
 > [!TIP]

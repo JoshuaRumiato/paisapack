@@ -385,7 +385,7 @@ FOR EACH ROW
 EXECUTE FUNCTION check_single_ruolo_insert_update();
 
 
---DELETE
+-- DELETE
 CREATE OR REPLACE FUNCTION check_single_ruolo_delete()
 RETURNS TRIGGER AS $$
 DECLARE
@@ -453,3 +453,106 @@ AFTER DELETE ON cuochi
 DEFERRABLE INITIALLY DEFERRED
 FOR EACH ROW
 EXECUTE FUNCTION check_single_ruolo_delete();
+
+
+-- INSERT/UPDATE Attivita
+CREATE OR REPLACE FUNCTION check_attivita()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM (
+            SELECT data_ora_inizio, data_ora_fine FROM attivita_routine
+            UNION ALL
+            SELECT data_ora_inizio, data_ora_fine FROM attivita_faccende
+            UNION ALL
+            SELECT data_ora_inizio, data_ora_fine FROM attivita_pasto
+            UNION ALL
+            SELECT data_ora_inizio, data_ora_fine FROM attivita_extra
+        ) t
+        WHERE (t.data_ora_inizio, t.data_ora_fine)
+              OVERLAPS (NEW.data_ora_inizio, NEW.data_ora_fine)
+    ) THEN
+        RAISE EXCEPTION 'Intervallo di tempo sovrapposto con un''altra attività';
+    END IF;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_attivita_routine_insert_update ON attivita_routine;
+CREATE TRIGGER trg_attivita_routine_insert_update
+BEFORE INSERT OR UPDATE ON attivita_routine
+FOR EACH ROW
+EXECUTE FUNCTION check_attivita();
+
+DROP TRIGGER IF EXISTS trg_attivita_faccende_insert_update ON attivita_faccende;
+CREATE TRIGGER trg_attivita_faccende_insert_update
+BEFORE INSERT OR UPDATE ON attivita_faccende
+FOR EACH ROW
+EXECUTE FUNCTION check_attivita();
+
+DROP TRIGGER IF EXISTS trg_attivita_pasto_insert_update ON attivita_pasto;
+CREATE TRIGGER trg_attivita_pasto_insert_update
+BEFORE INSERT OR UPDATE ON attivita_pasto
+FOR EACH ROW
+EXECUTE FUNCTION check_attivita();
+
+DROP TRIGGER IF EXISTS trg_attivita_extra_insert_update ON attivita_extra;
+CREATE TRIGGER trg_attivita_extra_insert_update
+BEFORE INSERT OR UPDATE ON attivita_extra
+FOR EACH ROW
+EXECUTE FUNCTION check_attivita();
+
+
+-- INSERT/UPDATE Animati -> Stanza
+CREATE OR REPLACE FUNCTION check_stanza_animatore_responsabile_insert_update()
+RETURNS TRIGGER AS $$
+DECLARE
+    cnt INTEGER;
+BEGIN
+	SELECT COUNT(*)
+	INTO cnt
+	FROM partecipanti p
+	JOIN animatori a ON p.codice_fiscale = a.codice_fiscale
+	WHERE p.numero_stanza IN ( SELECT numero_stanza FROM partecipanti WHERE codice_fiscale = NEW.codice_fiscale);
+
+	IF cnt <> 1 THEN
+		RAISE EXCEPTION 'Ogni stanza deve avere esattamente un animatore responsabile';
+	END IF; 
+
+	RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_stanza_check_animatore_responsabile_presente ON animati;
+CREATE CONSTRAINT TRIGGER trg_stanza_check_animatore_responsabile_presente
+AFTER INSERT OR UPDATE ON animati
+DEFERRABLE INITIALLY DEFERRED	-- Controllo differito per permettere l'inserimento di animatori e animati in qualsiasi ordine
+FOR EACH ROW
+EXECUTE FUNCTION check_stanza_animatore_responsabile_insert_update();
+
+
+-- DELETE Animatori -> Stanza
+CREATE OR REPLACE FUNCTION check_stanza_animatore_responsabile_delete()
+RETURNS TRIGGER AS $$
+BEGIN
+	IF EXISTS (
+		SELECT 1
+		FROM partecipanti p
+		JOIN animati a ON p.codice_fiscale = a.codice_fiscale
+		WHERE p.numero_stanza IN ( SELECT numero_stanza FROM partecipanti WHERE codice_fiscale = OLD.codice_fiscale)
+	)
+	THEN
+		RAISE EXCEPTION 'Non è possibile eliminare un animatore responsabile se nella stanza ci sono animati';
+	END IF;
+
+	RETURN OLD;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS trg_stanza_animatore_responsabile_delete ON animatori;
+CREATE TRIGGER trg_stanza_animatore_responsabile_delete
+BEFORE DELETE ON animatori
+FOR EACH ROW
+EXECUTE FUNCTION check_stanza_animatore_responsabile_delete();

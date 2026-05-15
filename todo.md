@@ -17,7 +17,6 @@ Possibili query:
 - quantità sul numero di pietanze da fare per pasto
 - quantità totale del numero di occorrenti
 
-
 # Funzioni per attributi derivati partecipante
 - data di nascita da CF
     ```sql

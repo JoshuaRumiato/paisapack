@@ -2,15 +2,23 @@ TRIGGER
 Definizione di pochi (2 o 3) trigger risultanti dalla
 progettazione (è opportuno discutere prima con il professore quali trigger scrivere)
 
-1. [ ] SE IN UNA STANZA CI SONO ANIMATI, CI DEVE ESSERE ALMENO UN ANIMATORE REPSONSABILE.
-2. [ ] SE IN UNA STANZA CI SONO ANIMATI, ALLORA DEVONO ESSERE O TUTTI MASCHI O TUTTE FEMMINE (INCLUSI GLI ANIMATORI RESPONSABILI)
-3. [ ] LE PERSONE CHE DORMONO IN UNA STANZA (ANIMATI + ANIMATORE) DEVONO ESSERE <= AL NUMERO DI POSTI LETTO DISPONIBILI
-4. [ ] I MEMBRI DELL'EQUIPE (ESCLUSI GLI ANIMATORI) POSSONO DORMIRE SOLO CON ALTRI MEMBRI DELL'EQUIPE
-5. [ ] Controllo che le attività non si sovrappongano come tempistiche, devono essere eseguite in sequenza (non necessariamente attaccate), NON in parallelo.
-6. [ ] Punteggio della squadra sull'update deve essere sempre maggiore del punteggio precedente
-7. [x] Controllo che un partecipante abbia sempre(INSERT,UPDATE,DELETE) un singolo ruolo.
+# TRIGGER SCELTI
+1. [x] Controllo che un partecipante abbia sempre(INSERT,UPDATE,DELETE) un singolo ruolo.
 > [!Note]
 > Il partecipante può cambiare ruolo perché non c'è un controllo per verificare se il campo è già cominciato 
+2. [x] Controllo che le attività non si sovrappongano come tempistiche, devono essere eseguite in sequenza (non necessariamente attaccate), NON in parallelo.
+>[!Note]
+> Spiegare la funzione overlpas.
+3. [x] SE IN UNA STANZA CI SONO ANIMATI, CI DEVE ESSERE ALMENO UN ANIMATORE RESPONSABILE.
+
+# TRIGGER TOTALI DA AGGIUNGERE IN RELAZIONI
+1. SE IN UNA STANZA CI SONO ANIMATI, ALLORA DEVONO ESSERE O TUTTI MASCHI O TUTTE FEMMINE (INCLUSI GLI ANIMATORI RESPONSABILI)
+2. LE PERSONE CHE DORMONO IN UNA STANZA (ANIMATI + ANIMATORE) DEVONO ESSERE <= AL NUMERO DI POSTI LETTO DISPONIBILI
+3. I MEMBRI DELL'EQUIPE (ESCLUSI GLI ANIMATORI) POSSONO DORMIRE SOLO CON ALTRI MEMBRI DELL'EQUIPE
+4. Punteggio della squadra sull'update deve essere sempre maggiore del punteggio precedente
+5. Controllo che quando si inserisce una uova attività non si invertano data inizio e fine, o si inserisca un'orario di fine temporalmente precedente all'orario di inizio.
+7. 
+
 
 CHECK da implementare nelle tabelle
 1. [x] controllo struttura CF

@@ -271,7 +271,7 @@ INSERT INTO squadre (nome, slogan, punteggio, codice_fiscale_animatore_responsab
 
 -- Colazione - Lunedì
 INSERT INTO attivita_pasto (data_ora_inizio, data_ora_fine, tipo, descrizione, codice_fiscale_cuoco_supervisore, nome_pietanza) VALUES
-('2024-06-24 07:30:00', '2024-06-24 08:30:00', 'colazione', 'Colazione con cornetti freschi e caffè', 'MRNMRT88C30E506G', 'Uova strapazzate');
+('2026-05-01 12:00:00', '2026-05-01 11:30:00', 'colazione', 'Colazione con cornetti freschi e caffè', 'MRNMRT88C30E506G', 'Uova strapazzate');
 
 -- Pranzo - Lunedì
 INSERT INTO attivita_pasto (data_ora_inizio, data_ora_fine, tipo, descrizione, codice_fiscale_cuoco_supervisore, nome_pietanza) VALUES

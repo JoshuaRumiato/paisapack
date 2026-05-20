@@ -291,7 +291,7 @@ CREATE TABLE IF NOT EXISTS "routine_prevedono_materiali" (
 	"quantita" INTEGER NOT NULL CHECK (quantita > 0),
 	PRIMARY KEY("data_ora_inizio_attivita", "nome_materiale"),
 	FOREIGN KEY("nome_materiale") REFERENCES "materiali"("nome"),
-	FOREIGN KEY("data_ora_inizio_attivita") REFERENCES "attivita_routine"("data_ora_inizio")
+	FOREIGN KEY("data_ora_inizio_attivita") REFERENCES "attivita_routine"("data_ora_inizio") ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 
@@ -363,7 +363,7 @@ CREATE TABLE IF NOT EXISTS "pietanze_per_pasto" (
 	"nome_pietanza" VARCHAR(64),
 	PRIMARY KEY("data_ora_inizio", "nome_pietanza"),
 	FOREIGN KEY("data_ora_inizio") REFERENCES "attivita_pasto"("data_ora_inizio"),
-	FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
+	FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome") ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 

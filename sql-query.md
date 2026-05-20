@@ -108,3 +108,21 @@ AND NOT EXISTS (
     WHERE ar.codice_fiscale_animatore_supervisore = a.codice_fiscale
 );
 ```
+
+- [ ] Aggiornamento orario di una routine.
+```sql
+UPDATE attivita_routine
+SET 
+    data_ora_inizio = '2026-07-20 16:00:00', -- data inizio nuova
+    data_ora_fine   = '2026-07-20 17:30:00' -- data fine nuova
+WHERE 
+    data_ora_inizio = '2026-07-20 09:30:00'; -- data inizio vecchia
+```
+
+- [ ] Cancellazione di un PARTECIPANTE, con conseguente eliminazione di tutte le informazioni ad esso collegate
+```sql
+BEGIN;
+DELETE FROM partecipanti
+WHERE codice_fiscale = 'RSSMRA10A01F205Z'; -- CF del partecipante o "ruolo"
+COMMIT;
+```

@@ -121,8 +121,5 @@ WHERE
 
 - [ ] Cancellazione di una ROUTINE, con conseguente eliminazione di tutte le informazioni ad essa collegate.
 ```sql
-BEGIN;
-DELETE FROM attivita_routine
-WHERE data_ora_inizio = '2026-07-20 16:00:00'; -- data inizio corrente
-COMMIT;
+DELETE FROM attivita_routine WHERE data_ora_inizio = '2026-07-20 16:00:00'; -- data inizio corrente
 ```

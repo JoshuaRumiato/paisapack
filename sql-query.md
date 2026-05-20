@@ -119,10 +119,10 @@ WHERE
     data_ora_inizio = '2026-07-20 09:30:00'; -- data inizio vecchia
 ```
 
-- [ ] Cancellazione di un PARTECIPANTE, con conseguente eliminazione di tutte le informazioni ad esso collegate
+- [ ] Cancellazione di una ROUTINE, con conseguente eliminazione di tutte le informazioni ad essa collegate.
 ```sql
 BEGIN;
-DELETE FROM partecipanti
-WHERE codice_fiscale = 'RSSMRA10A01F205Z'; -- CF del partecipante o "ruolo"
+DELETE FROM attivita_routine
+WHERE data_ora_inizio = '2026-07-20 16:00:00'; -- data inizio corrente
 COMMIT;
 ```

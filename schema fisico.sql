@@ -32,7 +32,54 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql IMMUTABLE;
 
+CREATE OR REPLACE FUNCTION cf_to_birthdate(cf text)
+RETURNS DATE
+LANGUAGE sql
+IMMUTABLE
+AS $$
+	SELECT to_date(
+		(
+			CASE
+				WHEN substring(cf, 7, 2)::int <= 25 THEN '20'
+				ELSE '19'
+			END
+			|| substring(cf, 7, 2)
+		)
+		||
+		CASE substring(cf, 9, 1)
+			WHEN 'A' THEN '01'
+			WHEN 'B' THEN '02'
+			WHEN 'C' THEN '03'
+			WHEN 'D' THEN '04'
+			WHEN 'E' THEN '05'
+			WHEN 'H' THEN '06'
+			WHEN 'L' THEN '07'
+			WHEN 'M' THEN '08'
+			WHEN 'P' THEN '09'
+			WHEN 'R' THEN '10'
+			WHEN 'S' THEN '11'
+			WHEN 'T' THEN '12'
+		END
+		||
+		CASE
+			WHEN substring(cf, 10, 2)::int > 40
+				THEN lpad((substring(cf, 10, 2)::int - 40)::text, 2, '0')
+			ELSE substring(cf, 10, 2)
+		END,
+		'YYYYMMDD'
+	);
+$$;
 
+CREATE OR REPLACE FUNCTION cf_to_sesso(cf text)
+RETURNS CHAR(1)
+LANGUAGE sql
+IMMUTABLE
+AS $$
+	SELECT CASE
+		WHEN substring(cf, 10, 2)::int > 40 THEN 'F'
+		ELSE 'M'
+	END;
+$$;
 
 
 CREATE TYPE tipologia_pasto AS ENUM ('colazione', 'pranzo', 'merenda', 'cena');
@@ -128,7 +175,7 @@ CREATE TABLE IF NOT EXISTS "stanze" (
 
 
 
-CREATE TABLE IF NOT EXISTS "contiene" (
+CREATE TABLE IF NOT EXISTS "pietanze_contengono_allergeni" (
 	"nome_allergene" VARCHAR(64),
 	"nome_pietanza" VARCHAR(64),
 	PRIMARY KEY("nome_allergene", "nome_pietanza"),
@@ -143,8 +190,8 @@ CREATE TABLE IF NOT EXISTS "partecipanti" (
 	"codice_fiscale" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale)),
 	"nome" VARCHAR(64) NOT NULL,
 	"cognome" VARCHAR(64) NOT NULL,
-	"sesso" CHAR(1) NOT NULL,
-	"data_nascita" DATE NOT NULL,
+	"sesso" CHAR(1) GENERATED ALWAYS AS (cf_to_sesso(codice_fiscale)) STORED,
+	"data_nascita" DATE GENERATED ALWAYS AS (cf_to_birthdate(codice_fiscale)) STORED,
 	"luogo_nascita" VARCHAR(255) NOT NULL,
 	"foto_documento" VARCHAR(255) NOT NULL UNIQUE,
 	"note" TEXT,
@@ -238,7 +285,7 @@ CREATE TABLE IF NOT EXISTS "cuochi" (
 
 
 
-CREATE TABLE IF NOT EXISTS "prevede" (
+CREATE TABLE IF NOT EXISTS "routine_prevedono_materiali" (
 	"data_ora_inizio_attivita" TIMESTAMP,
 	"nome_materiale" VARCHAR(64),
 	"quantita" INTEGER NOT NULL CHECK (quantita > 0),
@@ -267,7 +314,7 @@ CREATE TABLE IF NOT EXISTS "squadre" (
 
 CREATE TABLE IF NOT EXISTS "animati" (
 	"codice_fiscale" CHAR(16),
-	"email_genitore" VARCHAR(254) NOT NULL CHECK (is_valid_email(email)),
+	"email_genitore" VARCHAR(254) NOT NULL CHECK (is_valid_email(email_genitore)),
 	"telefono_genitore" CHAR(10) NOT NULL CHECK (is_valid_phone_number(telefono_genitore)),
 	"nome_squadra" VARCHAR(64),
 	PRIMARY KEY("codice_fiscale"),
@@ -301,15 +348,23 @@ CREATE TABLE IF NOT EXISTS "attivita_pasto" (
 	"tipo" TIPOLOGIA_PASTO NOT NULL,
 	"descrizione" TEXT,
 	"codice_fiscale_cuoco_supervisore" CHAR(16),
-	"nome_pietanza" VARCHAR(64),
 	PRIMARY KEY("data_ora_inizio"),
 	FOREIGN KEY (codice_fiscale_cuoco_supervisore)
         REFERENCES cuochi(codice_fiscale)
         ON UPDATE CASCADE
-        ON DELETE NO ACTION,
-	FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
+        ON DELETE NO ACTION
 );
 
+
+
+
+CREATE TABLE IF NOT EXISTS "pietanze_per_pasto" (
+	"data_ora_inizio" TIMESTAMP,
+	"nome_pietanza" VARCHAR(64),
+	PRIMARY KEY("data_ora_inizio", "nome_pietanza"),
+	FOREIGN KEY("data_ora_inizio") REFERENCES "attivita_pasto"("data_ora_inizio"),
+	FOREIGN KEY("nome_pietanza") REFERENCES "pietanze"("nome")
+);
 
 
 --TRIGGERS

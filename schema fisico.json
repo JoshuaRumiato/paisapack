@@ -223,8 +223,8 @@
       ],
       "indices": [],
       "id": "3cYYP9JXzKYu1Hj4FlaMB",
-      "x": 2250.0999379364143,
-      "y": 325.90791655829946
+      "x": 2100.7874419534282,
+      "y": 318.3507899290678
     },
     {
       "name": "pietanze",
@@ -259,8 +259,8 @@
       ],
       "indices": [],
       "id": "iTpK7hucVEyM9m2-Dg-7x",
-      "x": 1847.5069702205265,
-      "y": 1478.877761390955
+      "x": 2174.488737359983,
+      "y": 1480.765717427396
     },
     {
       "name": "stanze",
@@ -316,7 +316,7 @@
       "y": -364.4702154930926
     },
     {
-      "name": "contiene",
+      "name": "pietanze_contiengono_allergeni",
       "comment": "",
       "color": "#175e7a",
       "fields": [
@@ -856,7 +856,7 @@
       "y": -98.27001653195875
     },
     {
-      "name": "prevede",
+      "name": "routine_prevedono_materiali",
       "comment": "",
       "color": "#175e7a",
       "fields": [
@@ -902,8 +902,8 @@
       ],
       "indices": [],
       "id": "on3PHMDxQMJJqtlWOWtrB",
-      "x": 1818.580365765487,
-      "y": 294.58004501365815
+      "x": 1669.267869782502,
+      "y": 287.0229183844265
     },
     {
       "name": "squadre",
@@ -1193,25 +1193,51 @@
           "default": "",
           "size": 16,
           "check": ""
-        },
-        {
-          "id": "yg8ut_z0RZt78Q483e4tH",
-          "name": "nome_pietanza",
-          "type": "VARCHAR",
-          "comment": "",
-          "unique": false,
-          "increment": false,
-          "notNull": true,
-          "primary": false,
-          "default": "",
-          "size": 64,
-          "check": ""
         }
       ],
       "indices": [],
       "id": "tfhyI1fy9kEJC5O-4kCDe",
       "x": 1259.9014515795047,
       "y": -116.94510393584119
+    },
+    {
+      "id": "2eV-3kQyjOIfCzcAjN4Gu",
+      "name": "pietanze_per_pasto",
+      "x": 2507.037995089554,
+      "y": -116.8623902096088,
+      "locked": false,
+      "fields": [
+        {
+          "id": "oQKVmVlCkRVyhTjRaJ7uZ",
+          "name": "data_ora_inizio",
+          "type": "TIMESTAMP",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": "",
+          "values": []
+        },
+        {
+          "id": "qDIPvWOOuHlUBics6rulK",
+          "name": "nome_pietanza",
+          "type": "VARCHAR",
+          "default": "",
+          "check": "",
+          "primary": true,
+          "unique": false,
+          "notNull": true,
+          "increment": false,
+          "comment": "",
+          "size": 64
+        }
+      ],
+      "comment": "",
+      "indices": [],
+      "color": "#175e7a"
     }
   ],
   "relationships": [
@@ -1291,17 +1317,6 @@
       "deleteConstraint": "No action",
       "cardinality": "many_to_one",
       "id": 6
-    },
-    {
-      "name": "fk_attività_pasto_nome_pietanza_servita_pietanze",
-      "startTableId": "tfhyI1fy9kEJC5O-4kCDe",
-      "startFieldId": "yg8ut_z0RZt78Q483e4tH",
-      "endTableId": "iTpK7hucVEyM9m2-Dg-7x",
-      "endFieldId": "0LYG1kz0IQovSeWFKHNLh",
-      "updateConstraint": "Cascade",
-      "deleteConstraint": "Cascade",
-      "cardinality": "many_to_one",
-      "id": 7
     },
     {
       "name": "fk_attività_routine_codice_fiscale_animatore_supervisore_animatori",
@@ -1401,6 +1416,28 @@
       "deleteConstraint": "No action",
       "cardinality": "many_to_one",
       "id": 16
+    },
+    {
+      "startTableId": "2eV-3kQyjOIfCzcAjN4Gu",
+      "startFieldId": "qDIPvWOOuHlUBics6rulK",
+      "endTableId": "iTpK7hucVEyM9m2-Dg-7x",
+      "endFieldId": "0LYG1kz0IQovSeWFKHNLh",
+      "cardinality": "one_to_many",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_pietanze_per_pasto_nome_pietanza_pietanze",
+      "id": "ox6rSpPMOw09YECxFOh7R"
+    },
+    {
+      "startTableId": "2eV-3kQyjOIfCzcAjN4Gu",
+      "startFieldId": "oQKVmVlCkRVyhTjRaJ7uZ",
+      "endTableId": "tfhyI1fy9kEJC5O-4kCDe",
+      "endFieldId": "BI4AD-iPfjJoYo7qjIwcz",
+      "cardinality": "one_to_many",
+      "updateConstraint": "No action",
+      "deleteConstraint": "No action",
+      "name": "fk_pietanze_per_pasto_data_ora_inizio_attivita_pasto",
+      "id": "blbm4fw2OAhnC6pMvRmrn"
     }
   ],
   "notes": [],

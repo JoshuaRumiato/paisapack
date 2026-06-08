@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS "attivita_routine" (
 	"descrizione" TEXT,
 	"nome" VARCHAR(64) NOT NULL,
 	"valutazione" TEXT,
-	"codice_fiscale_animatore_supervisore" CHAR(16),
+	"codice_fiscale_animatore_supervisore" CHAR(16) NOT NULL,
 	"tipologia_routine" TIPOLOGIA_ROUTINE NOT NULL,
 	PRIMARY KEY("data_ora_inizio"),
 	FOREIGN KEY (codice_fiscale_animatore_supervisore)
@@ -301,7 +301,7 @@ CREATE TABLE IF NOT EXISTS "squadre" (
 	"nome" VARCHAR(64),
 	"slogan" TEXT NOT NULL,
 	"punteggio" INTEGER NOT NULL DEFAULT 0 CHECK (punteggio >= 0),
-	"codice_fiscale_animatore_responsabile" CHAR(16),
+	"codice_fiscale_animatore_responsabile" CHAR(16) NOT NULL,
 	PRIMARY KEY("nome"),
 	FOREIGN KEY (codice_fiscale_animatore_responsabile)
         REFERENCES animatori(codice_fiscale)
@@ -333,7 +333,7 @@ CREATE TABLE IF NOT EXISTS "attivita_faccende" (
 	"data_ora_fine" TIMESTAMP NOT NULL,
 	"nome" VARCHAR(64) NOT NULL,
 	"descrizione" TEXT,
-	"nome_squadra" VARCHAR(64),
+	"nome_squadra" VARCHAR(64) NOT NULL,
 	"tipologia_faccenda" TIPOLOGIA_FACCENDA NOT NULL,
 	PRIMARY KEY("data_ora_inizio"),
 	FOREIGN KEY("nome_squadra") REFERENCES "squadre"("nome")
@@ -347,7 +347,7 @@ CREATE TABLE IF NOT EXISTS "attivita_pasto" (
 	"data_ora_fine" TIMESTAMP NOT NULL,
 	"tipo" TIPOLOGIA_PASTO NOT NULL,
 	"descrizione" TEXT,
-	"codice_fiscale_cuoco_supervisore" CHAR(16),
+	"codice_fiscale_cuoco_supervisore" CHAR(16) NOT NULL,
 	PRIMARY KEY("data_ora_inizio"),
 	FOREIGN KEY (codice_fiscale_cuoco_supervisore)
         REFERENCES cuochi(codice_fiscale)

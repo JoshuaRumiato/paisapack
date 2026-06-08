@@ -12,12 +12,23 @@ progettazione (è opportuno discutere prima con il professore quali trigger scri
 3. [x] SE IN UNA STANZA CI SONO ANIMATI, CI DEVE ESSERE ALMENO UN ANIMATORE RESPONSABILE.
 
 # TRIGGER TOTALI DA AGGIUNGERE IN RELAZIONI
-1. SE IN UNA STANZA CI SONO ANIMATI, ALLORA DEVONO ESSERE O TUTTI MASCHI O TUTTE FEMMINE (INCLUSI GLI ANIMATORI RESPONSABILI)
-2. LE PERSONE CHE DORMONO IN UNA STANZA (ANIMATI + ANIMATORE) DEVONO ESSERE <= AL NUMERO DI POSTI LETTO DISPONIBILI
-3. I MEMBRI DELL'EQUIPE (ESCLUSI GLI ANIMATORI) POSSONO DORMIRE SOLO CON ALTRI MEMBRI DELL'EQUIPE
-4. Punteggio della squadra sull'update deve essere sempre maggiore del punteggio precedente
-5. Controllo che quando si inserisce una uova attività non si invertano data inizio e fine, o si inserisca un'orario di fine temporalmente precedente all'orario di inizio.
-7. 
+1. partecipante abbia sempre uno e un solo ruolo
+2. SE IN UNA STANZA CI SONO ANIMATI, CI DEVE ESSERE ALMENO UN ANIMATORE REPSONSABILE.
+3. SE IN UNA STANZA CI SONO ANIMATI, ALLORA DEVONO ESSERE O TUTTI MASCHI O TUTTE FEMMINE (INCLUSI GLI ANIMATORI RESPONSABILI)
+4. LE PERSONE CHE DORMONO IN UNA STANZA (ANIMATI + ANIMATORE) DEVONO ESSERE <= AL NUMERO DI POSTI LETTO DISPONIBILI
+5. I MEMBRI DELL'EQUIPE (ESCLUSI GLI ANIMATORI) POSSONO DORMIRE SOLO CON ALTRI MEMBRI DELL'EQUIPE
+6. Controllo che le attività non si sovrappongano come tempistiche, devono essere eseguite in sequenza (non necessariamente attaccate), NON in parallelo.
+7. Punteggio della squadra sull'update deve essere sempre maggiore del punteggio precedente
+8. Controllo che quando si inserisce una uova attività non si invertano data inizio e fine, o si inserisca un'orario di fine temporalmente precedente all'orario di inizio.
+9. Un cuoco non puo' supervisionare un pasto se e' allergico ad un allergene contenuto in una pietanza che viene servita in quel pasto
+## TRIGGER DA CARDINALITA'
+10. una squadra deve aver per forza un animato
+11. un edificio deve aver almeno una stanza
+12. una squadra deve fare almeno una faccenda
+13. un animatore deve essere responsabile di almeno una routine
+14. una pietanza deve comparire almeno in un pasto
+15. un pasto deve avere almeno una pietanza
+
 
 
 CHECK da implementare nelle tabelle

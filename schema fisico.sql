@@ -316,7 +316,7 @@ CREATE TABLE IF NOT EXISTS "animati" (
 	"codice_fiscale" CHAR(16),
 	"email_genitore" VARCHAR(254) NOT NULL CHECK (is_valid_email(email_genitore)),
 	"telefono_genitore" CHAR(10) NOT NULL CHECK (is_valid_phone_number(telefono_genitore)),
-	"nome_squadra" VARCHAR(64),
+	"nome_squadra" VARCHAR(64) NOT NULL,
 	PRIMARY KEY("codice_fiscale"),
 	FOREIGN KEY (codice_fiscale)
         REFERENCES partecipanti(codice_fiscale)

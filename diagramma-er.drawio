@@ -3232,7 +3232,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="Copia di ER-ristrutturato" id="83ZmZ80qeuTt98hIEQ9N">
-        <mxGraphModel dx="2720" dy="-10" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="3571" dy="451" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="5ftztNtrnz9kN3JpPXst-0"/>
                 <mxCell id="5ftztNtrnz9kN3JpPXst-1" parent="5ftztNtrnz9kN3JpPXst-0"/>
@@ -3530,8 +3530,8 @@
                 <mxCell id="5ftztNtrnz9kN3JpPXst-85" value="piano" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="5ftztNtrnz9kN3JpPXst-1" vertex="1">
                     <mxGeometry x="-1604" y="842" width="47" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="5ftztNtrnz9kN3JpPXst-86" value="posti letto" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="5ftztNtrnz9kN3JpPXst-1" vertex="1">
-                    <mxGeometry x="-1626" y="868" width="69" height="26" as="geometry"/>
+                <mxCell id="5ftztNtrnz9kN3JpPXst-86" value="posti_letto" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="5ftztNtrnz9kN3JpPXst-1" vertex="1">
+                    <mxGeometry x="-1628" y="868" width="73" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="5ftztNtrnz9kN3JpPXst-88" value="via" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="5ftztNtrnz9kN3JpPXst-1" vertex="1">
                     <mxGeometry x="-1145.8400000000001" y="917.75" width="33" height="26" as="geometry"/>

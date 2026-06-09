@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS "pietanze_contengono_allergeni" (
 
 
 CREATE TABLE IF NOT EXISTS "partecipanti" (
-	"codice_fiscale" CHAR(16) NOT NULL CHECK (is_valid_cf(codice_fiscale)),
+	"codice_fiscale" CHAR(16) CHECK (is_valid_cf(codice_fiscale)),
 	"nome" VARCHAR(64) NOT NULL,
 	"cognome" VARCHAR(64) NOT NULL,
 	"sesso" CHAR(1) GENERATED ALWAYS AS (cf_to_sesso(codice_fiscale)) STORED,

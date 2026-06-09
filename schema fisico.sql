@@ -28,7 +28,7 @@ $$ LANGUAGE plpgsql IMMUTABLE;
 CREATE FUNCTION is_valid_voto(int)
 RETURNS boolean AS $$
 BEGIN
-    RETURN $1 BETWEEN 1 AND 5;
+    RETURN $1 IS NULL OR $1 BETWEEN 1 AND 5;
 END;
 $$ LANGUAGE plpgsql IMMUTABLE;
 
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS "pietanze" (
 
 CREATE TABLE IF NOT EXISTS "stanze" (
 	"numero" SMALLINT,
-	"piano" SMALLINT NOT NULL,
+	"piano" SMALLINT NOT NULL DEFAULT 0,
 	"posti_letto" SMALLINT NOT NULL CHECK (posti_letto > 0),
 	PRIMARY KEY("numero")
 );

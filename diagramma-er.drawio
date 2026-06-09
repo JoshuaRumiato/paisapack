@@ -3232,7 +3232,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="Copia di ER-ristrutturato" id="83ZmZ80qeuTt98hIEQ9N">
-        <mxGraphModel dx="3499" dy="120" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="3234" dy="269" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="5ftztNtrnz9kN3JpPXst-0"/>
                 <mxCell id="5ftztNtrnz9kN3JpPXst-1" parent="5ftztNtrnz9kN3JpPXst-0"/>
@@ -3548,8 +3548,8 @@
                 <mxCell id="5ftztNtrnz9kN3JpPXst-93" value="nome" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="5ftztNtrnz9kN3JpPXst-1" vertex="1">
                     <mxGeometry x="93" y="1118.75" width="48" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="5ftztNtrnz9kN3JpPXst-94" value="tipo" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="5ftztNtrnz9kN3JpPXst-1" vertex="1">
-                    <mxGeometry x="76.5" y="781" width="37" height="26" as="geometry"/>
+                <mxCell id="5ftztNtrnz9kN3JpPXst-94" value="tipologia_faccenda" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="5ftztNtrnz9kN3JpPXst-1" vertex="1">
+                    <mxGeometry x="36.5" y="781" width="118" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="5ftztNtrnz9kN3JpPXst-95" value="nome" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="5ftztNtrnz9kN3JpPXst-1" vertex="1">
                     <mxGeometry x="80" y="953" width="48" height="26" as="geometry"/>
@@ -4220,6 +4220,24 @@
                 </mxCell>
                 <mxCell id="l9LG63qRyieZwFaXuoUs-9" value="commento" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="5ftztNtrnz9kN3JpPXst-1">
                     <mxGeometry x="-605.5" y="1216.87" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="oqU2FLjmO21paZbce_je-8" style="edgeStyle=none;html=1;exitX=0.594;exitY=1.001;exitDx=0;exitDy=0;endArrow=oval;endFill=0;exitPerimeter=0;entryX=-0.012;entryY=0.18;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="5ftztNtrnz9kN3JpPXst-1" source="5ftztNtrnz9kN3JpPXst-29" target="oqU2FLjmO21paZbce_je-9">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="219" y="1262.25" as="sourcePoint"/>
+                        <mxPoint x="220" y="1252" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="oqU2FLjmO21paZbce_je-9" value="tipologia_faccenda" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="5ftztNtrnz9kN3JpPXst-1">
+                    <mxGeometry x="169" y="1245" width="118" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="oqU2FLjmO21paZbce_je-10" style="edgeStyle=none;html=1;exitX=0.15;exitY=0.997;exitDx=0;exitDy=0;endArrow=oval;endFill=0;exitPerimeter=0;entryX=-0.012;entryY=0.18;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="5ftztNtrnz9kN3JpPXst-1" target="oqU2FLjmO21paZbce_je-11" source="5ftztNtrnz9kN3JpPXst-28">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="141.42000000000002" y="1059" as="sourcePoint"/>
+                        <mxPoint x="171.42000000000002" y="1080" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="oqU2FLjmO21paZbce_je-11" value="tipologia_faccenda" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="5ftztNtrnz9kN3JpPXst-1">
+                    <mxGeometry x="120.42" y="1073" width="118" height="26" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

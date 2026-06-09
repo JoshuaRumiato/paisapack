@@ -1594,7 +1594,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="Copia di ER-Semplificazione-1" id="2hheUQPapWQM0uKBYmCy">
-        <mxGraphModel dx="4642" dy="536" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="4767" dy="451" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="5-EEJBua3ZAM0EG8dNhg-0"/>
                 <mxCell id="5-EEJBua3ZAM0EG8dNhg-1" parent="5-EEJBua3ZAM0EG8dNhg-0"/>
@@ -2278,7 +2278,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="ER-ristrutturato" id="lC2KPez7leYef_JMxLO4">
-        <mxGraphModel dx="5373" dy="1753" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="5303" dy="1170" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="hTY25d77OcBwYdx7Al8F-0"/>
                 <mxCell id="hTY25d77OcBwYdx7Al8F-1" parent="hTY25d77OcBwYdx7Al8F-0"/>
@@ -3212,7 +3212,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="Copia di ER-ristrutturato" id="83ZmZ80qeuTt98hIEQ9N">
-        <mxGraphModel grid="0" page="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="4174" dy="269" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="5ftztNtrnz9kN3JpPXst-0"/>
                 <mxCell id="5ftztNtrnz9kN3JpPXst-1" parent="5ftztNtrnz9kN3JpPXst-0"/>

@@ -51,7 +51,17 @@ INSERT INTO pietanze (nome, descrizione) VALUES
 ('Carbonara', 'Pasta con uova, guanciale e pecorino'),
 ('Mozzarella in carrozza', 'Pane fritto ripieno di mozzarella'),
 ('Pancake con sciroppo d’acero', 'Pancake soffici serviti con sciroppo'),
-('Salmone alla griglia', 'Filetto di salmone con limone ed erbe');
+('Salmone alla griglia', 'Filetto di salmone con limone ed erbe'),
+('Cornetto alla marmellata', 'Cornetto fragrante ripieno di marmellata di albicocche'),
+('Cornetto alla crema', 'Cornetto sfogliato con crema pasticcera'),
+('Toast prosciutto e formaggio', 'Pane tostato con prosciutto cotto e formaggio'),
+('Yogurt con cereali', 'Yogurt bianco servito con cereali croccanti'),
+('Muesli con frutta fresca', 'Muesli con frutta di stagione'),
+('Brioche al cioccolato', 'Brioche soffice con ripieno al cioccolato'),
+('Pane burro e marmellata', 'Pane tostato con burro e marmellata'),
+('Crostata di albicocche', 'Fetta di crostata con confettura di albicocche'),
+('Muffin ai mirtilli', 'Muffin soffice con mirtilli freschi'),
+('Frutta fresca assortita', 'Selezione di frutta fresca di stagione');
 
 INSERT INTO pietanze_contengono_allergeni (nome_allergene, nome_pietanza) VALUES
 ('glutine', 'Pasta al ragù'),
@@ -90,7 +100,27 @@ INSERT INTO pietanze_contengono_allergeni (nome_allergene, nome_pietanza) VALUES
 ('glutine', 'Pancake con sciroppo d’acero'),
 ('uova', 'Pancake con sciroppo d’acero'),
 ('lattosio', 'Pancake con sciroppo d’acero'),
-('pesce', 'Salmone alla griglia');
+('pesce', 'Salmone alla griglia'),
+('glutine', 'Cornetto alla marmellata'),
+('glutine', 'Cornetto alla crema'),
+('uova', 'Cornetto alla crema'),
+('lattosio', 'Cornetto alla crema'),
+('glutine', 'Toast prosciutto e formaggio'),
+('lattosio', 'Toast prosciutto e formaggio'),
+('lattosio', 'Yogurt con cereali'),
+('glutine', 'Yogurt con cereali'),
+('glutine', 'Muesli con frutta fresca'),
+('frutta a guscio', 'Muesli con frutta fresca'),
+('glutine', 'Brioche al cioccolato'),
+('uova', 'Brioche al cioccolato'),
+('lattosio', 'Brioche al cioccolato'),
+('glutine', 'Pane burro e marmellata'),
+('lattosio', 'Pane burro e marmellata'),
+('glutine', 'Crostata di albicocche'),
+('uova', 'Crostata di albicocche'),
+('glutine', 'Muffin ai mirtilli'),
+('uova', 'Muffin ai mirtilli'),
+('lattosio', 'Muffin ai mirtilli');
 
 -- MATERIALI
 INSERT INTO materiali (nome, unita_misura, numero_utilizzi, portare_in_autonomia) VALUES
@@ -113,7 +143,7 @@ INSERT INTO materiali (nome, unita_misura, numero_utilizzi, portare_in_autonomia
 
 -- Animatore 1 - Capo campo
 INSERT INTO partecipanti (codice_fiscale, nome, cognome, luogo_nascita, foto_documento, note, numero_stanza) VALUES
-('RSSMRC85H21H501D', 'Marco', 'Rossi', 'Udine', 'foto_marco_rossi.jpg', 'Capo campo - Esperienza 10 anni', 201),
+('RSSMRC85H21H501D', 'Marco', 'Rossi', 'Udine', 'foto_marco_rossi.jpg', 'Capo campo - Esperienza 10 anni', 102),
 ('BNCGVN92A15D612H', 'Giovanni', 'Bianchi', 'Trieste', 'foto_giovanni_bianchi.jpg', 'Animatore responsabile stanza 105', 105),
 ('VRDFRC94B08C351K', 'Francesco', 'Verdi', 'Gorizia', 'foto_francesco_verdi.jpg', 'Animatore responsabile stanza 101', 101),
 ('ROSSLA91D50C573F', 'Laura', 'Rossi', 'Udine', 'foto_laura_rossi.jpg', 'Animatrice responsabile stanza 103', 103),
@@ -162,7 +192,7 @@ INSERT INTO squadre (nome, slogan, punteggio, codice_fiscale_animatore_responsab
 ('Falchi Gialli', 'Veloci come il sole!', 0, 'VRDFRC94B08C351K'),
 ('Stelle Rosse', 'Brilliamo insieme!', 0, 'ROSSLA91D50C573F'),
 ('Pantere Nere', 'Eleganti e forti!', 0, 'SFRNTN93E45B789L'),
-('Leonesse d''Oro', 'Orgogliose e unite!', 0, 'PLNNDR89E12D999Z');
+('Leonesse d`Oro', 'Orgogliose e unite!', 0, 'PLNNDR89E12D999Z');
 
 -- =====================================================
 -- PARTECIPANTI - RAGAZZI (ANIMATI)
@@ -194,8 +224,8 @@ INSERT INTO animati (codice_fiscale, email_genitore, telefono_genitore, nome_squ
 ('BNCSRL09C15E234A', 'parent8@email.com', '3308901234', 'Stelle Rosse'),
 ('VRDFNN10A10F567B', 'parent9@email.com', '3309012345', 'Pantere Nere'),
 ('PLTGNN09B20G789C', 'parent10@email.com', '3300123456', 'Pantere Nere'),
-('MZNLSA08D05H012D', 'parent11@email.com', '3301234567', 'Leonesse d''Oro'),
-('SPNVRA09E15I234E', 'parent12@email.com', '3302345678', 'Leonesse d''Oro');
+('MZNLSA08D05H012D', 'parent11@email.com', '3301234567', 'Leonesse d`Oro'),
+('SPNVRA09E15I234E', 'parent12@email.com', '3302345678', 'Leonesse d`Oro');
 
 INSERT INTO allergico (codice_fiscale_partecipante, nome_allergene) VALUES
 ('GRLMRC08E20H501T', 'glutine'),
@@ -212,109 +242,243 @@ INSERT INTO allergico (codice_fiscale_partecipante, nome_allergene) VALUES
 -- =====================================================
 
 INSERT INTO attivita_pasto (data_ora_inizio, data_ora_fine, tipo, descrizione, codice_fiscale_cuoco_supervisore) VALUES
-  ('2026-05-06 08:00:00', '2026-05-06 09:00:00', 'Colazione', 'Pasto mattutino', 'MRNMRT88C30E506G'),
-  ('2026-05-06 12:30:00', '2026-05-06 13:30:00', 'Pranzo', 'Pasto pomeridiano', 'BRNNNA91A65F234P'),
-  ('2026-05-06 19:30:00', '2026-05-06 20:30:00', 'Cena', 'Pasto serale', 'MRNMRT88C30E506G'),
+-- 06/05/2026
+  ('2026-05-06 08:00:00', '2026-05-06 08:45:00', 'colazione', 'Pasto mattutino', 'MRNMRT88C30E506G'),
+  ('2026-05-06 12:30:00', '2026-05-06 13:30:00', 'pranzo', 'Pasto pomeridiano', 'BRNNNA91A65F234P'),
+  ('2026-05-06 17:00:00', '2026-05-06 17:30:00', 'merenda', 'Spuntino pomeridiano', 'BRNNNA91A65F234P'),
+  ('2026-05-06 19:30:00', '2026-05-06 20:30:00', 'cena', 'Pasto serale', 'MRNMRT88C30E506G'),
 
-  ('2026-05-07 08:00:00', '2026-05-07 09:00:00', 'Colazione', 'Pasto mattutino', 'BRNNNA91A65F234P'),
-  ('2026-05-07 12:30:00', '2026-05-07 13:30:00', 'Pranzo', 'Pasto pomeridiano', 'MRNMRT88C30E506G'),
-  ('2026-05-07 19:30:00', '2026-05-07 20:30:00', 'Cena', 'Pasto serale', 'BRNNNA91A65F234P'),
+-- 07/05/2026
+  ('2026-05-07 08:00:00', '2026-05-07 08:45:00', 'colazione', 'Pasto mattutino', 'BRNNNA91A65F234P'),
+  ('2026-05-07 12:30:00', '2026-05-07 13:30:00', 'pranzo', 'Pasto pomeridiano', 'MRNMRT88C30E506G'),
+  ('2026-05-07 17:00:00', '2026-05-07 17:30:00', 'merenda', 'Spuntino pomeridiano', 'MRNMRT88C30E506G'),
+  ('2026-05-07 19:30:00', '2026-05-07 20:30:00', 'cena', 'Pasto serale', 'BRNNNA91A65F234P'),
 
-  ('2026-05-08 08:00:00', '2026-05-08 09:00:00', 'Colazione', 'Pasto mattutino', 'MRNMRT88C30E506G'),
-  ('2026-05-08 12:30:00', '2026-05-08 13:30:00', 'Pranzo', 'Pasto pomeridiano', 'BRNNNA91A65F234P'),
-  ('2026-05-08 19:30:00', '2026-05-08 20:30:00', 'Cena', 'Pasto serale', 'MRNMRT88C30E506G'),
+-- 08/05/2026
+  ('2026-05-08 08:00:00', '2026-05-08 08:45:00', 'colazione', 'Pasto mattutino', 'MRNMRT88C30E506G'),
+  ('2026-05-08 12:30:00', '2026-05-08 13:30:00', 'pranzo', 'Pasto pomeridiano', 'BRNNNA91A65F234P'),
+  ('2026-05-08 17:00:00', '2026-05-08 17:30:00', 'merenda', 'Spuntino pomeridiano', 'BRNNNA91A65F234P'),
+  ('2026-05-08 19:30:00', '2026-05-08 20:30:00', 'cena', 'Pasto serale', 'MRNMRT88C30E506G'),
 
-  ('2026-05-09 08:00:00', '2026-05-09 09:00:00', 'Colazione', 'Pasto mattutino', 'BRNNNA91A65F234P'),
-  ('2026-05-09 12:30:00', '2026-05-09 13:30:00', 'Pranzo', 'Pasto pomeridiano', 'MRNMRT88C30E506G'),
-  ('2026-05-09 19:30:00', '2026-05-09 20:30:00', 'Cena', 'Pasto serale', 'BRNNNA91A65F234P'),
+-- 09/05/2026
+  ('2026-05-09 08:00:00', '2026-05-09 08:45:00', 'colazione', 'Pasto mattutino', 'BRNNNA91A65F234P'),
+  ('2026-05-09 12:30:00', '2026-05-09 13:30:00', 'pranzo', 'Pasto pomeridiano', 'MRNMRT88C30E506G'),
+  ('2026-05-09 17:00:00', '2026-05-09 17:30:00', 'merenda', 'Spuntino pomeridiano', 'MRNMRT88C30E506G'),
+  ('2026-05-09 19:30:00', '2026-05-09 20:30:00', 'cena', 'Pasto serale', 'BRNNNA91A65F234P'),
 
-  ('2026-05-10 08:00:00', '2026-05-10 09:00:00', 'Colazione', 'Pasto mattutino', 'MRNMRT88C30E506G'),
-  ('2026-05-10 12:30:00', '2026-05-10 13:30:00', 'Pranzo', 'Pasto pomeridiano', 'BRNNNA91A65F234P'),
-  ('2026-05-10 19:30:00', '2026-05-10 20:30:00', 'Cena', 'Pasto serale', 'MRNMRT88C30E506G');
+-- 10/05/2026
+  ('2026-05-10 08:00:00', '2026-05-10 08:45:00', 'colazione', 'Pasto mattutino', 'MRNMRT88C30E506G'),
+  ('2026-05-10 12:30:00', '2026-05-10 13:30:00', 'pranzo', 'Pasto pomeridiano', 'BRNNNA91A65F234P'),
+  ('2026-05-10 17:00:00', '2026-05-10 17:30:00', 'merenda', 'Spuntino pomeridiano', 'BRNNNA91A65F234P'),
+  ('2026-05-10 19:30:00', '2026-05-10 20:30:00', 'cena', 'Pasto serale', 'MRNMRT88C30E506G'),
+
+-- 11/05/2026
+  ('2026-05-11 08:00:00', '2026-05-11 08:45:00', 'colazione', 'Pasto mattutino', 'BRNNNA91A65F234P'),
+  ('2026-05-11 12:30:00', '2026-05-11 13:30:00', 'pranzo', 'Pasto pomeridiano', 'MRNMRT88C30E506G'),
+  ('2026-05-11 17:00:00', '2026-05-11 17:30:00', 'merenda', 'Spuntino pomeridiano', 'MRNMRT88C30E506G'),
+  ('2026-05-11 19:30:00', '2026-05-11 20:30:00', 'cena', 'Pasto serale', 'BRNNNA91A65F234P'),
+
+-- 12/05/2026
+  ('2026-05-12 08:00:00', '2026-05-12 08:45:00', 'colazione', 'Pasto mattutino', 'MRNMRT88C30E506G'),
+  ('2026-05-12 12:30:00', '2026-05-12 13:30:00', 'pranzo', 'Pasto pomeridiano', 'BRNNNA91A65F234P'),
+  ('2026-05-12 17:00:00', '2026-05-12 17:30:00', 'merenda', 'Spuntino pomeridiano', 'BRNNNA91A65F234P'),
+  ('2026-05-12 19:30:00', '2026-05-12 20:30:00', 'cena', 'Pasto serale', 'MRNMRT88C30E506G');
 
 -- =====================================================
 -- PIETANZE PER PASTO
 -- =====================================================
 INSERT INTO pietanze_per_pasto (data_ora_inizio, nome_pietanza) VALUES
-  ('2026-05-06 08:00:00', 'Uova strapazzate'),
-  ('2026-05-06 08:00:00', 'Pancake con sciroppo d’acero'),
-  ('2026-05-06 08:00:00', 'Insalata mista'),
+-- 06/05/2026
+('2026-05-06 08:00:00', 'Cornetto alla marmellata'),
+('2026-05-06 08:00:00', 'Yogurt con cereali'),
+('2026-05-06 08:00:00', 'Frutta fresca assortita'),
 
-  ('2026-05-06 12:30:00', 'Pasta al ragù'),
-  ('2026-05-06 12:30:00', 'Insalata mista'),
-  ('2026-05-06 12:30:00', 'Minestra di verdure'),
+('2026-05-06 12:30:00', 'Pasta al ragù'),
+('2026-05-06 12:30:00', 'Insalata mista'),
+('2026-05-06 12:30:00', 'Tiramisù'),
 
-  ('2026-05-06 19:30:00', 'Pollo arrosto con patate'),
-  ('2026-05-06 19:30:00', 'Zuppa di lenticchie'),
-  ('2026-05-06 19:30:00', 'Tiramisù'),
+('2026-05-06 17:00:00', 'Cornetto alla marmellata'),
 
-  ('2026-05-07 08:00:00', 'Uova strapazzate'),
-  ('2026-05-07 08:00:00', 'Mozzarella in carrozza'),
-  ('2026-05-07 08:00:00', 'Insalata mista'),
+('2026-05-06 19:30:00', 'Pesce al forno'),
+('2026-05-06 19:30:00', 'Minestra di verdure'),
+('2026-05-06 19:30:00', 'Cheesecake ai frutti di bosco'),
 
-  ('2026-05-07 12:30:00', 'Risotto ai funghi'),
-  ('2026-05-07 12:30:00', 'Calamari fritti'),
-  ('2026-05-07 12:30:00', 'Insalata mista'),
+-- 07/05/2026
+('2026-05-07 08:00:00', 'Toast prosciutto e formaggio'),
+('2026-05-07 08:00:00', 'Muffin ai mirtilli'),
+('2026-05-07 08:00:00', 'Frutta fresca assortita'),
 
-  ('2026-05-07 19:30:00', 'Spaghetti alle vongole'),
-  ('2026-05-07 19:30:00', 'Insalata mista'),
-  ('2026-05-07 19:30:00', 'Cheesecake ai frutti di bosco'),
+('2026-05-07 12:30:00', 'Risotto ai funghi'),
+('2026-05-07 12:30:00', 'Insalata mista'),
+('2026-05-07 12:30:00', 'Cheesecake ai frutti di bosco'),
 
-  ('2026-05-08 08:00:00', 'Pancake con sciroppo d’acero'),
-  ('2026-05-08 08:00:00', 'Uova strapazzate'),
-  ('2026-05-08 08:00:00', 'Insalata mista'),
+('2026-05-07 17:00:00', 'Yogurt con cereali'),
 
-  ('2026-05-08 12:30:00', 'Lasagne alla bolognese'),
-  ('2026-05-08 12:30:00', 'Insalata mista'),
-  ('2026-05-08 12:30:00', 'Minestra di verdure'),
+('2026-05-07 19:30:00', 'Pollo arrosto con patate'),
+('2026-05-07 19:30:00', 'Mozzarella in carrozza'),
+('2026-05-07 19:30:00', 'Minestra di verdure'),
 
-  ('2026-05-08 19:30:00', 'Tagliata di manzo'),
-  ('2026-05-08 19:30:00', 'Patate croccanti non presente nella lista, sostituisci manualmente se obbligatorio'),
-  ('2026-05-08 19:30:00', 'Cheesecake ai frutti di bosco'),
+-- 08/05/2026
+('2026-05-08 08:00:00', 'Pancake con sciroppo d’acero'),
+('2026-05-08 08:00:00', 'Yogurt con cereali'),
+('2026-05-08 08:00:00', 'Frutta fresca assortita'),
 
-  ('2026-05-09 08:00:00', 'Pancake con sciroppo d’acero'),
-  ('2026-05-09 08:00:00', 'Frittelle di mele'),
-  ('2026-05-09 08:00:00', 'Insalata mista'),
+('2026-05-08 12:30:00', 'Lasagne alla bolognese'),
+('2026-05-08 12:30:00', 'Insalata mista'),
+('2026-05-08 12:30:00', 'Tiramisù'),
 
-  ('2026-05-09 12:30:00', 'Pizza margherita'),
-  ('2026-05-09 12:30:00', 'Insalata mista'),
-  ('2026-05-09 12:30:00', 'Zuppa di lenticchie'),
+('2026-05-08 17:00:00', 'Muffin ai mirtilli'),
 
-  ('2026-05-09 19:30:00', 'Pesce al forno'),
-  ('2026-05-09 19:30:00', 'Cous cous vegetariano'),
-  ('2026-05-09 19:30:00', 'Tiramisù'),
+('2026-05-08 19:30:00', 'Salmone alla griglia'),
+('2026-05-08 19:30:00', 'Zuppa di lenticchie'),
+('2026-05-08 19:30:00', 'Melanzane alla parmigiana'),
 
-  ('2026-05-10 08:00:00', 'Uova strapazzate'),
-  ('2026-05-10 08:00:00', 'Mozzarella in carrozza'),
-  ('2026-05-10 08:00:00', 'Insalata mista'),
+-- 09/05/2026
+('2026-05-09 08:00:00', 'Cornetto alla crema'),
+('2026-05-09 08:00:00', 'Muesli con frutta fresca'),
+('2026-05-09 08:00:00', 'Frutta fresca assortita'),
 
-  ('2026-05-10 12:30:00', 'Carbonara'),
-  ('2026-05-10 12:30:00', 'Melanzane alla parmigiana'),
-  ('2026-05-10 12:30:00', 'Insalata mista'),
+('2026-05-09 12:30:00', 'Gnocchi al pesto'),
+('2026-05-09 12:30:00', 'Insalata mista'),
+('2026-05-09 12:30:00', 'Cheesecake ai frutti di bosco'),
 
-  ('2026-05-10 19:30:00', 'Salmone alla griglia'),
-  ('2026-05-10 19:30:00', 'Patate non presenti nella tua lista; sostituisci manualmente se necessario'),
-  ('2026-05-10 19:30:00', 'Cheesecake ai frutti di bosco'),
+('2026-05-09 17:00:00', 'Frutta fresca assortita'),
 
+('2026-05-09 19:30:00', 'Tagliata di manzo'),
+('2026-05-09 19:30:00', 'Melanzane alla parmigiana'),
+('2026-05-09 19:30:00', 'Zuppa di lenticchie'),
+
+-- 10/05/2026
+('2026-05-10 08:00:00', 'Brioche al cioccolato'),
+('2026-05-10 08:00:00', 'Pane burro e marmellata'),
+('2026-05-10 08:00:00', 'Frutta fresca assortita'),
+
+('2026-05-10 12:30:00', 'Carbonara'),
+('2026-05-10 12:30:00', 'Insalata mista'),
+('2026-05-10 12:30:00', 'Tiramisù'),
+
+('2026-05-10 17:00:00', 'Brioche al cioccolato'),
+
+('2026-05-10 19:30:00', 'Spaghetti alle vongole'),
+('2026-05-10 19:30:00', 'Calamari fritti'),
+('2026-05-10 19:30:00', 'Cous cous vegetariano'),
+
+-- 11/05/2026
+('2026-05-11 08:00:00', 'Cornetto alla marmellata'),
+('2026-05-11 08:00:00', 'Muesli con frutta fresca'),
+('2026-05-11 08:00:00', 'Frutta fresca assortita'),
+
+('2026-05-11 12:30:00', 'Pizza margherita'),
+('2026-05-11 12:30:00', 'Insalata mista'),
+('2026-05-11 12:30:00', 'Cheesecake ai frutti di bosco'),
+
+('2026-05-11 17:00:00', 'Pane burro e marmellata'),
+
+('2026-05-11 19:30:00', 'Hamburger con patatine'),
+('2026-05-11 19:30:00', 'Zuppa di lenticchie'),
+('2026-05-11 19:30:00', 'Frittelle di mele'),
+
+-- 12/05/2026
+('2026-05-12 08:00:00', 'Toast prosciutto e formaggio'),
+('2026-05-12 08:00:00', 'Yogurt con cereali'),
+('2026-05-12 08:00:00', 'Frutta fresca assortita'),
+
+('2026-05-12 12:30:00', 'Cous cous vegetariano'),
+('2026-05-12 12:30:00', 'Insalata mista'),
+('2026-05-12 12:30:00', 'Tiramisù'),
+
+('2026-05-12 17:00:00', 'Cheesecake ai frutti di bosco'),
+
+('2026-05-12 19:30:00', 'Uova strapazzate'),
+('2026-05-12 19:30:00', 'Melanzane alla parmigiana'),
+('2026-05-12 19:30:00', 'Crostata di albicocche');
 
 -- =====================================================
 -- ATTIVITA ROUTINE
 -- =====================================================
 INSERT INTO attivita_routine
-(data_ora_inizio, data_ora_fine, descrizione, nome, valutazione, codice_fiscale_animatore_supervisore, tipologia_routine)
+(data_ora_inizio, data_ora_fine, descrizione, nome, codice_fiscale_animatore_supervisore, tipologia_routine)
 VALUES
-('2026-05-01 07:00:00','2026-05-01 07:30:00','Sveglia','Sveglia','OK','RSSMRC85H21H501D','sveglia'),
-('2026-05-01 09:00:00','2026-05-01 10:30:00','Sport','Attività fisica','OK','BNCGVN92A15D612H','attivita fisica'),
-('2026-05-01 10:45:00','2026-05-01 12:15:00','Laboratorio','Creatività','OK','ROSSLA91D50C573F','attivita mattina'),
-('2026-05-01 14:00:00','2026-05-01 15:30:00','Giochi','Attività ludica','OK','VRDFRC94B08C351K','attivita pomeriggio'),
-('2026-05-01 17:00:00','2026-05-01 18:00:00','Igiene','Docce','OK','SFRNTN93E45B789L','doccia'),
-('2026-05-01 20:30:00','2026-05-01 21:30:00','Serata','Gioco serale','OK','PLNNDR89E12D999Z','attivita serale'),
-('2026-05-02 07:00:00','2026-05-02 07:30:00','Sveglia','Sveglia','','RSSMRC85H21H501D','sveglia'),
-('2026-05-02 09:00:00','2026-05-02 10:30:00','Sport','Attività fisica','','BNCGVN92A15D612H','attivita fisica'),
-('2026-05-02 10:45:00','2026-05-02 12:15:00','Laboratorio','','','ROSSLA91C573F','attivita mattina'),
-('2026-05-02 14:00:00','2026-05-02 15:30:00','Giochi','','','VRDFRC94B08C351K','attivita pomeriggio'),
-('2026-05-02 17:00:00','2026-05-02 18:00:00','Igiene','','','SFRNTN93E45B789L','doccia'),
-('2026-05-02 20:30:00','2026-05-02 21:30:00','Serata','','','PLNNDR89E12D999Z','attivita serale');
+-- 06/05/2026
+  ('2026-05-06 07:20:00', '2026-05-06 07:40:00', 'Sveglia animati', 'sveglia', 'VRDFRC94B08C351K', 'sveglia'),
+  ('2026-05-06 07:40:00', '2026-05-06 07:45:00', 'Attività fisica', 'attivita fisica', 'VRDFRC94B08C351K', 'attivita fisica'),
+  ('2026-05-06 09:30:00', '2026-05-06 11:30:00', 'Attività mattina', 'attivita della mattina', 'SFRNTN93E45B789L', 'attivita della mattina'),
+  ('2026-05-06 11:30:00', '2026-05-06 12:15:00', 'Gioco libero', 'gioco libero', 'RSSMRC85H21H501D', 'gioco libero'),
+  ('2026-05-06 14:00:00', '2026-05-06 15:00:00', 'Gioco libero', 'gioco libero', 'VRDFRC94B08C351K', 'gioco libero'),
+  ('2026-05-06 15:00:00', '2026-05-06 17:00:00', 'Attività pomeriggio', 'attivita del pomeriggio', 'SFRNTN93E45B789L', 'attivita del pomeriggio'),
+  ('2026-05-06 17:30:00', '2026-05-06 18:30:00', 'Doccia', 'doccia', 'RSSMRC85H21H501D', 'doccia'),
+  ('2026-05-06 18:30:00', '2026-05-06 19:15:00', 'Gioco libero', 'gioco libero', 'PLNNDR89E12D999Z', 'gioco libero'),
+  ('2026-05-06 21:00:00', '2026-05-06 23:00:00', 'attivita serale', 'attivita serale', 'PLNNDR89E12D999Z', 'attivita serale'),
+  ('2026-05-06 23:00:00', '2026-05-06 23:30:00', 'verifica e resoconto della giornata', 'verifica e resoconto della giornata', 'BNCGVN92A15D612H', 'verifica e resoconto della giornata'),
+
+-- 07/05/2026
+  ('2026-05-07 07:20:00', '2026-05-07 07:40:00', 'Sveglia animati', 'sveglia', 'BNCGVN92A15D612H', 'sveglia'),
+  ('2026-05-07 07:40:00', '2026-05-07 07:45:00', 'Attività fisica', 'attivita fisica', 'ROSSLA91D50C573F', 'attivita fisica'),
+  ('2026-05-07 09:30:00', '2026-05-07 11:30:00', 'Attività mattina', 'attivita della mattina', 'ROSSLA91D50C573F', 'attivita della mattina'),
+  ('2026-05-07 11:30:00', '2026-05-07 12:15:00', 'Gioco libero', 'gioco libero', 'PLNNDR89E12D999Z', 'gioco libero'),
+  ('2026-05-07 14:00:00', '2026-05-07 15:00:00', 'Gioco libero', 'gioco libero', 'BNCGVN92A15D612H', 'gioco libero'),
+  ('2026-05-07 15:00:00', '2026-05-07 17:00:00', 'Attività pomeriggio', 'attivita del pomeriggio', 'BNCGVN92A15D612H', 'attivita del pomeriggio'),
+  ('2026-05-07 17:30:00', '2026-05-07 18:30:00', 'Doccia', 'doccia', 'VRDFRC94B08C351K', 'doccia'),
+  ('2026-05-07 18:30:00', '2026-05-07 19:15:00', 'Gioco libero', 'gioco libero', 'PLNNDR89E12D999Z', 'gioco libero'),
+  ('2026-05-07 21:00:00', '2026-05-07 23:00:00', 'attivita serale', 'attivita serale', 'SFRNTN93E45B789L', 'attivita serale'),
+  ('2026-05-07 23:00:00', '2026-05-07 23:30:00', 'verifica e resoconto della giornata', 'verifica e resoconto della giornata', 'VRDFRC94B08C351K', 'verifica e resoconto della giornata'),
+
+-- 08/05/2026
+  ('2026-05-08 07:20:00', '2026-05-08 07:40:00', 'Sveglia animati', 'sveglia', 'RSSMRC85H21H501D', 'sveglia'),
+  ('2026-05-08 07:40:00', '2026-05-08 07:45:00', 'Attività fisica', 'attivita fisica', 'VRDFRC94B08C351K', 'attivita fisica'),
+  ('2026-05-08 09:30:00', '2026-05-08 11:30:00', 'Attività mattina', 'attivita della mattina', 'ROSSLA91D50C573F', 'attivita della mattina'),
+  ('2026-05-08 11:30:00', '2026-05-08 12:15:00', 'Gioco libero', 'gioco libero', 'PLNNDR89E12D999Z', 'gioco libero'),
+  ('2026-05-08 14:00:00', '2026-05-08 15:00:00', 'Gioco libero', 'gioco libero', 'BNCGVN92A15D612H', 'gioco libero'),
+  ('2026-05-08 17:30:00', '2026-05-08 18:30:00', 'Doccia', 'doccia', 'RSSMRC85H21H501D', 'doccia'),
+  ('2026-05-08 18:30:00', '2026-05-08 19:15:00', 'Gioco libero', 'gioco libero', 'ROSSLA91D50C573F', 'gioco libero'),
+  ('2026-05-08 21:00:00', '2026-05-08 23:00:00', 'attivita serale', 'attivita serale', 'ROSSLA91D50C573F', 'attivita serale'),
+  ('2026-05-08 23:00:00', '2026-05-08 23:30:00', 'verifica e resoconto della giornata', 'verifica e resoconto della giornata', 'VRDFRC94B08C351K', 'verifica e resoconto della giornata'),
+
+-- 09/05/2026
+  ('2026-05-09 07:20:00', '2026-05-09 07:40:00', 'Sveglia animati', 'sveglia', 'VRDFRC94B08C351K', 'sveglia'),
+  ('2026-05-09 07:40:00', '2026-05-09 07:45:00', 'Attività fisica', 'attivita fisica', 'PLNNDR89E12D999Z', 'attivita fisica'),
+  ('2026-05-09 09:30:00', '2026-05-09 11:30:00', 'Attività mattina', 'attivita della mattina', 'BNCGVN92A15D612H', 'attivita della mattina'),
+  ('2026-05-09 11:30:00', '2026-05-09 12:15:00', 'Gioco libero', 'gioco libero', 'SFRNTN93E45B789L', 'gioco libero'),
+  ('2026-05-09 14:00:00', '2026-05-09 15:00:00', 'Gioco libero', 'gioco libero', 'SFRNTN93E45B789L', 'gioco libero'),
+  ('2026-05-09 15:00:00', '2026-05-09 17:00:00', 'Attività pomeriggio', 'attivita del pomeriggio', 'SFRNTN93E45B789L', 'attivita del pomeriggio'),
+  ('2026-05-09 17:30:00', '2026-05-09 18:30:00', 'Doccia', 'doccia', 'BNCGVN92A15D612H', 'doccia'),
+  ('2026-05-09 18:30:00', '2026-05-09 19:15:00', 'Gioco libero', 'gioco libero', 'ROSSLA91D50C573F', 'gioco libero'),
+  ('2026-05-09 21:00:00', '2026-05-09 23:00:00', 'attivita serale', 'attivita serale', 'SFRNTN93E45B789L', 'attivita serale'),
+  ('2026-05-09 23:00:00', '2026-05-09 23:30:00', 'verifica e resoconto della giornata', 'verifica e resoconto della giornata', 'RSSMRC85H21H501D', 'verifica e resoconto della giornata'),
+
+-- 10/05/2026
+  ('2026-05-10 07:20:00', '2026-05-10 07:40:00', 'Sveglia animati', 'sveglia', 'VRDFRC94B08C351K', 'sveglia'),
+  ('2026-05-10 07:40:00', '2026-05-10 07:45:00', 'Attività fisica', 'attivita fisica', 'RSSMRC85H21H501D', 'attivita fisica'),
+  ('2026-05-10 09:30:00', '2026-05-10 11:30:00', 'Attività mattina', 'attivita della mattina', 'BNCGVN92A15D612H', 'attivita della mattina'),
+  ('2026-05-10 11:30:00', '2026-05-10 12:15:00', 'Gioco libero', 'gioco libero', 'ROSSLA91D50C573F', 'gioco libero'),
+  ('2026-05-10 14:00:00', '2026-05-10 15:00:00', 'Gioco libero', 'gioco libero', 'PLNNDR89E12D999Z', 'gioco libero'),
+  ('2026-05-10 15:00:00', '2026-05-10 17:00:00', 'Attività pomeriggio', 'attivita del pomeriggio', 'PLNNDR89E12D999Z', 'attivita del pomeriggio'),
+  ('2026-05-10 17:30:00', '2026-05-10 18:30:00', 'Doccia', 'doccia', 'PLNNDR89E12D999Z', 'doccia'),
+  ('2026-05-10 18:30:00', '2026-05-10 19:15:00', 'Gioco libero', 'gioco libero', 'RSSMRC85H21H501D', 'gioco libero'),
+  ('2026-05-10 21:00:00', '2026-05-10 23:00:00', 'attivita serale', 'attivita serale', 'PLNNDR89E12D999Z', 'attivita serale'),
+  ('2026-05-10 23:00:00', '2026-05-10 23:30:00', 'verifica e resoconto della giornata', 'verifica e resoconto della giornata', 'RSSMRC85H21H501D', 'verifica e resoconto della giornata'),
+
+-- 11/05/2026
+  ('2026-05-11 07:20:00', '2026-05-11 07:40:00', 'Sveglia animati', 'sveglia', 'VRDFRC94B08C351K', 'sveglia'),
+  ('2026-05-11 07:40:00', '2026-05-11 07:45:00', 'Attività fisica', 'attivita fisica', 'SFRNTN93E45B789L', 'attivita fisica'),
+  ('2026-05-11 09:30:00', '2026-05-11 11:30:00', 'Attività mattina', 'attivita della mattina', 'PLNNDR89E12D999Z', 'attivita della mattina'),
+  ('2026-05-11 11:30:00', '2026-05-11 12:15:00', 'Gioco libero', 'gioco libero', 'ROSSLA91D50C573F', 'gioco libero'),
+  ('2026-05-11 14:00:00', '2026-05-11 15:00:00', 'Gioco libero', 'gioco libero', 'RSSMRC85H21H501D', 'gioco libero'),
+  ('2026-05-11 15:00:00', '2026-05-11 17:00:00', 'Attività pomeriggio', 'attivita del pomeriggio', 'PLNNDR89E12D999Z', 'attivita del pomeriggio'),
+  ('2026-05-11 17:30:00', '2026-05-11 18:30:00', 'Doccia', 'doccia', 'SFRNTN93E45B789L', 'doccia'),
+  ('2026-05-11 18:30:00', '2026-05-11 19:15:00', 'Gioco libero', 'gioco libero', 'SFRNTN93E45B789L', 'gioco libero'),
+  ('2026-05-11 21:00:00', '2026-05-11 23:00:00', 'attivita serale', 'attivita serale', 'BNCGVN92A15D612H', 'attivita serale'),
+  ('2026-05-11 23:00:00', '2026-05-11 23:30:00', 'verifica e resoconto della giornata', 'verifica e resoconto della giornata', 'ROSSLA91D50C573F', 'verifica e resoconto della giornata'),
+
+-- 12/05/2026
+  ('2026-05-12 07:20:00', '2026-05-12 07:40:00', 'Sveglia animati', 'sveglia', 'RSSMRC85H21H501D', 'sveglia'),
+  ('2026-05-12 07:40:00', '2026-05-12 07:45:00', 'Attività fisica', 'attivita fisica', 'BNCGVN92A15D612H', 'attivita fisica'),
+  ('2026-05-12 09:30:00', '2026-05-12 11:30:00', 'Attività mattina', 'attivita della mattina', 'SFRNTN93E45B789L', 'attivita della mattina'),
+  ('2026-05-12 11:30:00', '2026-05-12 12:15:00', 'Gioco libero', 'gioco libero', 'SFRNTN93E45B789L', 'gioco libero'),
+  ('2026-05-12 14:00:00', '2026-05-12 15:00:00', 'Gioco libero', 'gioco libero', 'PLNNDR89E12D999Z', 'gioco libero'),
+  ('2026-05-12 15:00:00', '2026-05-12 17:00:00', 'Attività pomeriggio', 'attivita del pomeriggio', 'SFRNTN93E45B789L', 'attivita del pomeriggio'),
+  ('2026-05-12 17:30:00', '2026-05-12 18:30:00', 'Doccia', 'doccia', 'PLNNDR89E12D999Z', 'doccia'),
+  ('2026-05-12 18:30:00', '2026-05-12 19:15:00', 'Gioco libero', 'gioco libero', 'SFRNTN93E45B789L', 'gioco libero');
 
 
 -- =====================================================
@@ -323,12 +487,81 @@ VALUES
 INSERT INTO attivita_faccende
 (data_ora_inizio, data_ora_fine, nome, descrizione, nome_squadra, tipologia_faccenda)
 VALUES
-('2026-05-01 08:30:00','2026-05-01 08:45:00','Setup colazione','Preparazione','Aquile Rosse','colazione'),
-('2026-05-01 08:45:00','2026-05-01 09:00:00','Cleanup colazione','Pulizia','Tigri Blu','colazione'),
-('2026-05-01 12:15:00','2026-05-01 12:30:00','Setup pranzo','Preparazione','Stelle Rosse','pranzo'),
-('2026-05-01 13:30:00','2026-05-01 13:45:00','Cleanup pranzo','Pulizia','Pantere Nere','pranzo'),
-('2026-05-01 19:30:00','2026-05-01 19:45:00','Setup cena','Preparazione','Falchi Gialli','cena'),
-('2026-05-01 19:45:00','2026-05-01 20:00:00','Cleanup cena','Pulizia','Leonesse d''Oro','cena');
+-- 06/05/2026
+  ('2026-05-06 07:45:00', '2026-05-06 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Tigri Blu', 'preparazione tavoli colazione'),
+  ('2026-05-06 08:45:00', '2026-05-06 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Aquile Rosse', 'spreparazione tavoli colazione'),
+  ('2026-05-06 09:00:00', '2026-05-06 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-06 12:15:00', '2026-05-06 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-06 13:30:00', '2026-05-06 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-06 13:45:00', '2026-05-06 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-06 19:15:00', '2026-05-06 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-06 20:30:00', '2026-05-06 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-06 20:45:00', '2026-05-06 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+
+-- 07/05/2026
+  ('2026-05-07 07:45:00', '2026-05-07 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Leonesse d`Oro', 'preparazione tavoli colazione'),
+  ('2026-05-07 08:45:00', '2026-05-07 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Stelle Rosse', 'spreparazione tavoli colazione'),
+  ('2026-05-07 09:00:00', '2026-05-07 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-07 12:15:00', '2026-05-07 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-07 13:30:00', '2026-05-07 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-07 13:45:00', '2026-05-07 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-07 19:15:00', '2026-05-07 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-07 20:30:00', '2026-05-07 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-07 20:45:00', '2026-05-07 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+
+-- 08/05/2026
+  ('2026-05-08 07:45:00', '2026-05-08 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Leonesse d`Oro', 'preparazione tavoli colazione'),
+  ('2026-05-08 08:45:00', '2026-05-08 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Pantere Nere', 'spreparazione tavoli colazione'),
+  ('2026-05-08 09:00:00', '2026-05-08 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-08 12:15:00', '2026-05-08 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-08 13:30:00', '2026-05-08 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-08 13:45:00', '2026-05-08 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-08 19:15:00', '2026-05-08 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-08 20:30:00', '2026-05-08 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-08 20:45:00', '2026-05-08 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+
+-- 09/05/2026
+  ('2026-05-09 07:45:00', '2026-05-09 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Stelle Rosse', 'preparazione tavoli colazione'),
+  ('2026-05-09 08:45:00', '2026-05-09 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Pantere Nere', 'spreparazione tavoli colazione'),
+  ('2026-05-09 09:00:00', '2026-05-09 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-09 12:15:00', '2026-05-09 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-09 13:30:00', '2026-05-09 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-09 13:45:00', '2026-05-09 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-09 19:15:00', '2026-05-09 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-09 20:30:00', '2026-05-09 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-09 20:45:00', '2026-05-09 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+
+-- 10/05/2026
+  ('2026-05-10 07:45:00', '2026-05-10 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Pantere Nere', 'preparazione tavoli colazione'),
+  ('2026-05-10 08:45:00', '2026-05-10 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-10 09:00:00', '2026-05-10 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-10 12:15:00', '2026-05-10 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-10 13:30:00', '2026-05-10 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-10 13:45:00', '2026-05-10 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-10 19:15:00', '2026-05-10 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-10 20:30:00', '2026-05-10 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-10 20:45:00', '2026-05-10 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+
+-- 11/05/2026
+  ('2026-05-11 07:45:00', '2026-05-11 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Pantere Nere', 'preparazione tavoli colazione'),
+  ('2026-05-11 08:45:00', '2026-05-11 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-11 09:00:00', '2026-05-11 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-11 12:15:00', '2026-05-11 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-11 13:30:00', '2026-05-11 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-11 13:45:00', '2026-05-11 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-11 19:15:00', '2026-05-11 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-11 20:30:00', '2026-05-11 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-11 20:45:00', '2026-05-11 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+-- 12/05/2026
+  ('2026-05-12 07:45:00', '2026-05-12 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Falchi Gialli', 'preparazione tavoli colazione'),
+  ('2026-05-12 08:45:00', '2026-05-12 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-12 09:00:00', '2026-05-12 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-12 12:15:00', '2026-05-12 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-12 13:30:00', '2026-05-12 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-12 13:45:00', '2026-05-12 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-12 19:15:00', '2026-05-12 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-12 20:30:00', '2026-05-12 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-12 20:45:00', '2026-05-12 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione');
 
 -- =====================================================
 -- PREVEDE
@@ -336,22 +569,81 @@ VALUES
 INSERT INTO routine_prevedono_materiali
 (data_ora_inizio_attivita, nome_materiale, quantita)
 VALUES
-('2026-05-01 09:00:00', 'Pallone calcio', 2),
-('2026-05-01 09:00:00', 'Palle da basket', 2),
-('2026-05-01 09:00:00', 'Corda', 3),
-('2026-05-02 09:00:00', 'Pallone calcio', 2),
-('2026-05-02 09:00:00', 'Palle da basket', 2),
-('2026-05-02 09:00:00', 'Corda', 3),
-('2026-05-01 10:45:00', 'Pennarelli colorati', 3),
-('2026-05-01 10:45:00', 'Quaderni', 10),
-('2026-05-01 10:45:00', 'Materiale artistico', 2),
-('2026-05-02 10:45:00', 'Quaderni', 12),
-('2026-05-02 10:45:00', 'Pennarelli colorati', 3),
-('2026-05-02 10:45:00', 'Materiale artistico', 2),
-('2026-05-01 14:00:00', 'Giochi da tavolo', 4),
-('2026-05-01 14:00:00', 'Corda', 2),
-('2026-05-02 14:00:00', 'Giochi da tavolo', 3),
-('2026-05-02 14:00:00', 'Palle da basket', 2);
+-- 06/05/2026 - Gioco libero
+('2026-05-06 14:00:00', 'Giochi da tavolo', 4),
+
+-- 06/05/2026 - Attività pomeriggio
+('2026-05-06 15:00:00', 'Pennarelli colorati', 3),
+('2026-05-06 15:00:00', 'Quaderni', 10),
+('2026-05-06 15:00:00', 'Materiale artistico', 2),
+
+-- 07/05/2026 - Gioco libero
+('2026-05-07 14:00:00', 'Giochi da tavolo', 3),
+
+-- 07/05/2026 - Attività pomeriggio
+('2026-05-07 15:00:00', 'Pennarelli colorati', 3),
+('2026-05-07 15:00:00', 'Quaderni', 12),
+('2026-05-07 15:00:00', 'Materiale artistico', 2),
+
+-- 08/05/2026 - Attività mattina
+('2026-05-08 09:30:00', 'Pallone calcio', 2),
+('2026-05-08 09:30:00', 'Palle da basket', 2),
+('2026-05-08 09:30:00', 'Corda', 3),
+
+-- 08/05/2026 - Gioco libero
+('2026-05-08 14:00:00', 'Giochi da tavolo', 4),
+
+-- 09/05/2026 - Attività mattina
+('2026-05-09 09:30:00', 'Pallone calcio', 3),
+('2026-05-09 09:30:00', 'Palle da basket', 2),
+('2026-05-09 09:30:00', 'Corda', 4),
+
+-- 09/05/2026 - Gioco libero
+('2026-05-09 14:00:00', 'Giochi da tavolo', 4),
+
+-- 09/05/2026 - Attività pomeriggio
+('2026-05-09 15:00:00', 'Pennarelli colorati', 3),
+('2026-05-09 15:00:00', 'Quaderni', 12),
+('2026-05-09 15:00:00', 'Materiale artistico', 2),
+
+-- 10/05/2026 - Attività mattina
+('2026-05-10 09:30:00', 'Pallone calcio', 2),
+('2026-05-10 09:30:00', 'Palle da basket', 3),
+('2026-05-10 09:30:00', 'Corda', 3),
+
+-- 10/05/2026 - Gioco libero
+('2026-05-10 14:00:00', 'Giochi da tavolo', 3),
+
+-- 10/05/2026 - Attività pomeriggio
+('2026-05-10 15:00:00', 'Pennarelli colorati', 3),
+('2026-05-10 15:00:00', 'Quaderni', 10),
+('2026-05-10 15:00:00', 'Materiale artistico', 2),
+
+-- 11/05/2026 - Attività mattina
+('2026-05-11 09:30:00', 'Pallone calcio', 2),
+('2026-05-11 09:30:00', 'Palle da basket', 2),
+('2026-05-11 09:30:00', 'Corda', 3),
+
+-- 11/05/2026 - Gioco libero
+('2026-05-11 14:00:00', 'Giochi da tavolo', 4),
+
+-- 11/05/2026 - Attività pomeriggio
+('2026-05-11 15:00:00', 'Pennarelli colorati', 4),
+('2026-05-11 15:00:00', 'Quaderni', 12),
+('2026-05-11 15:00:00', 'Materiale artistico', 2),
+
+-- 12/05/2026 - Attività mattina
+('2026-05-12 09:30:00', 'Pallone calcio', 2),
+('2026-05-12 09:30:00', 'Palle da basket', 2),
+('2026-05-12 09:30:00', 'Corda', 3),
+
+-- 12/05/2026 - Gioco libero
+('2026-05-12 14:00:00', 'Giochi da tavolo', 3),
+
+-- 12/05/2026 - Attività pomeriggio
+('2026-05-12 15:00:00', 'Pennarelli colorati', 3),
+('2026-05-12 15:00:00', 'Quaderni', 10),
+('2026-05-12 15:00:00', 'Materiale artistico', 2);
 
 
 -- =====================================================
@@ -360,9 +652,5 @@ VALUES
 INSERT INTO attivita_extra
 (data_ora_inizio, data_ora_fine, tipo, descrizione)
 VALUES
-('2026-05-01 16:00:00','2026-05-01 17:15:00','Escursione','Bosco e natura'),
-('2026-05-02 16:00:00','2026-05-02 17:30:00','Laboratorio','Ceramica'),
-('2026-05-03 16:00:00','2026-05-03 17:30:00','Sport','Orienteering'),
-('2026-05-04 16:00:00','2026-05-04 17:30:00','Spettacolo','Teatro ragazzi'),
-('2026-05-05 16:00:00','2026-05-05 17:30:00','Workshop','Fotografia'),
-('2026-05-06 16:00:00','2026-05-06 17:30:00','Evento finale','Cerimonia chiusura');
+('2026-05-08 15:00:00','2026-05-08 17:00:00','Escursione','Bosco e natura'),
+('2026-05-12 21:00:00','2026-05-12 23:00:00','Evento finale','Cerimonia chiusura');

@@ -368,16 +368,6 @@ CREATE TABLE IF NOT EXISTS "pietanze_per_pasto" (
 
 
 --TRIGGERS
--- CREATE check_animatore_responsabile_presente 
--- BEFORE INSERT 
--- ON stanze FOR EACH ROW
--- LANGUAGE plpgsql AS $$
--- BEGIN
--- 	IF SELECT COUNT(*)=1 FROM partecipanti NATURAL JOIN animatori WHERE numero_stanza=NEW.numero_stanza IS NULL THEN
--- 		SIGNAL SQLSTATE '45000'
--- 		SET MESSAGE_TEXT = 'Animatore is required';
--- 	END IF;
--- END $$;
 
 -- INSERT/UPDATE
 CREATE OR REPLACE FUNCTION check_single_ruolo_insert_update()
@@ -527,8 +517,6 @@ BEGIN
             SELECT data_ora_inizio, tsrange(data_ora_inizio, data_ora_fine) AS intervallo FROM attivita_extra
         ) t
         WHERE t.intervallo && tsrange(NEW.data_ora_inizio, NEW.data_ora_fine)
-          -- CRUCIAL INTERVENTION FOR UPDATE:
-          -- Se stiamo facendo un UPDATE, escludiamo dal controllo il vecchio record basandoci sulla data di inizio
           AND (TG_OP = 'INSERT' OR t.data_ora_inizio <> OLD.data_ora_inizio)
     ) INTO conflitto_rilevato;
 

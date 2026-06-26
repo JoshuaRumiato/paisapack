@@ -4,12 +4,15 @@ progettazione (è opportuno discutere prima con il professore quali trigger scri
 
 # TRIGGER SCELTI
 1. [x] Controllo che un partecipante abbia sempre(INSERT,UPDATE,DELETE) un singolo ruolo.
+[!Warning] check_single_ruolo_insert_update
 > [!Note]
 > Il partecipante può cambiare ruolo perché non c'è un controllo per verificare se il campo è già cominciato 
 2. [x] Controllo che le attività non si sovrappongano come tempistiche, devono essere eseguite in sequenza (non necessariamente attaccate), NON in parallelo.
+[!Warning] check_attivita
 >[!Note]
 > Spiegare la funzione overlpas.
 3. [x] SE IN UNA STANZA CI SONO ANIMATI, CI DEVE ESSERE ALMENO UN ANIMATORE RESPONSABILE.
+[!Warning] check_stanza_animatore_responsabile_insert_update
 
 # TRIGGER TOTALI DA AGGIUNGERE IN RELAZIONI
 1. partecipante abbia sempre uno e un solo ruolo

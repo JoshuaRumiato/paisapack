@@ -10,6 +10,39 @@
 6. Cancellazione di una ROUTINE, con conseguente eliminazione di tutte le informazioni ad essa collegate (ad esempio, materiali necessari, punteggio, ecc...
 
 
+# Inserimento
+- [ ] Inserimento di un nuovo ANIMATO, con tutte le informazioni necessarie
+> [!NOTE]
+> questo inserimento è di un generico animato, quindi si da per scontato che alcune informazioni siano già all'interno del database: stanza con relativo responsabile, squadra con relativo animatore responsabile e allergeni
+```sql
+BEGIN;
+INSERT INTO partecipanti (codice_fiscale, nome, cognome, luogo_nascita, foto_documento, note, numero_stanza) VALUES
+    ('GRLMRC08E20H501T', 'Marco', 'Giraldi', 'Udine', 'foto_marco_giraldi.jpg', 'Allergico a glutine e lattosio', 101);
+
+INSERT INTO animati (codice_fiscale, email_genitore, telefono_genitore, nome_squadra) VALUES
+    ('GRLMRC08E20H501T', 'parent1@email.com', '3301234567', 'Aquile Rosse');    
+
+INSERT INTO allergico (codice_fiscale_partecipante, nome_allergene) VALUES
+    ('GRLMRC08E20H501T', 'glutine'),
+    ('GRLMRC08E20H501T', 'lattosio');
+COMMIT;
+```
+
+- [ ] Inserimento di una ROUTINE, con nome, supervisore, descrizione, durata, e materiali necessari.
+> [!NOTE]
+> questo inserimento è di una generica attività di routine, quindi si da per scontato che alcune informazioni siano già all'interno del database: materiali, animatore supervisore, 
+```sql
+BEGIN;
+INSERT INTO attivita_routine (data_ora_inizio, data_ora_fine, descrizione, nome, codice_fiscale_animatore_supervisore, tipologia_routine) VALUES
+    ('2026-05-12 15:00:00', '2026-05-12 17:00:00', 'Attività pomeriggio', 'attivita del pomeriggio', 'SFRNTN93E45B789L', 'attivita del pomeriggio');
+
+INSERT INTO routine_prevedono_materiali (data_ora_inizio_attivita, nome_materiale, quantita) VALUES
+    ('2026-05-12 15:00:00', 'Pennarelli colorati', 3),
+    ('2026-05-12 15:00:00', 'Quaderni', 10),
+    ('2026-05-12 15:00:00', 'Materiale artistico', 2);
+COMMIT;
+```
+
 # Selezione (proposte dal professore)
 
 - [ ] Selezionare le coppie di routine che utilizzano uno stesso materiale (tutto il campo o giornaliero a nostra discrezione)

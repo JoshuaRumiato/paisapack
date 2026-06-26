@@ -513,22 +513,27 @@ EXECUTE FUNCTION check_single_ruolo_delete();
 -- INSERT/UPDATE Attivita
 CREATE OR REPLACE FUNCTION check_attivita()
 RETURNS TRIGGER AS $$
+DECLARE
+    conflitto_rilevato BOOLEAN;
 BEGIN
-    IF EXISTS (
-        SELECT 1
-        FROM (
-            SELECT data_ora_inizio, data_ora_fine FROM attivita_routine
+    SELECT EXISTS (
+        SELECT 1 FROM (
+            SELECT data_ora_inizio, tsrange(data_ora_inizio, data_ora_fine) AS intervallo FROM attivita_routine
             UNION ALL
-            SELECT data_ora_inizio, data_ora_fine FROM attivita_faccende
+            SELECT data_ora_inizio, tsrange(data_ora_inizio, data_ora_fine) AS intervallo FROM attivita_faccende
             UNION ALL
-            SELECT data_ora_inizio, data_ora_fine FROM attivita_pasto
+            SELECT data_ora_inizio, tsrange(data_ora_inizio, data_ora_fine) AS intervallo FROM attivita_pasto
             UNION ALL
-            SELECT data_ora_inizio, data_ora_fine FROM attivita_extra
+            SELECT data_ora_inizio, tsrange(data_ora_inizio, data_ora_fine) AS intervallo FROM attivita_extra
         ) t
-        WHERE (t.data_ora_inizio, t.data_ora_fine)
-              OVERLAPS (NEW.data_ora_inizio, NEW.data_ora_fine)
-    ) THEN
-        RAISE EXCEPTION 'Intervallo di tempo sovrapposto con un''altra attività';
+        WHERE t.intervallo && tsrange(NEW.data_ora_inizio, NEW.data_ora_fine)
+          -- CRUCIAL INTERVENTION FOR UPDATE:
+          -- Se stiamo facendo un UPDATE, escludiamo dal controllo il vecchio record basandoci sulla data di inizio
+          AND (TG_OP = 'INSERT' OR t.data_ora_inizio <> OLD.data_ora_inizio)
+    ) INTO conflitto_rilevato;
+
+    IF conflitto_rilevato THEN
+        RAISE EXCEPTION 'Errore: L''intervallo temporale si sovrappone a un''attività già pianificata!';
     END IF;
 
     RETURN NEW;

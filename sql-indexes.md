@@ -49,11 +49,7 @@ Quando viene inserito o modificato un pasto, il trigger deve effettuare una cate
 ```sql
 -- Creazione dell'indice B-Tree standard sulla foreign key
 CREATE INDEX idx_pasti_cuoco_supervisore 
-ON pasti (codice_fiscale_cuoco);
+ON attivita_pasto (codice_fiscale_cuoco_supervisore);
 
--- Query (interna alla logica del trigger di controllo allergie) ottimizzata dall'indice:
-SELECT 1 
-FROM pasti p
-WHERE p.codice_fiscale_cuoco = NEW.codice_fiscale_cuoco;
-
+-- Ottimizza ad esempio la query elezionare i cuochi che hanno supervisionato un pasto con un allergene che è contenuto in una singola pietanza
 ```

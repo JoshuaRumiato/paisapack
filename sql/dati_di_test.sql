@@ -1,6 +1,9 @@
 -- =====================================================
 -- DATI DI ESEMPIO - CAMPO SCUOLA
 -- =====================================================
+
+BEGIN;
+
 -- EDIFICIO
 INSERT INTO edificio (via, civico, cap, comune, provincia) VALUES
 ('Via Monte Rosa', '42', '33100', 'Udine', 'UD');
@@ -489,79 +492,79 @@ INSERT INTO attivita_faccende
 VALUES
 -- 06/05/2026
   ('2026-05-06 07:45:00', '2026-05-06 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Tigri Blu', 'preparazione tavoli colazione'),
-  ('2026-05-06 08:45:00', '2026-05-06 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Aquile Rosse', 'spreparazione tavoli colazione'),
-  ('2026-05-06 09:00:00', '2026-05-06 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-06 12:15:00', '2026-05-06 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-06 13:30:00', '2026-05-06 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-06 13:45:00', '2026-05-06 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-06 19:15:00', '2026-05-06 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-06 20:30:00', '2026-05-06 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-06 20:45:00', '2026-05-06 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-06 08:45:00', '2026-05-06 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Aquile Rosse', 'sgombero tavoli colazione'),
+  ('2026-05-06 09:00:00', '2026-05-06 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-06 12:15:00', '2026-05-06 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-06 13:30:00', '2026-05-06 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-06 13:45:00', '2026-05-06 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-06 19:15:00', '2026-05-06 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-06 20:30:00', '2026-05-06 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-06 20:45:00', '2026-05-06 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
 
 -- 07/05/2026
   ('2026-05-07 07:45:00', '2026-05-07 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Leonesse d`Oro', 'preparazione tavoli colazione'),
-  ('2026-05-07 08:45:00', '2026-05-07 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Stelle Rosse', 'spreparazione tavoli colazione'),
-  ('2026-05-07 09:00:00', '2026-05-07 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-07 12:15:00', '2026-05-07 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-07 13:30:00', '2026-05-07 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-07 13:45:00', '2026-05-07 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-07 19:15:00', '2026-05-07 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-07 20:30:00', '2026-05-07 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-07 20:45:00', '2026-05-07 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-07 08:45:00', '2026-05-07 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Stelle Rosse', 'sgombero tavoli colazione'),
+  ('2026-05-07 09:00:00', '2026-05-07 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-07 12:15:00', '2026-05-07 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-07 13:30:00', '2026-05-07 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-07 13:45:00', '2026-05-07 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-07 19:15:00', '2026-05-07 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-07 20:30:00', '2026-05-07 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-07 20:45:00', '2026-05-07 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
 
 -- 08/05/2026
   ('2026-05-08 07:45:00', '2026-05-08 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Leonesse d`Oro', 'preparazione tavoli colazione'),
-  ('2026-05-08 08:45:00', '2026-05-08 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Pantere Nere', 'spreparazione tavoli colazione'),
-  ('2026-05-08 09:00:00', '2026-05-08 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-08 12:15:00', '2026-05-08 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-08 13:30:00', '2026-05-08 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-08 13:45:00', '2026-05-08 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-08 19:15:00', '2026-05-08 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-08 20:30:00', '2026-05-08 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-08 20:45:00', '2026-05-08 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-08 08:45:00', '2026-05-08 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Pantere Nere', 'sgombero tavoli colazione'),
+  ('2026-05-08 09:00:00', '2026-05-08 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-08 12:15:00', '2026-05-08 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-08 13:30:00', '2026-05-08 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-08 13:45:00', '2026-05-08 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-08 19:15:00', '2026-05-08 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-08 20:30:00', '2026-05-08 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-08 20:45:00', '2026-05-08 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
 
 -- 09/05/2026
   ('2026-05-09 07:45:00', '2026-05-09 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Stelle Rosse', 'preparazione tavoli colazione'),
-  ('2026-05-09 08:45:00', '2026-05-09 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Pantere Nere', 'spreparazione tavoli colazione'),
-  ('2026-05-09 09:00:00', '2026-05-09 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-09 12:15:00', '2026-05-09 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-09 13:30:00', '2026-05-09 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-09 13:45:00', '2026-05-09 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-09 19:15:00', '2026-05-09 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-09 20:30:00', '2026-05-09 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-09 20:45:00', '2026-05-09 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-09 08:45:00', '2026-05-09 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Pantere Nere', 'sgombero tavoli colazione'),
+  ('2026-05-09 09:00:00', '2026-05-09 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-09 12:15:00', '2026-05-09 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-09 13:30:00', '2026-05-09 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-09 13:45:00', '2026-05-09 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-09 19:15:00', '2026-05-09 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-09 20:30:00', '2026-05-09 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-09 20:45:00', '2026-05-09 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
 
 -- 10/05/2026
   ('2026-05-10 07:45:00', '2026-05-10 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Pantere Nere', 'preparazione tavoli colazione'),
-  ('2026-05-10 08:45:00', '2026-05-10 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-10 09:00:00', '2026-05-10 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-10 12:15:00', '2026-05-10 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-10 13:30:00', '2026-05-10 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-10 13:45:00', '2026-05-10 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-10 19:15:00', '2026-05-10 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-10 20:30:00', '2026-05-10 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-10 20:45:00', '2026-05-10 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-10 08:45:00', '2026-05-10 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-10 09:00:00', '2026-05-10 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-10 12:15:00', '2026-05-10 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-10 13:30:00', '2026-05-10 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-10 13:45:00', '2026-05-10 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-10 19:15:00', '2026-05-10 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-10 20:30:00', '2026-05-10 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-10 20:45:00', '2026-05-10 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
 
 -- 11/05/2026
   ('2026-05-11 07:45:00', '2026-05-11 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Pantere Nere', 'preparazione tavoli colazione'),
-  ('2026-05-11 08:45:00', '2026-05-11 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-11 09:00:00', '2026-05-11 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-11 12:15:00', '2026-05-11 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-11 13:30:00', '2026-05-11 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-11 13:45:00', '2026-05-11 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-11 19:15:00', '2026-05-11 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-11 20:30:00', '2026-05-11 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-11 20:45:00', '2026-05-11 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
+  ('2026-05-11 08:45:00', '2026-05-11 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-11 09:00:00', '2026-05-11 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-11 12:15:00', '2026-05-11 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-11 13:30:00', '2026-05-11 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-11 13:45:00', '2026-05-11 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-11 19:15:00', '2026-05-11 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-11 20:30:00', '2026-05-11 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-11 20:45:00', '2026-05-11 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
 -- 12/05/2026
   ('2026-05-12 07:45:00', '2026-05-12 08:00:00', 'apparecchiare colazione', 'apparecchiare colazione', 'Falchi Gialli', 'preparazione tavoli colazione'),
-  ('2026-05-12 08:45:00', '2026-05-12 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-12 09:00:00', '2026-05-12 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-12 12:15:00', '2026-05-12 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-12 13:30:00', '2026-05-12 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-12 13:45:00', '2026-05-12 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-12 19:15:00', '2026-05-12 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-12 20:30:00', '2026-05-12 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'spreparazione tavoli colazione'),
-  ('2026-05-12 20:45:00', '2026-05-12 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'spreparazione tavoli colazione');
+  ('2026-05-12 08:45:00', '2026-05-12 09:00:00', 'sparecchiare colazione', 'sparecchiare colazione', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-12 09:00:00', '2026-05-12 09:30:00', 'pulizia stoviglie tavoli colazione', 'pulizia stoviglie tavoli colazione', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-12 12:15:00', '2026-05-12 12:30:00', 'apparecchiare pranzo', 'apparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-12 13:30:00', '2026-05-12 13:45:00', 'sparecchiare pranzo', 'sparecchiare pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-12 13:45:00', '2026-05-12 14:00:00', 'pulizia stoviglie tavoli pranzo', 'pulizia stoviglie tavoli pranzo', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-12 19:15:00', '2026-05-12 19:30:00', 'apparecchiare cena', 'apparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-12 20:30:00', '2026-05-12 20:45:00', 'sparecchiare cena', 'sparecchiare cena', 'Falchi Gialli', 'sgombero tavoli colazione'),
+  ('2026-05-12 20:45:00', '2026-05-12 21:00:00', 'pulizia stoviglie tavoli cena', 'pulizia stoviglie tavoli cena', 'Falchi Gialli', 'sgombero tavoli colazione');
 
 -- =====================================================
 -- PREVEDE
@@ -654,3 +657,5 @@ INSERT INTO attivita_extra
 VALUES
 ('2026-05-08 15:00:00','2026-05-08 17:00:00','Escursione','Bosco e natura'),
 ('2026-05-12 21:00:00','2026-05-12 23:00:00','Evento finale','Cerimonia chiusura');
+
+COMMIT;

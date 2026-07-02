@@ -87,13 +87,13 @@ CREATE TYPE tipologia_pasto AS ENUM ('colazione', 'pranzo', 'merenda', 'cena');
 
 CREATE TYPE tipologia_faccenda AS ENUM (
 	'preparazione tavoli colazione',
-	'spreparazione tavoli colazione',
+	'sgombero tavoli colazione',
 	'pulizia stoviglie tavoli colazione',
 	'preparazione tavoli pranzo',
-	'spreparazione tavoli pranzo',
+	'sgombero tavoli pranzo',
 	'pulizia stoviglie pranzo',
 	'preparazione tavoli cena',
-	'spreparazione tavoli cena',
+	'sgombero tavoli cena',
 	'pulizia stoviglie cena'
 );
 

@@ -71,5 +71,5 @@ I diagrammi possono essere aperti con i seguenti strumenti:
 
 Lo script Python `generate_attivita.py` genera i dati di test utilizzati nel file `dati_di_test.sql`.
 
-# TODO
-- [ ] aggiungere percorsi Relazione
+# Relazione
+La documentazione del progetto in formato PDF è reperibiale alla cartella [Relazione](Relazione) dove vi è possibile trovare la cartella con tutti gli schemi.

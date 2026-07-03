@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.3)  3 JUL 2026 11:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.7.3)  3 JUL 2026 11:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -513,32 +513,32 @@ File: Immagini/Logo.pdf Graphic file (type pdf)
 <use Immagini/Logo.pdf>
 Package pdftex.def Info: Immagini/Logo.pdf  used on input line 153.
 (pdftex.def)             Requested size: 221.9316pt x 221.94565pt.
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 159.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 160.
  (C:\Program Files\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 159.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 160.
  (C:\Program Files\MiKTeX\tex/latex/psnfss\omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 159.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 160.
  (C:\Program Files\MiKTeX\tex/latex/psnfss\omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 159.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 160.
  (C:\Program Files\MiKTeX\tex/latex/psnfss\omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 159.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 160.
  (C:\Program Files\MiKTeX\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 159.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 160.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 159.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 160.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 159.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 160.
  [1
 
 {C:/Users/matti/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc} <./Immagini/Logo.pdf>] (relazione.toc
@@ -551,7 +551,7 @@ l.33 ...i e indici di sistema}{17}{subsection.7.1}
 \openout4 = `relazione.toc'.
 
  [2]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 203.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 204.
  (C:\Program Files\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [3
@@ -562,7 +562,7 @@ pdfTeX warning: pdflatex (file ./Immagini/ER-concettuale.pdf): PDF inclusion: fo
 <Immagini/ER-concettuale.pdf, id=321, 1713.2808pt x 886.27106pt>
 File: Immagini/ER-concettuale.pdf Graphic file (type pdf)
 <use Immagini/ER-concettuale.pdf>
-Package pdftex.def Info: Immagini/ER-concettuale.pdf  used on input line 468.
+Package pdftex.def Info: Immagini/ER-concettuale.pdf  used on input line 469.
 (pdftex.def)             Requested size: 665.79787pt x 344.4137pt.
 [8 <./Immagini/ER-concettuale.pdf>]
 
@@ -572,7 +572,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 ]
-Underfull \hbox (badness 5119) in paragraph at lines 563--565
+Underfull \hbox (badness 5119) in paragraph at lines 564--566
 []|\T1/ptm/m/n/10.95 1 volta (svolta come con-trollo
  []
 
@@ -585,7 +585,7 @@ pdfTeX warning: pdflatex (file ./Immagini/ER-ristrutturato.pdf): PDF inclusion: 
 <Immagini/ER-ristrutturato.pdf, id=376, 1832.76712pt x 1042.85606pt>
 File: Immagini/ER-ristrutturato.pdf Graphic file (type pdf)
 <use Immagini/ER-ristrutturato.pdf>
-Package pdftex.def Info: Immagini/ER-ristrutturato.pdf  used on input line 776.
+Package pdftex.def Info: Immagini/ER-ristrutturato.pdf  used on input line 777.
 (pdftex.def)             Requested size: 665.78033pt x 378.83322pt.
 [14 <./Immagini/ER-ristrutturato.pdf>] [15
 
@@ -594,11 +594,11 @@ Package pdftex.def Info: Immagini/ER-ristrutturato.pdf  used on input line 776.
 <Immagini/schema-fisico.pdf, id=400, 3292.3pt x 1841.54663pt>
 File: Immagini/schema-fisico.pdf Graphic file (type pdf)
 <use Immagini/schema-fisico.pdf>
-Package pdftex.def Info: Immagini/schema-fisico.pdf  used on input line 816.
+Package pdftex.def Info: Immagini/schema-fisico.pdf  used on input line 817.
 (pdftex.def)             Requested size: 665.78285pt x 372.40536pt.
  [16 <./Immagini/schema-fisico.pdf>]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 878.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 879.
  [17
 
 
@@ -611,15 +611,15 @@ Package rerunfilecheck Info: File `relazione.out' has not changed.
 (rerunfilecheck)             Checksum: 4981D8ACD69F93E30A8DC2C355D923EF;15784.
  ) 
 Here is how much of TeX's memory you used:
- 16120 strings out of 467510
- 246096 string characters out of 5418904
+ 16123 strings out of 467510
+ 246134 string characters out of 5418904
  1042063 words of memory out of 5000000
- 44689 multiletter control sequences out of 15000+600000
- 673821 words of font info for 101 fonts, out of 8000000 for 9000
+ 44691 multiletter control sequences out of 15000+600000
+ 678268 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,10n,83p,737b,2311s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\matti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit1000.pk> <C:\Users\matti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\matti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on relazione.pdf (31 pages, 1835690 bytes).
+Output written on relazione.pdf (31 pages, 1835724 bytes).
 PDF statistics:
  1168 PDF objects out of 1200 (max. 8388607)
  452 named destinations out of 1000 (max. 500000)

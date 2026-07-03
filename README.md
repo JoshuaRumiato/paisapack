@@ -8,16 +8,18 @@ Questo progetto consiste nella progettazione e implementazione di un database pe
 
 ## Struttura del progetto
 
-| Percorso                  | Descrizione                                                     |
-|---------------------------|-----------------------------------------------------------------|
-| `Relazione/`              | Documentazione del progetto e relative immagini                 |
-| `sql/schema_fisico.sql`   | Script SQL per la creazione dello schema del database           |
-| `sql/dati_di_test.sql`    | Script SQL per l’inserimento di dati di test                    |
-| `sql/queries.sql`         | Raccolta di query SQL di esempio e analisi                      |
-| `sql/generate_attivita.py`| Script Python per la generazione dei dati di test               |
-| `Dockerfile`              | Immagine Docker personalizzata basata su PostgreSQL             |
-| `docker-compose.yml`      | Configurazione per l’orchestrazione dei container Docker        |
-| `.env`                    | File di configurazione contenente credenziali e parametri DB    |
+| Percorso                  | Descrizione                                                  |
+|---------------------------|--------------------------------------------------------------|
+| `Relazione/`              | Documentazione del progetto e relative immagini              |
+| `Diagrammi/`              | Diagrammi ER e fisico ad alta qualità                        |
+| `Script/`                 | Script python di supporto per generare i dati                |
+| `sql/schema_fisico.sql`   | Script SQL per la creazione dello schema del database        |
+| `sql/dati_di_test.sql`    | Script SQL per l’inserimento di dati di test                 |
+| `sql/queries.sql`         | Raccolta di query SQL di esempio e analisi                   |
+| `sql/generate_attivita.py`| Script Python per la generazione dei dati di test            |
+| `Dockerfile`              | Immagine Docker personalizzata basata su PostgreSQL          |
+| `docker-compose.yml`      | Configurazione per l’orchestrazione dei container Docker     |
+| `.env`                    | File di configurazione contenente credenziali e parametri DB |
 
 ---
 
@@ -49,11 +51,25 @@ docker compose down
 
 ## Configurazione del database
 Il database viene inizializzato con i seguenti parametri:
-| Propietà          | Valore            |
-|-------------------|-------------------|
+| Propietà          | Valore             |
+|-------------------|--------------------|
 | POSTGRES_USER     | `admin`            |
 | POSTGRES_PASSWORD | `password`         |
 | POSTGRES_DB       | `database-project` |
+
+---
+
+## Visualizzazione Diagrammi
+
+I diagrammi possono essere aperti con i seguenti strumenti:
+- Diagramma ER: `Diagramma_er.drawio`, tramite [Drawio](https://www.drawio.com/).
+- Schema fisico: `Schema_fisico.json`, [DrawDB](https://www.drawdb.app/).
+
+---
+
+## Script
+
+Lo script Python `generate_attivita.py` genera i dati di test utilizzati nel file `dati_di_test.sql`.
 
 # TODO
 - [ ] aggiungere percorsi Relazione

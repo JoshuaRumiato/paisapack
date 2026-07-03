@@ -1,4 +1,4 @@
-# Progetto Database – Campo Scuola
+# Progetto Database Gruppo 11 – Campo Scuola
 
 ## Descrizione del progetto
 
@@ -62,8 +62,8 @@ Il database viene inizializzato con i seguenti parametri:
 ## Visualizzazione Diagrammi
 
 I diagrammi possono essere aperti con i seguenti strumenti:
-- Diagramma ER: `Diagramma_er.drawio`, tramite [Drawio](https://www.drawio.com/).
-- Schema fisico: `Schema_fisico.json`, [DrawDB](https://www.drawdb.app/).
+- Diagramma ER: [Diagramma_er.drawio](Diagrammi/Diagramma_er.drawio), tramite [Drawio](https://www.drawio.com/).
+- Schema fisico: [Schema_fisico.json](Diagrammi/Schema_fisico.json), [DrawDB](https://www.drawdb.app/).
 
 ---
 
@@ -71,5 +71,22 @@ I diagrammi possono essere aperti con i seguenti strumenti:
 
 Lo script Python `generate_attivita.py` genera i dati di test utilizzati nel file `dati_di_test.sql`.
 
-# Relazione
+## Relazione
 La documentazione del progetto in formato PDF è reperibiale alla cartella [Relazione](Relazione) dove vi è possibile trovare la cartella con tutti gli schemi.
+
+---
+
+## Autori
+
+- Nadal Mattia
+- Polesello Kevin
+- Rumiato Joshua
+- Vignandel Francesco
+
+---
+
+## Licenza
+
+Questo progetto è rilasciato sotto la licenza **WTFPL, Version 2 (December 2004)**.
+
+Per il testo completo della licenza consultare il file [LICENSE](LICENSE).

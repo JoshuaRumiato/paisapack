@@ -806,7 +806,7 @@ delegando la gestione fisica dei file a un livello applicativo separato, più ad
 tipo di risorse.
 
 Per gli attributi temporali che identificano l'inizio e la fine delle attività
-(\texttt{data\_ora\_inizio}, \texttt{data\_ora\_fine}), è stato adottato il tipo
+(\texttt{data\_ora\_inizio}, \path{data_ora_fine}), è stato adottato il tipo
 \texttt{TIMESTAMP} senza fuso orario. Questa decisione è motivata dal fatto che il campo si
 svolge interamente in un'unica località fisica e in un unico fuso orario (cfr. le assunzioni
 progettuali), rendendo superflua la gestione di conversioni tra fusi diversi; l'adozione di
@@ -875,7 +875,7 @@ Ulteriori controlli di consistenza logica sono stati distribuiti tramite espress
     \texttt{is\_valid\_email}, anch'essa basata su un'espressione regolare che verifica la
     presenza di una struttura del tipo \textit{utente@dominio.estensione};
   \item il controllo del formato dei numeri di telefono, effettuato tramite la funzione
-    \texttt{is\_valid\_phone\_number}, che verifica tramite espressione regolare che il valore
+    \path{is_valid_phone_number}, che verifica tramite espressione regolare che il valore
     inserito sia composto esclusivamente da dieci cifre numeriche;
   \item il controllo che impedisce l'inserimento di valori negativi per il numero di posti letto
     di una stanza, il numero di utilizzi dei materiali e il numero di materiali previsti
@@ -1158,7 +1158,7 @@ EXECUTE FUNCTION check_single_ruolo_insert_update();
 \end{minted}
 
 Analoga logica, ma simmetrica, è stata adottata per la cancellazione tramite la funzione
-\texttt{check\_single\_ruolo\_delete}: dopo l'eliminazione di una riga, se il partecipante non
+\path{check_single_ruolo_delete}: dopo l'eliminazione di una riga, se il partecipante non
 risulta più presente in nessuna tabella figlia ma è ancora presente in \texttt{partecipanti},
 l'operazione viene rifiutata, impedendo la creazione di partecipanti privi di specializzazione.
 Anche in questo caso i trigger sono differiti a fine transazione, per consentire la
@@ -1624,6 +1624,9 @@ la gestione di un campo-scuola, affrontando tutte le fasi della progettazione:
 
 Il risultato finale è una base di dati coerente, robusta e in grado di supportare efficacemente
 la gestione delle attività previste dalla traccia progettuale.
+
+Nel corso dello sviluppo, le fasi di progettazione ed implementazione del database sono state 
+documentate e versionate all'interno di un repository GitHub, reperibile a questo \href{https://github.com/JoshuaRumiato/paisapack}{\textcolor{blue}{\underline{indirizzo}}}.
 
 Nonostante il risultato raggiunto sia allineato con l'obiettivo della traccia, il sistema
 presenta ampi margini di miglioramento in ottica di una futura applicazione in scenari reali.

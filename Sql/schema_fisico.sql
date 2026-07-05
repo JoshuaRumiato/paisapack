@@ -565,8 +565,8 @@ BEGIN
 	JOIN animatori a ON p.codice_fiscale = a.codice_fiscale
 	WHERE p.numero_stanza IN ( SELECT numero_stanza FROM partecipanti WHERE codice_fiscale = NEW.codice_fiscale);
 
-	IF cnt <> 1 THEN
-		RAISE EXCEPTION 'Ogni stanza deve avere esattamente un animatore responsabile';
+	IF cnt < 1 THEN
+		RAISE EXCEPTION 'Ogni stanza deve avere almeno un animatore responsabile';
 	END IF; 
 
 	RETURN NEW;

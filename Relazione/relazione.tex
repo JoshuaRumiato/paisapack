@@ -296,7 +296,7 @@ Le categorie sono organizzate come di seguito:
   \end{itemize}
   \item \textbf{Extra}
   \begin{itemize}[nosep]
-    \item Altro tipo di attività, non previste nelle categorie precedenti.
+    \item Altro tipo di attività, non previste nelle categorie precedenti
   \end{itemize}
 \end{itemize}
 
@@ -310,9 +310,9 @@ consumato da tutti i partecipanti al campo insieme. Ad ogni pasto possono essere
 pietanze, definite da:
 
 \begin{itemize}[nosep]
-  \item Nome
-  \item Descrizione
-  \item Allergeni contenuti
+  \item Nome;
+  \item Descrizione;
+  \item Allergeni contenuti.
 \end{itemize}
 
 \subsection{Gestione dei materiali}
@@ -403,8 +403,7 @@ differenziano tra loro per natura e scopo.
 
 Il sistema deve essere in grado di gestire il fatto che alcune di queste attività, specialmente
 fra quelle di routine e le faccende, vengano svolte in squadra. Inoltre, occorre garantire un
-vincolo di sequenzialità temporale rigida tra le attività del palinsesto, impedendo la
-sovrapposizione degli orari di inizio.
+vincolo di sequenzialità temporale rigida tra le attività del palinsesto per impedirne la soprapposizione.
 
 Non va infine trascurata la gestione delle responsabilità riguardanti i pasti e le attività di
 routine. Mentre le prime sono di competenza dei cuochi del campo, le seconde vanno assegnate a
@@ -435,7 +434,7 @@ formulate:
 
 \begin{itemize}[nosep]
   \item Si assume che il campeggio sia svolto interamente in Italia, in modo da facilitare e
-    uniformare la memorizzazione dell'indirizzo dell'edificio (o degli edifici) ospitanti il
+    uniformare la memorizzazione dell'indirizzo dell'edificio ospitante il
     campo;
   \item Il ruolo dei partecipanti (animatori, animati, cuochi, ecc.) è univoco e rimane
     invariato per la durata del campo;
@@ -594,10 +593,14 @@ Prevede & Relazione & 3 & 2 & Scrittura \\
 Poiché questa operazione viene eseguita 56 volte nel corso della preparazione di un campo, il
 costo complessivo risulta pari a:
 \[
-56 \cdot (3 + 1) \cdot 2 = 448,
+56 \cdot (3 + 1) \cdot 2 = 448
 \]
-dove 3 rappresenta il numero medio di inserimenti nella relazione Prevede, 1 l'inserimento
-nell'entità Routine, mentre 2 rappresenta il costo attribuito a ciascun accesso in scrittura.
+dove:
+\begin{itemize}
+  \item Il valore 3 rappresenta il numero medio di inserimenti nella relazione Prevede;
+  \item Il valore 1 rappresenta l'inserimento nell'entità Routine;
+  \item Il valore 2 rappresenta il costo attribuito a ciascun accesso in scrittura.
+\end{itemize}
 
 \paragraph{Operazione 2.}
 Per ottenere la quantità complessiva di materiale necessaria al campo è necessario leggere tutte
@@ -619,7 +622,7 @@ Prevede   & Relazione & 84/56=1.5 & 1 & Lettura \\
 
 Dalla tabella si ricava intuitivamente il costo dell'operazione:
 \[
-1 \cdot (1 + 1.5) \cdot 1 = 2.5.
+1 \cdot (1 + 1.5) \cdot 1 = 2.5
 \]
 
 \subsubsection{Soluzione 2: mantenimento dell'attributo derivato}
@@ -651,7 +654,7 @@ Materiale & Entità    & 3 & 2 & Scrittura \\
 
 Il costo complessivo per 56 attività (ovvero una settimana di campo) è pari a:
 \[
-56 \cdot \big[(3+3+1)\cdot 2 + 3 \cdot 1\big] = 952.
+56 \cdot \big[(3+3+1)\cdot 2 + 3 \cdot 1\big] = 952
 \]
 
 \paragraph{Operazione 2.}
@@ -673,7 +676,7 @@ Materiale & Entità & 1 & 1 & Lettura \\
 \end{tabular}
 \end{table}
 
-Il calcolo del costo diventa immediato: $1 \cdot 1 \cdot 1 = 1$.
+Il calcolo del costo diventa immediato: $1 \cdot 1 \cdot 1 = 1$
 
 \subsubsection{Confronto finale e scelta progettuale}
 
@@ -728,10 +731,10 @@ Extra. È stata adottata la strategia di \textbf{accorpamento del genitore nelle
 per le seguenti motivazioni:
 
 \begin{itemize}[nosep]
-  \item l'entità Attività non partecipa direttamente ad altre relazioni;
-  \item le relazioni coinvolgono separatamente le singole specializzazioni;
-  \item la generalizzazione è totale e disgiunta;
-  \item il padre possiede solamente gli attributi comuni alle attività (orario di inizio,
+  \item L'entità Attività non partecipa direttamente ad altre relazioni;
+  \item Le relazioni coinvolgono separatamente le singole specializzazioni;
+  \item La generalizzazione è totale e disgiunta;
+  \item Il padre possiede solamente gli attributi comuni alle attività (orario di inizio,
     orario di fine ed eventuale descrizione).
 \end{itemize}
 
@@ -746,9 +749,9 @@ Animatore, Cuoco e Collaboratore. Anche in questo caso è stata scelta la strate
 
 \begin{itemize}[nosep]
   \item Membro equipe non è direttamente coinvolta in altre relazioni;
-  \item gli accessi avvengono principalmente attraverso le singole specializzazioni;
-  \item la generalizzazione è totale e disgiunta;
-  \item mantenere l'entità padre comporterebbe la presenza di un'entità priva di attributi
+  \item Gli accessi avvengono principalmente attraverso le singole specializzazioni;
+  \item La generalizzazione è totale e disgiunta;
+  \item Mantenere l'entità padre comporterebbe la presenza di un'entità priva di attributi
     propri realmente significativi, introducendo un livello di complessità non necessario.
 \end{itemize}
 
@@ -854,18 +857,18 @@ Ulteriori controlli di consistenza logica sono stati distribuiti tramite espress
 \texttt{CHECK} sulle singole tabelle. Tra i principali si segnalano:
 
 \begin{itemize}[nosep]
-  \item il controllo preventivo della struttura del codice fiscale del partecipante, validato
+  \item Il controllo preventivo della struttura del codice fiscale del partecipante, validato
     tramite una funzione dedicata (\texttt{is\_valid\_cf}) che verifica, per mezzo di
     un'espressione regolare, la conformità del valore inserito al formato standard a 16
     caratteri; da tale codice si derivano successivamente, tramite apposita funzione, data di
     nascita e sesso del partecipante;
-  \item il controllo del formato degli indirizzi e-mail, effettuato tramite la funzione
+  \item Il controllo del formato degli indirizzi e-mail, effettuato tramite la funzione
     \texttt{is\_valid\_email}, anch'essa basata su un'espressione regolare che verifica la
     presenza di una struttura del tipo \textit{utente@dominio.estensione};
-  \item il controllo del formato dei numeri di telefono, effettuato tramite la funzione
+  \item Il controllo del formato dei numeri di telefono, effettuato tramite la funzione
     \path{is_valid_phone_number}, che verifica tramite espressione regolare che il valore
     inserito sia composto esclusivamente da dieci cifre numeriche;
-  \item il controllo che impedisce l'inserimento di valori negativi per il numero di posti letto
+  \item Il controllo che impedisce l'inserimento di valori negativi per il numero di posti letto
     di una stanza, il numero di utilizzi dei materiali e il numero di materiali previsti
     nell'entità Prevede.
 \end{itemize}
@@ -992,7 +995,7 @@ $$;
 L'analisi delle scelte di indicizzazione e delle chiavi evidenzia come l'ottimizzazione mediante
 indici rivesta un ruolo fondamentale nel garantire prestazioni elevate e un'efficiente
 esecuzione delle query del database relazionale progettato. In particolare, la definizione di
-indici strategici su attributi frequentemente coinvolti in operazioni di ricerca, join o filtro
+indici strategici su attributi frequentemente coinvolti in operazioni di ricerca, \texttt{JOIN} o filtro
 consente di ridurre significativamente i tempi di esecuzione delle query, migliorando
 l'usabilità del sistema.
 
@@ -1066,7 +1069,7 @@ Struttura utilizzata: B-Tree.
 Utile al vincolo: ``Un cuoco non può supervisionare un pasto se è allergico a un ingrediente
 contenuto in una pietanza servita in quel pasto''.
 
-Quando viene inserito o modificato un pasto, il trigger deve effettuare una catena di JOIN a
+Quando viene inserito o modificato un pasto, il trigger deve effettuare una catena di \texttt{JOIN} a
 partire dal cuoco assegnato (\texttt{codice\_fiscale\_cuoco}) fino agli ingredienti e alle
 relative allergie. PostgreSQL non crea automaticamente gli indici sulle chiavi esterne (FOREIGN
 KEY): senza questo indice, per ogni controllo sulle allergie del cuoco associato a un
@@ -1272,7 +1275,7 @@ responsabile non è esprimibile in modo dichiarativo, poiché coinvolge due tabe
 La funzione \texttt{check\_stanza\_animatore\_responsabile\_insert\_update} viene invocata dopo
 ogni inserimento o modifica su \texttt{animati}. La funzione recupera la stanza del nuovo
 animato tramite \texttt{partecipanti} e verifica quanti animatori risultano assegnati alla
-medesima stanza: se il conteggio è diverso da uno, l'operazione viene rifiutata. Il trigger è
+medesima stanza: se il conteggio è minore di uno, l'operazione viene rifiutata. Il trigger è
 definito come \texttt{CONSTRAINT TRIGGER DEFERRABLE INITIALLY DEFERRED} per le stesse ragioni
 già discusse per l'esclusività dei ruoli: l'assegnazione di un animato e del relativo animatore
 responsabile può avvenire mediante due operazioni distinte nella stessa transazione, e il
@@ -1294,8 +1297,8 @@ BEGIN
     WHERE codice_fiscale = NEW.codice_fiscale
   );
 
-  IF cnt <> 1 THEN
-    RAISE EXCEPTION 'Ogni stanza deve avere esattamente un animatore responsabile';
+  IF cnt < 1 THEN
+    RAISE EXCEPTION 'Ogni stanza deve avere almeno un animatore responsabile';
   END IF;
 
   RETURN NEW;
@@ -1316,7 +1319,7 @@ rimanga priva di responsabile. In questo caso il trigger è \texttt{BEFORE} stan
 differito: la verifica coinvolge una sola operazione atomica e il suo esito è immediatamente
 determinabile, senza necessità di attendere il completamento della transazione.
 
-\subsubsection{Ulteriori vincoli aziendali e di consistenza}
+\subsubsection{Ulteriori vincoli procedurali}
 
 Oltre ai trigger descritti in dettaglio, il progetto implementa i seguenti ulteriori vincoli
 procedurali:
@@ -1346,18 +1349,18 @@ procedurali:
     e può essere alternativamente espresso come vincolo \texttt{CHECK} a livello di tabella
     anziché come trigger.
   \item \textbf{Allergie del cuoco supervisore}: quando viene assegnato un cuoco come
-    supervisore di un pasto, ricostruisce, mediante una sequenza di JOIN, la relazione tra
+    supervisore di un pasto, ricostruisce, mediante una sequenza di \texttt{JOIN}, la relazione tra
     pasto, pietanze e allergeni confrontando con le allergie registrate per quel cuoco. Se
     l'intersezione non è vuota, l'assegnazione viene bloccata.
   \item \textbf{Almeno un animato per squadra}: trigger \texttt{AFTER DELETE} su
-    \texttt{animati}: se dopo la cancellazione la squadra di appartenenza risulta priva di
+    \texttt{animati}, se dopo la cancellazione la squadra di appartenenza risulta priva di
     animati, l'operazione viene rifiutata. Analogamente, un trigger \texttt{AFTER UPDATE}
     controlla che uno spostamento verso un'altra squadra non svuoti la squadra di provenienza.
   \item \textbf{Almeno una stanza per edificio}: trigger \texttt{AFTER DELETE} su
-    \texttt{stanze}: se dopo la cancellazione l'edificio associato non ha più stanze,
+    \texttt{stanze}, se dopo la cancellazione l'edificio associato non ha più stanze,
     l'operazione viene bloccata.
   \item \textbf{Almeno una faccenda per squadra}: trigger \texttt{AFTER DELETE} su
-    \texttt{attivita\_faccende} (o sulla relazione che associa faccende e squadre): verifica che
+    \texttt{attivita\_faccende} (o sulla relazione che associa faccende e squadre), verifica che
     ogni squadra risulti ancora assegnata ad almeno una faccenda dopo la cancellazione.
   \item \textbf{Almeno una routine per animatore}: trigger \texttt{AFTER DELETE} o
     \texttt{AFTER UPDATE} sulla relazione che lega animatori e attività di routine: se
@@ -1436,7 +1439,7 @@ COMMIT;
 
 \subsubsection{Coppie di routine che condividono un materiale.}
 La query individua tutte le coppie di attività di routine che impiegano lo stesso materiale. Il
-self-join su \texttt{routine\_prevedono\_materiali} con la condizione
+\texttt{SELF-JOIN} su \texttt{routine\_prevedono\_materiali} con la condizione
 \texttt{r1.data\_ora\_inizio\_attivita < r2.data\_ora\_inizio\_attivita} garantisce che ogni
 coppia compaia una sola volta nel risultato, evitando duplicati simmetrici. I JOIN successivi con
 \texttt{attivita\_routine} recuperano il nome e l'orario di inizio di ciascuna delle due routine
@@ -1497,7 +1500,7 @@ quantità di materiali previsti e assegna una posizione in classifica tramite
 \texttt{DENSE\_RANK}. L'uso di \texttt{DENSE\_RANK} anziché \texttt{ROW\_NUMBER} consente di
 restituire tutti gli animatori a pari merito in caso di ex aequo. La query esterna filtra sulla
 prima posizione in classifica e recupera i dati anagrafici dell'animatore supervisore tramite
-JOIN con \texttt{partecipanti}.
+\texttt{JOIN}  con \texttt{partecipanti}.
 
 \begin{minted}{sql}
 WITH routine_con_totale AS (
